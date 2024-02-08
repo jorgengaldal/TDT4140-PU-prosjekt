@@ -14,9 +14,3 @@ class MovieListCreateView(generics.ListCreateAPIView):
     #Remove later
     permission_classes = [AllowAny]
     
-    
-    #def perform_create(self, serializer):
-        # Temporary for testing purposes
-        #test_user = User.objects.get(username='test_user')
-        #self.request.user = test_user
-        #serializer.save(user=self.request.user)
