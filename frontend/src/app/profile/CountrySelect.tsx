@@ -15,12 +15,14 @@ const CountrySelect = () => {
           setSelectedCountry(data.userSelectValue);
         });
     }, []);
+
     return (
-      <Select
-        options={countries}
-        value={selectedCountry}
-        onChange={(selectedOption) => setSelectedCountry(selectedOption)}
-      />
+        <Select
+            className='text-black'  
+            options={countries}
+            value={selectedCountry}
+            onChange={(selectedOption: any) => setSelectedCountry(selectedOption)}
+        />
     );
   };
 
