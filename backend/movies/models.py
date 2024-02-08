@@ -18,14 +18,14 @@ class Movie(models.Model):
     released = models.DateField(default=None, null=True, blank=True)
     runtime = models.IntegerField(default=None, null=True, blank=True)
 
-    genres = models.ManyToManyField("Genre", related_name="movies",default=None)
-    awards = models.ManyToManyField("Award", related_name="movies", default=None)
-    countries = models.ManyToManyField("Country", related_name="movies", default=None)
-    languages = models.ManyToManyField("Language", related_name="movies", default=None)
+    genres = models.ManyToManyField("Genre", related_name="movies",default=None, blank=True)
+    awards = models.ManyToManyField("Award", related_name="movies", default=None, blank=True)
+    countries = models.ManyToManyField("Country", related_name="movies", default=None, blank=True)
+    languages = models.ManyToManyField("Language", related_name="movies", default=None, blank=True)
 
-    actors = models.ManyToManyField("Person", related_name="acted_movies", default=None)
-    directors = models.ManyToManyField("Person", related_name="directed_movies", default=None)
-    writers = models.ManyToManyField("Person", related_name="written_movies", default=None)
+    actors = models.ManyToManyField("Person", related_name="acted_movies", default=None, blank=True)
+    directors = models.ManyToManyField("Person", related_name="directed_movies", default=None, blank=True)
+    writers = models.ManyToManyField("Person", related_name="written_movies", default=None, blank=True)
 
     plot = models.TextField(default="", null=True, blank=True)
 
@@ -41,37 +41,33 @@ class Movie(models.Model):
         return self.title
 
 class Award(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=MAX_NAME_LENGTH, default=None)
+    name = models.CharField(max_length=MAX_NAME_LENGTH, primary_key=True)
 
     def __str__(self):
         return self.name
 
 class Country(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=MAX_NAME_LENGTH, default=None)
+    name = models.CharField(max_length=MAX_NAME_LENGTH, primary_key=True)
 
     def __str__(self):
         return self.name
 
 class Language(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=MAX_NAME_LENGTH, default=None)
+    name = models.CharField(max_length=MAX_NAME_LENGTH, primary_key=True)
 
     def __str__(self):
         return self.name
 
 
 class Genre(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=MAX_NAME_LENGTH, default=None)
+    name = models.CharField(max_length=MAX_NAME_LENGTH, primary_key=True)
 
     def __str__(self):
         return self.name
 
 class Person(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=MAX_NAME_LENGTH, default=None)
+    name = models.CharField(max_length=MAX_NAME_LENGTH)
 
     def __str__(self):
         return self.name
