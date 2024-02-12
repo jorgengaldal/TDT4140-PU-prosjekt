@@ -1,3 +1,5 @@
+import ScrollWindow from "@/components/ScrollWindow/ScrollWindow"
+import "../../styles/globals.css"
 
 export default function ShufflePage() {
     return (
@@ -7,6 +9,9 @@ export default function ShufflePage() {
                     This is the shuffle page
                 </p>
             </div>
+            <ScrollWindow />
+            <p>Anbefalte filmer</p>
+            <ScrollWindow />
         </main>
     )
 }
