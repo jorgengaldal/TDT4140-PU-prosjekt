@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Movie, Person, Genre, Language, Award,  Country
+from .models import Movie, Person, Category
 
 class PersonAdmin(admin.ModelAdmin):
     list_display = ('name',) 
@@ -16,17 +16,14 @@ class PersonAdmin(admin.ModelAdmin):
     acted_movies_list.short_description = 'Acted Movies'  
     written_movies_list.short_description = 'Written Movies'  
 
-class GenreAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ("name",)
-    readonly_fields = ("movies_list",)  
+    #readonly_fields = ("movies_list",)  
 
-    def movies_list(self, obj):
-        return ", ".join([movie.title for movie in obj.movies.all()])
-    movies_list.short_description = "Movies"
+    #def movies_list(self, obj):
+    #    return ", ".join([movie.title for movie in obj.movies.all()])
+    #movies_list.short_description = "Movies"
 
-admin.site.register(Genre, GenreAdmin)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Person, PersonAdmin)
-admin.site.register(Language)
-admin.site.register(Award)
-admin.site.register(Country)
 admin.site.register(Movie)  

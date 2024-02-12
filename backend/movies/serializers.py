@@ -1,38 +1,40 @@
+from typing import List
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Movie, Award, Country, Person, Genre, Language
+from .models import Movie, Person, Category
 
+from django_typomatic import ts_interface, generate_ts
+
+
+@ts_interface()
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = '__all__'
 
 
-
-class AwardSerializer(serializers.ModelSerializer):
+@ts_interface()
+class CategorySerializer(serializers.ModelSerializer):
     movies = serializers.SerializerMethodField()
 
     class Meta:
-        model = Award
+        model = Category
         fields = '__all__'
 
-    def get_movies(self, obj):
-        related_movies = obj.movies.all() 
+    def get_movies(self, obj) -> List[Movie]:
+        if obj.category_type == 1:
+            related_movies = obj.award_movies.all()
+        elif obj.category_type == 2:
+            related_movies = obj.country_movies.all()
+        elif obj.category_type == 3:
+            related_movies = obj.language_movies.all()
+        elif obj.category_type == 4:
+            related_movies = obj.genre_movies.all()
         serializer = MovieSerializer(related_movies, many=True)
         return serializer.data
 
-class CountrySerializer(serializers.ModelSerializer):
-    movies = serializers.SerializerMethodField()
 
-    class Meta:
-        model = Country
-        fields = '__all__'
-
-    def get_movies(self, obj):
-        related_movies = obj.movies.all() 
-        serializer = MovieSerializer(related_movies, many=True)
-        return serializer.data
-
+@ts_interface()
 class PersonSerializer(serializers.ModelSerializer):
     acted_movies = serializers.SerializerMethodField()
     written_movies = serializers.SerializerMethodField()
@@ -42,39 +44,20 @@ class PersonSerializer(serializers.ModelSerializer):
         model = Person
         fields = '__all__'
 
-    def get_directed_movies(self, obj):
-        related_movies = obj.directed_movies.all() 
+    def get_directed_movies(self, obj) -> List[Movie]:
+        related_movies = obj.directed_movies.all()
         serializer = MovieSerializer(related_movies, many=True)
         return serializer.data
-    def get_acted_movies(self, obj):
+
+    def get_acted_movies(self, obj) -> List[Movie]:
         related_movies = obj.acted_movies.all()
         serializer = MovieSerializer(related_movies, many=True)
         return serializer.data
-    def get_written_movies(self, obj):
+
+    def get_written_movies(self, obj) -> List[Movie]:
         related_movies = obj.written_movies.all()
         serializer = MovieSerializer(related_movies, many=True)
         return serializer.data
 
-class LanguageSerializer(serializers.ModelSerializer):
-    movies = serializers.SerializerMethodField()
 
-    class Meta:
-        model = Language
-        fields = '__all__'
-
-    def get_movies(self, obj):
-        related_movies = obj.movies.all()
-        serializer = MovieSerializer(related_movies, many=True)
-        return serializer.data
-
-class GenreSerializer(serializers.ModelSerializer):
-    movies = serializers.SerializerMethodField()
-
-    class Meta:
-        model = Genre
-        fields = '__all__'
-
-    def get_movies(self, obj):
-        related_movies = obj.movies.all()
-        serializer = MovieSerializer(related_movies, many=True)
-        return serializer.data
+generate_ts('../frontend/backendTypes.ts')
