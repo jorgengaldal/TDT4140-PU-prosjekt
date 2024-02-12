@@ -1,12 +1,9 @@
-import Icons from "@/components/General/Icons";
-import Link from "next/link";
-
 interface GenreBoxProps {
     title: string;
 }
 
 const GenreBox: React.FC<GenreBoxProps> = ({ title }) => {
-    return <div className="w-[296px] h-[60px] bg-accent1 m-2 p-2 text-xl">{title}</div>;
+    return <div className="w-[296px] h-[60px] bg-accent2 m-2 p-2 text-xl">{title}</div>;
 };
 
 interface GenresProps {
@@ -16,7 +13,7 @@ interface GenresProps {
 
 const Genres: React.FC<GenresProps> = ({ title, genres }) => {
     return (
-        <div className="flex flex flex-col items-center">
+        <div className="flex flex flex-col items-center pb-10">
             <div className="flex justify-between w-full">
                 <h1 className="text-xl underline">{title}</h1>
             </div>
