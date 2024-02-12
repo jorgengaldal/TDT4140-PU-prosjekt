@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { useEffect, useState, useRef, ReactNode} from "react";
 
 interface GalleryDivProps {
   children: ReactNode;
@@ -12,7 +12,8 @@ export default function GalleryDiv({
   galleryItemsAspectRatio,
 }: GalleryDivProps) {
   return (
-    <div className="gallery" data-direction={direction}>
+    <div className="gallery" data-direction={direction} >
+
       <div className="floating_content" data-images={galleryItemsAspectRatio}>
         {children}
       </div>

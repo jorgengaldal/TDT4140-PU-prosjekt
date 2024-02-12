@@ -37,6 +37,7 @@
   scroll-snap-type: x proximity;
   scrollbar-width: none;
   scroll-snap-align: start;
+  position: relative;
 }
 
 .gallery::-webkit-scrollbar {
@@ -91,7 +92,7 @@
   );
 }
 
-/* Feel free to delete this styles */
+
 .gallery img {
   border-radius: 8px;
 }
@@ -103,4 +104,14 @@
 }
 .disable-hover-effect .gallery img:hover {
   transform: translateY(0);
+}
+
+.scrollButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
 }
