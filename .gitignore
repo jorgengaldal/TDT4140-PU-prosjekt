@@ -1,2 +1,8 @@
 .venv
+<<<<<<< HEAD
 __pycache__/
+=======
+backend/db.sqlite3
+__pycache__/
+migrations/
+>>>>>>> 27-set-up-backend
