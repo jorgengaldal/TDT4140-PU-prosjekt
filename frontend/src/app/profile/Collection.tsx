@@ -12,7 +12,7 @@ const Rectangle: React.FC = () => {
 
 const Collection: React.FC<CollectionProps> = ({ title, link }) => {
     return (
-        <div className="flex flex flex-col items-center">
+        <div className="flex flex flex-col items-center pb-12">
             <div className="flex justify-between w-full">
                 <h1 className="text-xl underline">{title}</h1>
                 <Link href={link}>
