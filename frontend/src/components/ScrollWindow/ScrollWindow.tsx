@@ -13,7 +13,7 @@ function ScrollWindow() {
 
   useEffect(() => {
     // Replace 'your-api-endpoint' with the actual API endpoint
-    fetch('')
+    fetch('http://127.0.0.1:8000/api/movies/')
       .then(response => response.json())
       .then(data => setMoviePosters(data.results)) // Assuming the API response has a 'results' array
       .catch(error => console.error('Error fetching movie posters:', error));
