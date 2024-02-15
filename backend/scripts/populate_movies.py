@@ -116,21 +116,39 @@ while True:
                 data = {"name": country, "category_type": 2}
                 requests.post(url=f"{BACKEND_COUNTRY_API_URL}/", data=data)
 
+        # Safe guards (sets values to None if they are not on the expected format):
+                
         try:
             boxoffice = movie_response["BoxOffice"].replace(",", "").replace("$", "")
         except ValueError:
-            boxoffice = 0
+            boxoffice = None
+
+        try:
+            imdbvotes = int(movie_response["imdbVotes"].replace(",", ""))
+        except ValueError:
+            imdbvotes = None
+
+        try:
+            runtime = int(movie_response["Runtime"].replace(" min", ""))
+        except ValueError:
+            runtime = None
+
+        try: 
+            released = datetime.strptime(movie_response["Released"], "%d %b %Y").date().isoformat()
+        except ValueError:
+            released = None
+
 
         movie = {
             "title": movie_response["Title"],
             "rated": movie_response["Rated"],
             "released": datetime.strptime(movie_response["Released"], "%d %b %Y").date().isoformat(),
-            "runtime": int(movie_response["Runtime"].replace(" min", "")),
+            "runtime": runtime,
             "plot": movie_response["Plot"],
             "poster": entry["primaryImage"]["url"],
             "boxoffice": boxoffice,
             "imdbrating": movie_response["imdbRating"],
-            "imdbvotes": int(movie_response["imdbVotes"].replace(",", "")),
+            "imdbvotes": imdbvotes,
             "imdbid": movie_id,
             "genres": genres,
             "awards": None,
