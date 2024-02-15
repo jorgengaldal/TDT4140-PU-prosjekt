@@ -9,14 +9,19 @@ interface MoviePoster {
 }
 
 function ScrollWindow() {
-  const [moviePosters, setMoviePosters] = useState<MoviePoster[]>([]);
+  const [movies, setMovies] = useState<any>([]);
 
   useEffect(() => {
-    // Replace 'your-api-endpoint' with the actual API endpoint
-    fetch('http://127.0.0.1:8000/api/movies/')
-      .then(response => response.json())
-      .then(data => setMoviePosters(data.results)) // Assuming the API response has a 'results' array
-      .catch(error => console.error('Error fetching movie posters:', error));
+    fetch('http://127.0.0.1:8000/api/movies/movies/')
+      .then(response => {
+        console.log(response);
+        return response.json()})
+      .then(data => {
+        console.log(data)
+        return setMovies(data.results)}) 
+      .catch(error => {
+        
+        return console.error('Error fetching movie posters:', error)});
   }, []);
 
   
@@ -25,19 +30,14 @@ function ScrollWindow() {
     <Layout contentMaxWidth="100ch">
 
         <GalleryDiv galleryItemsAspectRatio="auto" >
-          {moviePosters.map((poster, index) => (
-            <img key={index} src={poster.imageUrl} alt={`Movie Poster ${index}`} />
+          {movies.map((movie:any, index: number) => (
+            <div className="posterName">
+            <img key={index} src={movie.poster} alt={`Movie Poster ${index}`} />
+            <div>
+              {movie.title}
+            </div>
+            </div>
           ))}
-          <img src="https://m.media-amazon.com/images/M/MV5BM2MyNTAwZGEtNTAxNC00ODVjLTgzZjUtYmU0YjAzNmQyZDEwXkEyXkFqcGdeQXVyNDc2NTg3NzA@._V1_SX300.jpg" alt="test images" />
-          <img src="/testImg3.jpeg" alt="test images" />
-          <img src="/testImg2.jpeg" alt="test images" />
-          <img src="/testImg2.jpeg" alt="test images" />
-          <img src="/testImg2.jpeg" alt="test images" />
-          <img src="/testImg2.jpeg" alt="test images" />
-          <img src="/testImg2.jpeg" alt="test images" />
-          <img src="/testImg2.jpeg" alt="test images" />
-          <img src="/testImg2.jpeg" alt="test images" />
-          <img src="/testImg2.jpeg" alt="test images" />
         </GalleryDiv>
     </Layout>
   );

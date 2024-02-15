@@ -1,5 +1,6 @@
 export interface MovieSerializer {
     id?: string;
+    average_rating?: number;
     title: string;
     created_at?: string | null;
     updated_at?: string;
@@ -28,11 +29,9 @@ export interface CategorySerializer {
 }
 
 export interface PersonSerializer {
-    id?: string;
+    name: string;
     acted_movies?: any[];
     written_movies?: any[];
     directed_movies?: any[];
-    name: string;
-    imdb_id?: string;
 }
 

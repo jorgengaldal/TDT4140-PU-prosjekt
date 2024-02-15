@@ -61,7 +61,7 @@
   inline-size: 100%;
   max-inline-size: 25rem;
   font-size: 2rem;
-  background: #f08080; /* Change this color */
+  /*background: #f08080; /* Change this color */
   border-radius: 4px;
   overflow: hidden;
   object-fit: cover;
@@ -114,4 +114,7 @@
   border: 1px solid #ccc;
   padding: 5px 10px;
   cursor: pointer;
+}
+.posterName{
+  flex-direction: column;
 }
