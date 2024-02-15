@@ -1,13 +1,6 @@
-## Running the backend server
+# Backend setup
 
-### First setup
-
-```bash
-cd backend
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
-```
+Follow these steps to use the backend.
 
 ## Virtual Python Environment
 
@@ -60,4 +53,23 @@ python -m pip freeze > requirements.txt
 #### Mac
 ```bash
 python3 -m pip freeze > requirements.txt
+```
+
+## Running the backend server
+
+### First setup
+
+```bash
+cd backend
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+```
+
+## Populating the database
+
+Use the premade dump of top 200 boxoffice movies:
+```bash
+cd backend
+python manage.py loaddata preloaded_db.json
 ```
