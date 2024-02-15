@@ -93,8 +93,8 @@ class Category(models.Model):
 class Person(models.Model):
     name = models.CharField(max_length=MAX_NAME_LENGTH, primary_key=True)
 
-    imdb_id = models.CharField(
-        max_length=MAX_NAME_LENGTH, default=None, blank=True)
+    #imdb_id = models.CharField(
+    #    max_length=MAX_NAME_LENGTH, default=None, blank=True)
 
     def __str__(self):
         return self.name
