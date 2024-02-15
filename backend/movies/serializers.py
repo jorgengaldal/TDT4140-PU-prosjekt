@@ -2,15 +2,27 @@ from typing import List
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import Movie, Person, Category
+from django.db.models import Avg
 
 from django_typomatic import ts_interface, generate_ts
 
 
 @ts_interface()
 class MovieSerializer(serializers.ModelSerializer):
+    average_rating = serializers.SerializerMethodField()
+
     class Meta:
         model = Movie
         fields = '__all__'
+
+    def get_average_rating(self, obj) -> float:
+        average = obj.reviews.aggregate(Avg('rating'))['rating__avg']
+        if average is None:
+            return 0
+        return round(average, 2)
+
+
+
 
 
 @ts_interface()

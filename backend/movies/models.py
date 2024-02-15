@@ -69,6 +69,7 @@ class Movie(models.Model):
         super().save(*args, **kwargs)
 
 
+
 class Category(models.Model):
     name = models.CharField(max_length=MAX_NAME_LENGTH, primary_key=True)
 
@@ -90,10 +91,10 @@ class Category(models.Model):
 
 
 class Person(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=MAX_NAME_LENGTH)
+    name = models.CharField(max_length=MAX_NAME_LENGTH, primary_key=True)
 
-    imdb_id = models.CharField(max_length=MAX_NAME_LENGTH, default=None, blank=True)
+    imdb_id = models.CharField(
+        max_length=MAX_NAME_LENGTH, default=None, blank=True)
 
     def __str__(self):
         return self.name
