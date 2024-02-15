@@ -1,6 +1,6 @@
 from django.db import models
 from movies.models import Movie
-from members.models import CustomUser
+from profiles.models import Profile
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 import uuid
@@ -29,7 +29,7 @@ class MovieList(models.Model):
     name = models.CharField(max_length=255, default="My Movie List")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    owners = models.ManyToManyField(CustomUser, related_name='movie_lists')
+    owners = models.ManyToManyField(Profile, related_name='movie_lists')
 
     def __str__(self):
         return self.name
