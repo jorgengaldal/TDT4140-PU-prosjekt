@@ -116,6 +116,11 @@ while True:
                 data = {"name": country, "category_type": 2}
                 requests.post(url=f"{BACKEND_COUNTRY_API_URL}/", data=data)
 
+        try:
+            boxoffice = movie_response["BoxOffice"].replace(",", "").replace("$", "")
+        except ValueError:
+            boxoffice = 0
+
         movie = {
             "title": movie_response["Title"],
             "rated": movie_response["Rated"],
@@ -123,7 +128,7 @@ while True:
             "runtime": int(movie_response["Runtime"].replace(" min", "")),
             "plot": movie_response["Plot"],
             "poster": entry["primaryImage"]["url"],
-            "boxoffice": int(movie_response["BoxOffice"].replace(",", "").replace("$", "")),
+            "boxoffice": boxoffice,
             "imdbrating": movie_response["imdbRating"],
             "imdbvotes": int(movie_response["imdbVotes"].replace(",", "")),
             "imdbid": movie_id,
