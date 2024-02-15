@@ -1,8 +1,27 @@
 ## Set up Virtual Python Environment
 
-´´´bash
+```bash
 cd backend
-python -m pip venv ".venv"
+python -m venv ".venv"
 ./.venv/Scripts/activate
-python -m pip install -r requirements
-´´´
+python -m pip install -r requirements.txt
+```
+
+### Activation
+
+#### Windows
+```bash
+./.venv/Scripts/activate
+```
+
+#### Mac
+```bash
+./.venv/bin/activate
+```
+
+### Deactivation
+
+
+```bash
+deactivate
+```
