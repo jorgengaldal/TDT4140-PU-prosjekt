@@ -71,8 +71,8 @@
   aspect-ratio: 16 / 9;
 }
 
-.gallery .floating_content[data-images="square"] > * {
-  aspect-ratio: 1;
+.gallery .floating_content[data-images="auto"] > * {
+  aspect-ratio: 1/2;
 }
 
 .gallery .floating_content > *.lg {

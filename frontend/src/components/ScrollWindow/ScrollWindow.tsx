@@ -20,8 +20,7 @@ function ScrollWindow() {
         console.log(data)
         return setMovies(data.results)}) 
       .catch(error => {
-        
-        return console.error('Error fetching movie posters:', error)});
+        console.error('Error fetching movie posters:', error)});
   }, []);
 
   
@@ -32,7 +31,15 @@ function ScrollWindow() {
         <GalleryDiv galleryItemsAspectRatio="auto" >
           {movies.map((movie:any, index: number) => (
             <div className="posterName">
-            <img key={index} src={movie.poster} alt={`Movie Poster ${index}`} />
+            <img
+              key={index}
+              src={movie.poster || '/testImg2.jpeg'}
+              alt={`Movie Poster ${index}`}
+              onError={(e) => {
+                (e.target as HTMLImageElement).onerror = null;
+                (e.target as HTMLImageElement).src = '/testImg2.jpeg';
+              }}
+            />
             <div>
               {movie.title}
             </div>
