@@ -33,6 +33,5 @@ export interface PersonSerializer {
     acted_movies?: any[];
     written_movies?: any[];
     directed_movies?: any[];
-    imdb_id?: string;
 }
 
