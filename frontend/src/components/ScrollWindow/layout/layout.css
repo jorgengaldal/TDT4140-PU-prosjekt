@@ -59,20 +59,16 @@
   justify-content: center;
   scroll-snap-align: center;
   inline-size: 100%;
-  max-inline-size: 25rem;
-  font-size: 2rem;
+  max-inline-size: 17rem;
+  font-size: 1rem;
   /*background: #f08080; /* Change this color */
   border-radius: 4px;
   overflow: hidden;
   object-fit: cover;
 }
 
-.gallery .floating_content[data-images="video"] > * {
-  aspect-ratio: 16 / 9;
-}
-
-.gallery .floating_content[data-images="auto"] > * {
-  aspect-ratio: 1/2;
+.gallery .floating_content[data-images="portait"] > * {
+  aspect-ratio: 1;
 }
 
 .gallery .floating_content > *.lg {
@@ -96,12 +92,8 @@
 .gallery img {
   border-radius: 8px;
 }
-.gallery img:hover {
-  transform: translateY(-5px);
-  transition: transform 0.3s;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
+
+
 .disable-hover-effect .gallery img:hover {
   transform: translateY(0);
 }
@@ -117,4 +109,20 @@
 }
 .posterName{
   flex-direction: column;
+  padding-top: 5px;
+  margin: 0px 5px 0px 5px;
+}
+.posterImage{
+  width: 17rem;
+  height: 25rem;
+  object-fit: cover;
+  object-position: center;
+  
+}
+.posterImage:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  
 }

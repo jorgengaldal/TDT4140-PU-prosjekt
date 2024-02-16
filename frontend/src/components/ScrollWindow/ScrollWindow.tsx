@@ -23,16 +23,20 @@ function ScrollWindow() {
         console.error('Error fetching movie posters:', error)});
   }, []);
 
-  
+  const handleClick =()=>{
+    window.location.href = '/liked';
+  }
 
   return (
     <Layout contentMaxWidth="100ch">
 
-        <GalleryDiv galleryItemsAspectRatio="auto" >
+        <GalleryDiv galleryItemsAspectRatio="portrait" >
           {movies.map((movie:any, index: number) => (
             <div className="posterName">
             <img
+              className="posterImage"
               key={index}
+              onClick={handleClick}
               src={movie.poster || '/testImg2.jpeg'}
               alt={`Movie Poster ${index}`}
               onError={(e) => {
