@@ -75,7 +75,6 @@ for entry in response["results"]:
         "imdbvotes": int(movie_response["imdbVotes"].replace(",", "")),
         "imdbid": movie_id,
         "genres": None,
-        # "genres": genres,
         "awards": None,
         "countries": None,
         "languages": None,

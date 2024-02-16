@@ -8,7 +8,7 @@ interface MoviePoster {
   // Add other properties as needed
 }
 
-function ScrollWindow() {
+function ScrollWindow(props: any) {
   const [movies, setMovies] = useState<any>([]);
 
   useEffect(() => {
@@ -26,12 +26,19 @@ function ScrollWindow() {
   const handleClick =()=>{
     window.location.href = '/liked';
   }
-
+  
+  let filteredMovies = movies;
+  if (props.filterBy && props.filterValue) {
+    // If filterBy and filterValue are specified, filter movies based on the property
+    filteredMovies = movies.filter(
+      (movie: any) => movie[props.filterBy].includes(props.filterValue)
+    );
+  }
   return (
     <Layout contentMaxWidth="100ch">
 
         <GalleryDiv galleryItemsAspectRatio="portrait" >
-          {movies.map((movie:any, index: number) => (
+          {filteredMovies.map((movie:any, index: number) => (
             <div className="posterName">
             <img
               className="posterImage"

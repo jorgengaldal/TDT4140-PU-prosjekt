@@ -9,7 +9,7 @@ export default function ShufflePage() {
                     This is the shuffle page
                 </p>
             </div>
-            <ScrollWindow />
+            <ScrollWindow filterBy="title" filterValue="Jurassic Park"/>
             <p>Anbefalte filmer</p>
             <ScrollWindow />
         </main>
