@@ -36,10 +36,10 @@ function ScrollWindow(props: any) {
   }
   return (
     <Layout contentMaxWidth="100ch">
-
+      <p className="scrollWindowTitle">{props.filterValue}</p>
         <GalleryDiv galleryItemsAspectRatio="portrait" >
           {filteredMovies.map((movie:any, index: number) => (
-            <div className="posterName">
+            <div className="posterComponent">
             <img
               className="posterImage"
               key={index}
@@ -51,7 +51,7 @@ function ScrollWindow(props: any) {
                 (e.target as HTMLImageElement).src = '/testImg2.jpeg';
               }}
             />
-            <div>
+            <div className="posterTitle">
               {movie.title}
             </div>
             </div>

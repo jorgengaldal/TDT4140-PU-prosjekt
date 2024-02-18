@@ -31,7 +31,7 @@
   grid-column: full;
   display: grid;
   grid-template-columns: inherit;
-  padding-block: var(--space-md);
+  padding-bottom: 10rem;
   overflow-x: scroll;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
@@ -48,7 +48,7 @@
 .gallery .floating_content {
   grid-column: content;
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: var(--space);
 }
 
@@ -93,21 +93,7 @@
   border-radius: 8px;
 }
 
-
-.disable-hover-effect .gallery img:hover {
-  transform: translateY(0);
-}
-
-.scrollButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-.posterName{
+.posterComponent{
   flex-direction: column;
   padding-top: 5px;
   margin: 0px 5px 0px 5px;
@@ -124,5 +110,20 @@
   transition: transform 0.3s;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  
+}
+
+.posterTitle{
+  font-size: 1.5rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 4px #000000;
+}
+.scrollWindowTitle{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #fff;
+  text-shadow: 2px 2px 4px #000000;
 }
