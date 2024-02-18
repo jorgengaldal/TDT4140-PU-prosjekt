@@ -103,12 +103,11 @@
   height: 25rem;
   object-fit: cover;
   object-position: center;
-  
 }
 .posterImage:hover {
   transform: translateY(-5px);
   transition: transform 0.3s;
-  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
 
