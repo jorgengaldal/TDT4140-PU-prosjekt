@@ -20,7 +20,8 @@ mb_headers = {
 }
 
 mb_payload = {
-    "list": "top_boxoffice_200"
+    "list": "top_boxoffice_200",
+    "page": 1,
 }
 
 
@@ -32,60 +33,137 @@ OMBD_API_BASE_URL = "https://www.omdbapi.com/"
 # Variabler definert for kall til backend
 
 BACKEND_API_BASE_URL = "http://localhost:8000/api"
-
-response = requests.get(
-    url=f"{MB_API_BASE_URL}/titles", headers=mb_headers, params=mb_payload).json()
-
-# Går gjennom responsen og lager nytt objekt med den interessante dataen hos filmene.
-movies = []
-for entry in response["results"]:
-    movie_id = entry["id"]
-    print(f"{movie_id}")
-
-    # Henter ekstra data fra ombd
-    ombd_payload = {
-        "apikey": dotenv.get_key(ENV_PATH, "OMBD-API-KEY"),
-        "i": movie_id
-    }
-    movie_response = requests.get(url=OMBD_API_BASE_URL, params=ombd_payload).json()
-
-    actors = movie_response["Actors"].split(", ")
-    genres = movie_response["Genre"].split(", ")
-    director = movie_response["Director"]
-
-    people = actors + [director]
-    # TODO: check if actor exists.
-
-    for person in people:
-        person_response = requests.get(f"{BACKEND_API_BASE_URL}/movies/persons/{person}/")
-        if person_response.status_code == 404:
-            # Add new person object if not present.
-            requests.post(url=f"{BACKEND_API_BASE_URL}/movies/persons/", data={"name": person})
+BACKEND_MOVIES_API_BASE_URL = f"{BACKEND_API_BASE_URL}/movies"
+BACKEND_MOVIES_API_URL = f"{BACKEND_MOVIES_API_BASE_URL}/movies"
+BACKEND_CATEGORY_API_URL = f"{BACKEND_MOVIES_API_BASE_URL}/categories"
+BACKEND_GENRE_API_URL = f"{BACKEND_MOVIES_API_BASE_URL}/genres"
+BACKEND_LANGUAGE_API_URL = f"{BACKEND_MOVIES_API_BASE_URL}/languages"
+BACKEND_COUNTRY_API_URL = f"{BACKEND_MOVIES_API_BASE_URL}/countries"
+BACKEND_PERSONS_API_URL = f"{BACKEND_MOVIES_API_BASE_URL}/persons"
 
 
-    movie = {
-        "title": movie_response["Title"],
-        "rated": movie_response["Rated"],
-        "released": datetime.strptime(movie_response["Released"], "%d %b %Y").date().isoformat(),
-        "runtime": int(movie_response["Runtime"].replace(" min", "")),
-        "plot": movie_response["Plot"],
-        "poster": entry["primaryImage"]["url"],
-        "boxoffice": int(movie_response["BoxOffice"].replace(",", "").replace("$", "")),
-        "imdbrating": movie_response["imdbRating"],
-        "imdbvotes": int(movie_response["imdbVotes"].replace(",", "")),
-        "imdbid": movie_id,
-        "genres": None,
-        "awards": None,
-        "countries": None,
-        "languages": None,
-        "actors": actors,
-        "directors": [director],
-        "writers": None
-    }
+while True:
+    response = requests.get(
+        url=f"{MB_API_BASE_URL}/titles", headers=mb_headers, params=mb_payload).json()
+    
+    print(f"DEBUG: Retrieving from page {mb_payload["page"]}")
 
-    # POST to backend
-    requests.post(url=f"{BACKEND_API_BASE_URL}/movies/movies/", data=movie)
 
-    movies.append(movie)
 
-# pp.pprint(movies)
+    # Går gjennom responsen og lager nytt objekt med den interessante dataen hos filmene.
+    for entry in response["results"]:
+        movie_id = entry["id"]
+
+        # Skip movie if already in database
+        existing_entry = requests.get(
+            url=f"{BACKEND_MOVIES_API_URL}/{movie_id}")
+        if existing_entry.status_code != 404:
+            continue
+
+        print(f"POSTING {movie_id}")
+
+        # Henter ekstra data fra ombd
+        ombd_payload = {
+            "apikey": dotenv.get_key(ENV_PATH, "OMBD-API-KEY"),
+            "i": movie_id
+        }
+        movie_response = requests.get(
+            url=OMBD_API_BASE_URL, params=ombd_payload).json()
+
+        # People
+        actors = movie_response["Actors"].split(", ")
+        directors = movie_response["Director"].split(", ")
+        writers = movie_response["Writer"].split(", ")
+
+        people = actors + directors + writers
+
+        for person in people:
+            person_response = requests.get(
+                f"{BACKEND_PERSONS_API_URL}/{person}/")
+            if person_response.status_code == 404:
+                # Add new person object if not present.
+                requests.post(
+                    url=f"{BACKEND_PERSONS_API_URL}/", data={"name": person})
+
+        # Categories
+        genres = movie_response["Genre"].split(", ")
+        languages = movie_response["Language"].split(", ")
+        # Bruker foreløpig ikke awards, da dette er på en suboptimal måte for å kunne brukes videre.
+        # awards = movie_response["Awards"]
+        countries = movie_response["Country"].split(", ")
+
+        for genre in genres:
+            genre_response = requests.get(
+                f"{BACKEND_CATEGORY_API_URL}/{genre}/")
+            if genre_response.status_code == 404:
+                # Add new category object of type genre if not present
+                data = {"name": genre, "category_type": 4}
+                requests.post(url=f"{BACKEND_GENRE_API_URL}/", data=data)
+
+        for language in languages:
+            language_response = requests.get(
+                f"{BACKEND_CATEGORY_API_URL}/{language}/")
+            if language_response.status_code == 404:
+                # Add new category object of type language if not present
+                data = {"name": language, "category_type": 3}
+                requests.post(url=f"{BACKEND_LANGUAGE_API_URL}/", data=data)
+
+        for country in countries:
+            country_response = requests.get(
+                f"{BACKEND_CATEGORY_API_URL}/{country}/")
+            if country_response.status_code == 404:
+                # Add new category object of type country if not present
+                data = {"name": country, "category_type": 2}
+                requests.post(url=f"{BACKEND_COUNTRY_API_URL}/", data=data)
+
+        # Safe guards (sets values to None if they are not on the expected format):
+                
+        try:
+            boxoffice = movie_response["BoxOffice"].replace(",", "").replace("$", "")
+        except ValueError:
+            boxoffice = None
+
+        try:
+            imdbvotes = int(movie_response["imdbVotes"].replace(",", ""))
+        except ValueError:
+            imdbvotes = None
+
+        try:
+            runtime = int(movie_response["Runtime"].replace(" min", ""))
+        except ValueError:
+            runtime = None
+
+        try: 
+            released = datetime.strptime(movie_response["Released"], "%d %b %Y").date().isoformat()
+        except ValueError:
+            released = None
+
+
+        movie = {
+            "title": movie_response["Title"],
+            "rated": movie_response["Rated"],
+            "released": datetime.strptime(movie_response["Released"], "%d %b %Y").date().isoformat(),
+            "runtime": runtime,
+            "plot": movie_response["Plot"],
+            "poster": entry["primaryImage"]["url"],
+            "boxoffice": boxoffice,
+            "imdbrating": movie_response["imdbRating"],
+            "imdbvotes": imdbvotes,
+            "imdbid": movie_id,
+            "genres": genres,
+            "awards": None,
+            "countries": countries,
+            "languages": languages,
+            "actors": actors,
+            "directors": directors,
+            "writers": writers
+        }
+
+        # POST to backend
+        requests.post(url=f"{BACKEND_MOVIES_API_URL}/", data=movie)
+
+    if response["entries"] == 0:
+        # Hopper ut av løkken hvis den ikke finner flere entries
+        break
+    else:
+        mb_payload["page"] += 1
