@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState, useRef} from "react";
-import { Link } from "react-router-dom"; // Import useHistory
 import Layout from "./layout/Layout";
 import GalleryDiv from "./layout/GalleryDiv";
 
@@ -11,7 +10,6 @@ interface MoviePoster {
 
 function ScrollWindow(props: any) {
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
@@ -25,9 +23,7 @@ function ScrollWindow(props: any) {
         setMovies(movieData);
       } catch (error) {
         setError(error as Error);
-      } finally {
-        setLoading(false);
-      }
+      } 
     };
 
     fetchData();
