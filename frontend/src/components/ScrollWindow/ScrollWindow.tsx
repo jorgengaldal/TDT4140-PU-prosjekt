@@ -10,34 +10,24 @@ interface MoviePoster {
 }
 
 function ScrollWindow(props: any) {
-  const [movies, setMovies] = useState<any>([]);
-  const apiUrl = 'http://127.0.0.1:8000/api/movies/movies/';
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      let allMovies: MoviePoster[] = [];
-      let page = 1;
-
-      while (true) {
-        const response = await fetch(`${apiUrl}?page=${page}`);
-        const data = await response.json();
-
-        if (response.ok) {
-          allMovies = [...allMovies, ...data.results];
-          if (data.next) {
-            // Move to the next page if available
-            page++;
-          } else {
-            // Break the loop if there are no more pages
-            break;
-          }
-        } else {
-          console.error('Error fetching movie posters:', data);
-          break;
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/movies/movies/');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
+        const movieData = await response.json();
+        setMovies(movieData);
+      } catch (error) {
+        setError(error as Error);
+      } finally {
+        setLoading(false);
       }
-
-      setMovies(allMovies);
     };
 
     fetchData();
