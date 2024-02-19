@@ -126,3 +126,17 @@
   color: #fff;
   text-shadow: 2px 2px 4px #000000;
 }
+
+.ImageComponent {
+  background: linear-gradient(90deg, #dddddd 25%, #eeeeee 50%, #dddddd 75%);
+  animation: placeholderAnimation 1.5s infinite linear;
+}
+
+@keyframes placeholderAnimation {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}

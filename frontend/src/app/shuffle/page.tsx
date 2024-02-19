@@ -9,9 +9,9 @@ export default function ShufflePage() {
                     This is the shuffle page
                 </p>
             </div>
-            <ScrollWindow filterBy="released" filterValue="1"/>
+            <ScrollWindow filterBy="genres" filterValue="Adventure"/>
             
-            <ScrollWindow filterBy="directors" filterValue="Steven Spielberg"/>
+            <ScrollWindow filterBy="genres" filterValue="Comedy"/>
         </main>
     )
 }
