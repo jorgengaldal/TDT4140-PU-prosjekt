@@ -1,7 +1,9 @@
-import React, { useState, useMemo, useEffect } from 'react'
-import Select from "react-select";
+import React from "react";
+import CountrySelect from "./CountrySelect";
 import Collection from "./Collection";
 import Genres from "./Genres";
+
+const tempGenres = ["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Thriller", "Western"];
 
 const CountrySelect = () => {
     const [countries, setCountries] = useState([]);
