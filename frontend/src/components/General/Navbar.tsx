@@ -15,7 +15,8 @@ const Navbar = () => {
     return (
         <nav className="p-4 flex justify-between items-center">
             <div className="flex items-center">
-                <Link href="/" className="mr-10">
+                <Link href="/" className="mr-10 flex flex-row">
+                    <p>Home</p>
                     <Icons name="Home" />
                 </Link>
                 <Link href="/liked" className="mr-10">
