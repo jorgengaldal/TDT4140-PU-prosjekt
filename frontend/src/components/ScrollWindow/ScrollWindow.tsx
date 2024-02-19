@@ -10,23 +10,19 @@ interface MoviePoster {
 
 function ScrollWindow(props: any) {
   const [movies, setMovies] = useState([]);
-  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://127.0.0.1:8000/api/movies/movies/');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const movieData = await response.json();
-        setMovies(movieData);
-      } catch (error) {
-        setError(error as Error);
-      } 
-    };
-
-    fetchData();
+    fetch(`http://127.0.0.1:8000/api/movies/categories/${props.filterValue}`)
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((data) => {
+        return setMovies(data.movies);
+      })
+      .catch((error) => {
+        console.error("Error fetching movie posters: ", error);
+      });
   }, []);
 
   const handleClick = (movie: any) => { // Pass movie as a parameter
@@ -35,19 +31,11 @@ function ScrollWindow(props: any) {
     }
   };
   
-  let filteredMovies = movies;
-  if (props.filterBy && props.filterValue) {
-    // If filterBy and filterValue are specified, filter movies based on the property
-    filteredMovies = movies.filter(
-      (movie: any) => movie[props.filterBy].includes(props.filterValue)
-    );
-  }
-  
   return (
     <Layout contentMaxWidth="100ch">
       <p className="scrollWindowTitle">{props.filterValue}</p>
         <GalleryDiv galleryItemsAspectRatio="portrait" >
-          {filteredMovies.map((movie:any, index: number) => (
+          {movies.map((movie:any, index: number) => (
             <div className="posterComponent">
             <img
               className="posterImage"
