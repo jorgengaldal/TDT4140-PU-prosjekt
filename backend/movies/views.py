@@ -106,6 +106,7 @@ class PersonDetailView(generics.CreateAPIView):
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
     permission_classes = [permissions.AllowAny]
+    lookup_field = "name"
 
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
@@ -113,11 +114,11 @@ class PersonDetailView(generics.CreateAPIView):
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
 
-    def get_object(self):
-        queryset = self.filter_queryset(self.get_queryset())
-        obj = queryset.get(pk=self.kwargs.get('pk'))
-        self.check_object_permissions(self.request, obj)
-        return obj
+    # def get_object(self):
+    #     queryset = self.filter_queryset(self.get_queryset())
+    #     obj = queryset.get(pk=self.kwargs.get('pk'))
+    #     self.check_object_permissions(self.request, obj)
+    #     return obj
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
