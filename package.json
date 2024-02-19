@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@floating-ui/react": "^0.26.9",
+    "@headlessui/react": "^1.7.18",
+    "@heroicons/react": "^2.1.1",
+    "@heroicons/vue": "^2.1.1",
+    "@iconify/icons-heroicons-solid": "^1.2.6",
+    "@react-icons/all-files": "^4.1.0",
+    "bootstrap": "^5.3.2",
+    "heroicons-react": "^1.4.1",
+    "react-bootstrap": "^2.10.1",
+    "react-select": "^5.8.0",
+    "react-select-country-list": "^2.2.3"
+  }
+}

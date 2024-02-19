@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 interface GenreBoxProps {
     title: string;
 }
@@ -8,17 +10,64 @@ const GenreBox: React.FC<GenreBoxProps> = ({ title }) => {
 
 interface GenresProps {
     title: string;
-    genres: string[];
 }
 
-const Genres: React.FC<GenresProps> = ({ title, genres }) => {
+const Genres: React.FC<GenresProps> = ({ title }) => {
+    const [films, setFilms] = useState<any>();
+
+    const authToken = "a558de43e4abf291125c7941cedca9bed67e5cea";
+
+    useEffect(() => {
+        // Fetch films from the API endpoint
+        fetch('http://localhost:8000/api/profiles/profile', {
+            headers: {
+                Authorization: `Token ${authToken}`
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch films');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setFilms(data);
+            })
+            .catch(error => {
+                console.error('Error fetching films:', error);
+            });
+    }, []);
+
+
+
+    const rankedGenres: string[] = []; // Declare rankedGenres outside the forEach loop
+
+    films?.movie_lists.forEach((movieList: { reviews: any[]; }) => {
+        const data = movieList.genre_data;
+        const allGenres = new Set<string>();
+        Object.keys(data.reviews_per_genre).forEach(genre => allGenres.add(genre));
+        Object.keys(data.favorites_per_genre).forEach(genre => allGenres.add(genre));
+        Object.keys(data.genre_rating_averages).forEach(genre => allGenres.add(genre));
+
+        const genreRanking: { [key: string]: number } = {};
+        allGenres.forEach(genre => {
+            const reviews = data.reviews_per_genre[genre] || 0;
+            const favorites = data.favorites_per_genre[genre] || 0;
+            const averageRating = data.genre_rating_averages[genre] || 0;
+            genreRanking[genre] = reviews + favorites + averageRating;
+        });
+
+        const rankedGenresForMovieList = Array.from(allGenres).sort((a, b) => genreRanking[b] - genreRanking[a]);
+        rankedGenres.push(...rankedGenresForMovieList); // Push the ranked genres for this movie list to the global rankedGenres array
+    });
+
     return (
         <div className="flex flex flex-col items-center pb-10">
             <div className="flex justify-between w-full">
                 <h1 className="text-xl underline">{title}</h1>
             </div>
             <div className="grid grid-cols-2">
-                {genres.slice(0, 6).map(genre => {
+                {rankedGenres.slice(0, 6).map(genre => {
                     return <GenreBox key={genre} title={genre} />
                 })}
             </div>

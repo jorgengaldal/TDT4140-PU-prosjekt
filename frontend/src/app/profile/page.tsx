@@ -1,12 +1,12 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProfileInfo } from "./ProfileInfo";
 import { SettingsPanel } from "./SettingsPanel";
 import DisplayView, { ViewOne } from "./Views";
 
 export default function ProfilePage() {
     const [setting, setSetting] = useState<string>("main");
-
+    
     return (
         <main className="flex min-h-screen flex-col items-center justify-between px-40 py-20">
             <div className="bg-accent1 w-full h-100% rounded-lg flex ">
@@ -16,7 +16,7 @@ export default function ProfilePage() {
                         <SettingsPanel setSetting={setSetting} setting={setting}/>
                     </div>
                 </div>
-                <DisplayView currentSetting={setting} />
+                <DisplayView currentSetting={setting}/>
             </div>
         </main>
     )
