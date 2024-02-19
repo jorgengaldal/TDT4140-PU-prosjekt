@@ -1,4 +1,4 @@
-import ScrollWindow from "@/components/ScrollWindow/ScrollWindow"
+
 import "../../styles/globals.css"
 
 export default function ShufflePage() {
