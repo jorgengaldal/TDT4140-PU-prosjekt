@@ -6,6 +6,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  
   theme: {
     extend: {
         colors: {
@@ -13,6 +14,8 @@ const config: Config = {
           accent1: "#424769",
           accent2: "#7077A1",
           popish: "#F6B17A",
+          dark1: "#282d48",
+          dark2: "#242840",
         },
         backgroundImage: {
           "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -23,4 +26,5 @@ const config: Config = {
     },
     plugins: [],
   };
+  
   export default config;
