@@ -8,7 +8,7 @@ interface PhotoProps {
 
 const Photo: React.FC<PhotoProps> = ({ width, height, imageUrl }) => {
     return (
-        <div className={`bg-orange-500 rounded-lg h-[${height}px] w-[${width}px]`}>
+        <div className={`rounded-lg h-[${height}px] w-[${width}px]`}>
             <img src={imageUrl} alt="Movie Photo" className="w-full h-full object-cover" />
         </div>
     );
