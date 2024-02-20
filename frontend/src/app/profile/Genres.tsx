@@ -15,7 +15,7 @@ interface GenresProps {
 const Genres: React.FC<GenresProps> = ({ title }) => {
     const [films, setFilms] = useState<any>();
 
-    const authToken = "a558de43e4abf291125c7941cedca9bed67e5cea";
+    const authToken = "d39756c8cd7ed189a22213e07b14fa02280d25e6";
 
     useEffect(() => {
         // Fetch films from the API endpoint
