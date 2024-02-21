@@ -57,14 +57,16 @@ class MovieListSerializer(serializers.ModelSerializer):
 
 # @ts_interface
 class MovieReviewSerializer(serializers.ModelSerializer):
-    movie = serializers.SerializerMethodField()
+    movie = serializers.PrimaryKeyRelatedField(queryset=Movie.objects.all(), write_only=True)
 
     class Meta:
         model = MovieReview
         fields = '__all__'
 
-    def get_movie(self, obj) -> Movie:
-        related_movie = obj.movie
-        serializer = MovieSerializer(related_movie)
-        return serializer.data
+    def create(self, validated_data):
+        movie_data = validated_data.pop('movie')
+        movie_review_instance = MovieReview.objects.create(movie=movie_data, **validated_data)
+        return movie_review_instance
+
+        
 generate_ts('../frontend/backendTypes.ts')
