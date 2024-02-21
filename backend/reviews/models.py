@@ -12,11 +12,11 @@ class MovieReview(models.Model):
         Movie, on_delete=models.CASCADE, related_name='reviews')
     movie_list = models.ForeignKey(
         'MovieList', on_delete=models.CASCADE, related_name='reviews')
-    review_text = models.TextField(default=None, blank=True)
+    review_text = models.TextField(default=None, blank=True, null=True)
     rating = models.IntegerField(default=None, validators=[
         MaxValueValidator(10),
         MinValueValidator(1)
-    ], blank=True)
+    ], blank=True, null=True)
     is_favorite = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)

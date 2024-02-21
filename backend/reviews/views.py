@@ -4,18 +4,24 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 from .models import MovieReview, MovieList
-from .serializers import MovieListSerializer, MovieReviewSerializer
+from .serializers import MovieListSerializer, MovieReviewDetailSerializer, MovieReviewCreateSerializer
 
 class MovieReviewListView(generics.ListCreateAPIView):
     queryset = MovieReview.objects.all()
     model = MovieReview
     
-    serializer_class = MovieReviewSerializer
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return MovieReviewCreateSerializer
+        return MovieReviewDetailSerializer
     permission_classes = [AllowAny]
 
 class MovieReviewDetailView(generics.GenericAPIView):
     queryset = MovieReview.objects.all()
-    serializer_class = MovieReviewSerializer
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return MovieReviewCreateSerializer
+        return MovieReviewDetailSerializer
     permission_classes = [permissions.AllowAny]
 
     def get(self, request, *args, **kwargs):
@@ -39,7 +45,7 @@ class MovieReviewDetailView(generics.GenericAPIView):
 class MovieListListView(generics.ListCreateAPIView):
     queryset = MovieList.objects.all()
     model = MovieList    
-    serializer_class = MovieReviewSerializer
+    serializer_class = MovieListSerializer
     permission_classes = [AllowAny]
 
 class MovieListDetailView(generics.GenericAPIView):
