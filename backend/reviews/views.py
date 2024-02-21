@@ -39,7 +39,7 @@ class MovieReviewDetailView(generics.GenericAPIView):
 class MovieListListView(generics.ListCreateAPIView):
     queryset = MovieList.objects.all()
     model = MovieList    
-    serializer_class = MovieReviewSerializer
+    serializer_class = MovieListSerializer
     permission_classes = [AllowAny]
 
 class MovieListDetailView(generics.GenericAPIView):
