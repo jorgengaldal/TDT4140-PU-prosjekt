@@ -16,6 +16,7 @@ interface Review {
 }
 
 interface Movie {
+  id: string;
   imdbid: string;
   title: string;
   poster: string;
@@ -33,10 +34,36 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
   const [isClickedWatched, setIsClickedWatched] = useState<boolean>(false);
   const [isClickedHeart, setIsClickedHeart] = useState<boolean>(false);
 
+  const authToken = "d39756c8cd7ed189a22213e07b14fa02280d25e6";
+  // TODO:
+  const defaultMovieListId = "TODO";
+
   const handleClickWatched = () => {
-    //   const review = {movie_list: }
-    //   fetch("http://localhost:8000/api/reviews/moviereviews");
-    setIsClickedWatched(!isClickedWatched);
+    if (isClickedWatched) {
+      return;
+    }
+    if (movieData == null) {
+      console.error("There's no movie to mark as watched.");
+    } else {
+      const review = {
+        movie: movieData.id,
+        movie_list: defaultMovieListId,
+      };
+      fetch("http://localhost:8000/api/reviews/moviereviews", {
+        headers: {
+          Authorization: `Token ${authToken}`,
+        },
+        method: "POST",
+        body: JSON.stringify(review),
+      }).then((response) => {
+        if (response.status != 201) {
+          console.error("Could not post review \n" + response.text);
+        }
+      });
+
+      // TODO: Kan bare markere som sett, ikke som usett.
+      setIsClickedWatched(true);
+    }
   };
 
   const handleClickHeart = () => {
