@@ -18,7 +18,7 @@ class MovieListSerializer(serializers.ModelSerializer):
     def get_reviews(self, obj) -> List[MovieReview]:
         # This is where you could optimize the query if necessary
         related_reviews = obj.reviews.all()
-        serializer = MovieReviewSerializer(related_reviews, many=True)
+        serializer = MovieReviewDetailSerializer(related_reviews, many=True)
         return serializer.data
 
     def get_genre_data(self, obj):
@@ -56,7 +56,19 @@ class MovieListSerializer(serializers.ModelSerializer):
 
 
 # @ts_interface
-class MovieReviewSerializer(serializers.ModelSerializer):
+class MovieReviewCreateSerializer(serializers.ModelSerializer):
+    movie = serializers.PrimaryKeyRelatedField(queryset=Movie.objects.all())
+
+    class Meta:
+        model = MovieReview
+        fields = '__all__'
+
+    def create(self, validated_data):
+        movie_data = validated_data.pop('movie')
+        movie_review_instance = MovieReview.objects.create(movie=movie_data, **validated_data)
+        return movie_review_instance
+
+class MovieReviewDetailSerializer(serializers.ModelSerializer):
     movie = serializers.SerializerMethodField()
 
     class Meta:
@@ -67,4 +79,6 @@ class MovieReviewSerializer(serializers.ModelSerializer):
         related_movie = obj.movie
         serializer = MovieSerializer(related_movie)
         return serializer.data
+
+        
 generate_ts('../frontend/backendTypes.ts')
