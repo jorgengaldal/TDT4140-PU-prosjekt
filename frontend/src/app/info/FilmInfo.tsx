@@ -108,9 +108,13 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
           })
             .then((response: any) => response.json())
             .then((data) => {
-              data.some(
-                (movieReview: any) => movieReview.movie.id == selectedMovie.id
-              );
+              if (
+                data.some(
+                  (movieReview: any) => movieReview.movie.id == selectedMovie.id
+                )
+              ) {
+                setIsClickedWatched(true);
+              }
             });
         } else {
           console.error("Movie not found");
