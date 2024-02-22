@@ -620,31 +620,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "195637f2-7e7a-495d-a79c-3178311ddcd7",
-    "fields": {
-      "title": "E.T. the Extra-Terrestrial",
-      "created_at": "2024-02-15T15:00:13.189Z",
-      "updated_at": "2024-02-15T15:00:13.190Z",
-      "rated": "PG",
-      "released": "1982-06-11",
-      "runtime": 115,
-      "plot": "A troubled child summons the courage to help a friendly alien escape from Earth and return to his home planet.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTQ2ODFlMDAtNzdhOC00ZDYzLWE3YTMtNDU4ZGFmZmJmYTczXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-      "imdbrating": "7.90",
-      "imdbvotes": 433702,
-      "imdbid": "tt0083866",
-      "boxoffice": 437345144,
-      "genres": [],
-      "awards": [],
-      "countries": [],
-      "languages": [],
-      "actors": ["Drew Barrymore", "Henry Thomas", "Peter Coyote"],
-      "directors": ["Steven Spielberg"],
-      "writers": []
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "1aac8c66-9d0e-4e7a-ba1e-7d4ae15ecbf8",
     "fields": {
       "title": "Guardians of the Galaxy",
@@ -866,31 +841,6 @@
       "actors": ["Jessica Chastain", "Kristen Wiig", "Matt Damon"],
       "directors": ["Ridley Scott"],
       "writers": ["Andy Weir", "Drew Goddard"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "24713f78-f6ae-4fef-bf27-97f8866d67e4",
-    "fields": {
-      "title": "Harry Potter and the Chamber of Secrets",
-      "created_at": "2024-02-15T15:27:58.755Z",
-      "updated_at": "2024-02-15T15:27:58.755Z",
-      "rated": "PG",
-      "released": "2002-11-15",
-      "runtime": 161,
-      "plot": "An ancient prophecy seems to be coming true when a mysterious presence begins stalking the corridors of a school of magic and leaving its victims paralyzed.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTcxODgwMDkxNV5BMl5BanBnXkFtZTYwMDk2MDg3._V1_.jpg",
-      "imdbrating": "7.40",
-      "imdbvotes": 684706,
-      "imdbid": "tt0295297",
-      "boxoffice": 262641637,
-      "genres": ["Adventure", "Family", "Fantasy"],
-      "awards": [],
-      "countries": ["United Kingdom", "United States"],
-      "languages": ["English", "Latin"],
-      "actors": ["Daniel Radcliffe", "Emma Watson", "Rupert Grint"],
-      "directors": ["Chris Columbus"],
-      "writers": ["J.K. Rowling", "Steve Kloves"]
     }
   },
   {
@@ -1143,31 +1093,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "2aafb97d-2f30-4bbe-8763-91abcbd98c05",
-    "fields": {
-      "title": "Forrest Gump",
-      "created_at": "2024-02-15T15:30:58.451Z",
-      "updated_at": "2024-02-15T15:30:58.451Z",
-      "rated": "PG-13",
-      "released": "1994-07-06",
-      "runtime": 142,
-      "plot": "The history of the United States from the 1950s to the '70s unfolds from the perspective of an Alabama man with an IQ of 75, who yearns to be reunited with his childhood sweetheart.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-      "imdbrating": "8.80",
-      "imdbvotes": 2228850,
-      "imdbid": "tt0109830",
-      "boxoffice": 330455270,
-      "genres": ["Drama", "Romance"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English"],
-      "actors": ["Gary Sinise", "Robin Wright", "Tom Hanks"],
-      "directors": ["Robert Zemeckis"],
-      "writers": ["Eric Roth", "Winston Groom"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "2b272dcb-ab9b-4c78-a201-ba8d776427db",
     "fields": {
       "title": "Jurassic Park",
@@ -1318,62 +1243,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "33039e64-0802-4bdd-b376-b0692042747d",
-    "fields": {
-      "title": "Puss in Boots",
-      "created_at": "2024-02-15T15:31:12.404Z",
-      "updated_at": "2024-02-15T15:31:12.405Z",
-      "rated": "PG",
-      "released": "2011-10-28",
-      "runtime": 90,
-      "plot": "An outlaw cat, his childhood egg-friend, and a seductive thief kitty set out in search for the eggs of the fabled Golden Goose to clear his name, restore his lost honor, and regain the trust of his mother and town.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTMxMTU5MTY4MV5BMl5BanBnXkFtZTcwNzgyNjg2NQ@@._V1_.jpg",
-      "imdbrating": "6.60",
-      "imdbvotes": 189941,
-      "imdbid": "tt0448694",
-      "boxoffice": 149260504,
-      "genres": ["Action", "Adventure", "Animation"],
-      "awards": [],
-      "countries": ["India", "United States"],
-      "languages": ["English", "Spanish"],
-      "actors": ["Antonio Banderas", "Salma Hayek", "Zach Galifianakis"],
-      "directors": ["Chris Miller"],
-      "writers": ["Brian Lynch", "Tom Wheeler", "William Davies"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "33be0877-54a3-46bc-84e7-dee76e0780d2",
-    "fields": {
-      "title": "Alice in Wonderland",
-      "created_at": "2024-02-15T15:28:37.349Z",
-      "updated_at": "2024-02-15T15:28:37.350Z",
-      "rated": "PG",
-      "released": "2010-03-05",
-      "runtime": 108,
-      "plot": "Nineteen-year-old Alice returns to the magical world from her childhood adventure, where she reunites with her old friends and learns of her true destiny: to end the Red Queen's reign of terror.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTMwNjAxMTc0Nl5BMl5BanBnXkFtZTcwODc3ODk5Mg@@._V1_.jpg",
-      "imdbrating": "6.40",
-      "imdbvotes": 436544,
-      "imdbid": "tt1014759",
-      "boxoffice": 334191110,
-      "genres": ["Adventure", "Family", "Fantasy"],
-      "awards": [],
-      "countries": [
-        "Canada",
-        "Italy",
-        "Japan",
-        "United Kingdom",
-        "United States"
-      ],
-      "languages": ["English", "Russian", "Ukrainian"],
-      "actors": ["Helena Bonham Carter", "Johnny Depp", "Mia Wasikowska"],
-      "directors": ["Tim Burton"],
-      "writers": ["Lewis Carroll", "Linda Woolverton"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "33d90286-3f39-4e8f-8ebc-36d9ed2745e8",
     "fields": {
       "title": "Suicide Squad",
@@ -1420,31 +1289,6 @@
       "actors": ["Matthew McConaughey", "Reese Witherspoon", "Seth MacFarlane"],
       "directors": ["Christophe Lourdelet", "Garth Jennings"],
       "writers": ["Garth Jennings"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "36d279d6-bf9d-4ca8-aa42-a902dfd2446a",
-    "fields": {
-      "title": "Men in Black",
-      "created_at": "2024-02-15T15:30:59.488Z",
-      "updated_at": "2024-02-15T15:30:59.488Z",
-      "rated": "PG-13",
-      "released": "1997-07-02",
-      "runtime": 98,
-      "plot": "A police officer joins a secret organization that polices and monitors extraterrestrial interactions on Earth.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BOTlhYTVkMDktYzIyNC00NzlkLTlmN2ItOGEyMWQ4OTA2NDdmXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
-      "imdbrating": "7.30",
-      "imdbvotes": 606695,
-      "imdbid": "tt0119654",
-      "boxoffice": 250690539,
-      "genres": ["Action", "Adventure", "Comedy"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Spanish"],
-      "actors": ["Linda Fiorentino", "Tommy Lee Jones", "Will Smith"],
-      "directors": ["Barry Sonnenfeld"],
-      "writers": ["Ed Solomon", "Lowell Cunningham"]
     }
   },
   {
@@ -1570,42 +1414,6 @@
       "actors": ["Josh Duhamel", "Megan Fox", "Shia LaBeouf"],
       "directors": ["Michael Bay"],
       "writers": ["Alex Kurtzman", "Ehren Kruger", "Roberto Orci"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "3b7b98cf-2663-49c4-9941-aab3fc922080",
-    "fields": {
-      "title": "Wonder Woman",
-      "created_at": "2024-02-15T15:28:19.609Z",
-      "updated_at": "2024-02-15T15:28:19.610Z",
-      "rated": "PG-13",
-      "released": "2017-06-02",
-      "runtime": 141,
-      "plot": "When a pilot crashes and tells of conflict in the outside world, Diana, an Amazonian warrior in training, leaves home to fight a war, discovering her full powers and true destiny.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTYzODQzYjQtNTczNC00MzZhLTg1ZWYtZDUxYmQ3ZTY4NzA1XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg",
-      "imdbrating": "7.30",
-      "imdbvotes": 694141,
-      "imdbid": "tt0451279",
-      "boxoffice": 412845172,
-      "genres": ["Action", "Adventure", "Fantasy"],
-      "awards": [],
-      "countries": ["China", "United States"],
-      "languages": [
-        "Ancient (to 1453)",
-        "Chinese",
-        "Dutch",
-        "English",
-        "Flemish",
-        "French",
-        "German",
-        "Greek",
-        "North American Indian",
-        "Spanish"
-      ],
-      "actors": ["Chris Pine", "Gal Gadot", "Robin Wright"],
-      "directors": ["Patty Jenkins"],
-      "writers": ["Allan Heinberg", "Jason Fuchs", "Zack Snyder"]
     }
   },
   {
@@ -2006,31 +1814,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "4bc51506-3677-48c7-a3f2-6fe70f43b9c7",
-    "fields": {
-      "title": "Men in Black",
-      "created_at": "2024-02-15T15:00:13.955Z",
-      "updated_at": "2024-02-15T15:00:13.956Z",
-      "rated": "PG-13",
-      "released": "1997-07-02",
-      "runtime": 98,
-      "plot": "A police officer joins a secret organization that polices and monitors extraterrestrial interactions on Earth.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BOTlhYTVkMDktYzIyNC00NzlkLTlmN2ItOGEyMWQ4OTA2NDdmXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
-      "imdbrating": "7.30",
-      "imdbvotes": 606695,
-      "imdbid": "tt0119654",
-      "boxoffice": 250690539,
-      "genres": [],
-      "awards": [],
-      "countries": [],
-      "languages": [],
-      "actors": ["Linda Fiorentino", "Tommy Lee Jones", "Will Smith"],
-      "directors": ["Barry Sonnenfeld"],
-      "writers": []
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "4c6cfe0f-b324-4df5-a876-6bb7e570e717",
     "fields": {
       "title": "Independence Day",
@@ -2184,31 +1967,6 @@
       "actors": ["Daniel Craig", "Mathieu Amalric", "Olga Kurylenko"],
       "directors": ["Marc Forster"],
       "writers": ["Neal Purvis", "Paul Haggis", "Robert Wade"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "5760bbb5-a4bd-4617-bd4f-9de6f6fe5286",
-    "fields": {
-      "title": "The Avengers",
-      "created_at": "2024-02-15T15:28:32.441Z",
-      "updated_at": "2024-02-15T15:28:32.441Z",
-      "rated": "PG-13",
-      "released": "2012-05-04",
-      "runtime": 143,
-      "plot": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
-      "imdbrating": "8.00",
-      "imdbvotes": 1449383,
-      "imdbid": "tt0848228",
-      "boxoffice": 623357910,
-      "genres": ["Action", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Russian"],
-      "actors": ["Chris Evans", "Robert Downey Jr.", "Scarlett Johansson"],
-      "directors": ["Joss Whedon"],
-      "writers": ["Joss Whedon", "Zak Penn"]
     }
   },
   {
@@ -2445,31 +2203,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "5e5f8e26-767c-41c0-95fe-e7d23f25a86a",
-    "fields": {
-      "title": "Interstellar",
-      "created_at": "2024-02-15T15:28:29.965Z",
-      "updated_at": "2024-02-15T15:28:29.966Z",
-      "rated": "PG-13",
-      "released": "2014-11-07",
-      "runtime": 169,
-      "plot": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
-      "imdbrating": "8.70",
-      "imdbvotes": 2053873,
-      "imdbid": "tt0816692",
-      "boxoffice": 188020017,
-      "genres": ["Adventure", "Drama", "Sci-Fi"],
-      "awards": [],
-      "countries": ["Canada", "United Kingdom", "United States"],
-      "languages": ["English"],
-      "actors": ["Anne Hathaway", "Jessica Chastain", "Matthew McConaughey"],
-      "directors": ["Christopher Nolan"],
-      "writers": ["Christopher Nolan", "Jonathan Nolan"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "62161eb4-7fbd-4d36-b0fd-7bcad3fc2d98",
     "fields": {
       "title": "Doctor Strange in the Multiverse of Madness",
@@ -2520,56 +2253,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "63e7a919-29b9-4adc-9b3d-eecdb76fbc0a",
-    "fields": {
-      "title": "The Smurfs",
-      "created_at": "2024-02-15T15:28:23.085Z",
-      "updated_at": "2024-02-15T15:28:23.086Z",
-      "rated": "PG",
-      "released": "2011-07-29",
-      "runtime": 103,
-      "plot": "When the evil wizard Gargamel chases the tiny blue Smurfs out of their village, they tumble from their magical world into New York City.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNDUyMmFiYTctZDcyYS00OGY4LTk1ZmYtZjBmODBlZTc1NjU4XkEyXkFqcGdeQXVyNTk1MTAyODc@._V1_.jpg",
-      "imdbrating": "5.40",
-      "imdbvotes": 95882,
-      "imdbid": "tt0472181",
-      "boxoffice": 142614158,
-      "genres": ["Adventure", "Animation", "Comedy"],
-      "awards": [],
-      "countries": ["Belgium", "Canada", "United States"],
-      "languages": ["English"],
-      "actors": ["Hank Azaria", "Jonathan Winters", "Katy Perry"],
-      "directors": ["Raja Gosnell"],
-      "writers": ["David N. Weiss", "J. David Stem", "Jay Scherick"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "646230c8-2d2c-4b38-9a76-f25bd0fe9122",
-    "fields": {
-      "title": "The Lost World: Jurassic Park",
-      "created_at": "2024-02-15T15:27:54.284Z",
-      "updated_at": "2024-02-15T15:27:54.285Z",
-      "rated": "PG-13",
-      "released": "1997-05-23",
-      "runtime": 129,
-      "plot": "A research team is sent to the Jurassic Park Site B island to study the dinosaurs there, while an InGen team approaches with another agenda.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMDFlMmM4Y2QtNDg1ZS00MWVlLTlmODgtZDdhYjY5YjdhN2M0XkEyXkFqcGdeQXVyNTI4MjkwNjA@._V1_.jpg",
-      "imdbrating": "6.50",
-      "imdbvotes": 440408,
-      "imdbid": "tt0119567",
-      "boxoffice": 229086679,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Spanish"],
-      "actors": ["Jeff Goldblum", "Julianne Moore", "Pete Postlethwaite"],
-      "directors": ["Steven Spielberg"],
-      "writers": ["David Koepp", "Michael Crichton"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "6566e7c7-7450-4d04-b8d2-78a86f3e6b00",
     "fields": {
       "title": "Finding Dory",
@@ -2591,31 +2274,6 @@
       "actors": ["Albert Brooks", "Ed O'Neill", "Ellen DeGeneres"],
       "directors": ["Andrew Stanton", "Angus MacLane"],
       "writers": ["Andrew Stanton", "Victoria Strouse"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "65f67263-0439-475f-80fc-d7943351f171",
-    "fields": {
-      "title": "The Lord of the Rings: The Return of the King",
-      "created_at": "2024-02-15T15:27:56.939Z",
-      "updated_at": "2024-02-15T15:27:56.940Z",
-      "rated": "PG-13",
-      "released": "2003-12-17",
-      "runtime": 201,
-      "plot": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
-      "imdbrating": "9.00",
-      "imdbvotes": 1955374,
-      "imdbid": "tt0167260",
-      "boxoffice": 379427292,
-      "genres": ["Action", "Adventure", "Drama"],
-      "awards": [],
-      "countries": ["New Zealand", "United States"],
-      "languages": ["English", "Old English", "Quenya", "Sindarin"],
-      "actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
-      "directors": ["Peter Jackson"],
-      "writers": ["Fran Walsh", "J.R.R. Tolkien", "Philippa Boyens"]
     }
   },
   {
@@ -2666,62 +2324,6 @@
       "actors": ["Dakota Johnson", "Jamie Dornan", "Jennifer Ehle"],
       "directors": ["Sam Taylor-Johnson"],
       "writers": ["E.L. James", "Kelly Marcel"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "69b286d0-41f7-4135-a59b-f7f3d04f2767",
-    "fields": {
-      "title": "Toy Story 3",
-      "created_at": "2024-02-15T15:28:15.034Z",
-      "updated_at": "2024-02-15T15:28:15.035Z",
-      "rated": "G",
-      "released": "2010-06-18",
-      "runtime": 103,
-      "plot": "The toys are mistakenly delivered to a day-care center instead of the attic right before Andy leaves for college, and it's up to Woody to convince the other toys that they weren't abandoned and to return home.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_.jpg",
-      "imdbrating": "8.30",
-      "imdbvotes": 884294,
-      "imdbid": "tt0435761",
-      "boxoffice": 415004880,
-      "genres": ["Adventure", "Animation", "Comedy"],
-      "awards": [],
-      "countries": ["Japan", "United States"],
-      "languages": ["English", "Russian", "Spanish", "Ukrainian"],
-      "actors": ["Joan Cusack", "Tim Allen", "Tom Hanks"],
-      "directors": ["Lee Unkrich"],
-      "writers": ["Andrew Stanton", "John Lasseter", "Lee Unkrich"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "6afc6080-b54a-4998-a760-3934d344f655",
-    "fields": {
-      "title": "Casino Royale",
-      "created_at": "2024-02-15T15:28:06.159Z",
-      "updated_at": "2024-02-15T15:28:06.160Z",
-      "rated": "PG-13",
-      "released": "2006-11-17",
-      "runtime": 144,
-      "plot": "After earning 00 status and a licence to kill, secret agent James Bond sets out on his first mission as 007. Bond must defeat a private banker funding terrorists in a high-stakes game of poker at Casino Royale, Montenegro.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMDI5ZWJhOWItYTlhOC00YWNhLTlkNzctNDU5YTI1M2E1MWZhXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_.jpg",
-      "imdbrating": "8.00",
-      "imdbvotes": 689755,
-      "imdbid": "tt0381061",
-      "boxoffice": 167445960,
-      "genres": ["Action", "Adventure", "Thriller"],
-      "awards": [],
-      "countries": [
-        "Bahamas",
-        "Czech Republic",
-        "Germany",
-        "United Kingdom",
-        "United States"
-      ],
-      "languages": ["English", "French", "German", "Italian", "Serbian"],
-      "actors": ["Daniel Craig", "Eva Green", "Judi Dench"],
-      "directors": ["Martin Campbell"],
-      "writers": ["Neal Purvis", "Paul Haggis", "Robert Wade"]
     }
   },
   {
@@ -2909,31 +2511,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "792dc4b7-bc08-4360-908e-a1a2dff93d96",
-    "fields": {
-      "title": "Harry Potter and the Prisoner of Azkaban",
-      "created_at": "2024-02-15T15:27:59.330Z",
-      "updated_at": "2024-02-15T15:27:59.330Z",
-      "rated": "PG",
-      "released": "2004-06-04",
-      "runtime": 142,
-      "plot": "Harry Potter, Ron and Hermione return to Hogwarts School of Witchcraft and Wizardry for their third year of study, where they delve into the mystery surrounding an escaped prisoner who poses a dangerous threat to the young wizard.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTY4NTIwODg0N15BMl5BanBnXkFtZTcwOTc0MjEzMw@@._V1_.jpg",
-      "imdbrating": "7.90",
-      "imdbvotes": 683540,
-      "imdbid": "tt0304141",
-      "boxoffice": 250105651,
-      "genres": ["Adventure", "Family", "Fantasy"],
-      "awards": [],
-      "countries": ["United Kingdom", "United States"],
-      "languages": ["English", "Latin", "Old English"],
-      "actors": ["Daniel Radcliffe", "Emma Watson", "Rupert Grint"],
-      "directors": ["Alfonso Cuarón"],
-      "writers": ["J.K. Rowling", "Steve Kloves"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "79455e46-95e2-4e13-ab5a-695acbb7bd41",
     "fields": {
       "title": "The Fate of the Furious",
@@ -3092,31 +2669,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "7b92bf75-cc90-4328-93c5-8bed2c86dfe2",
-    "fields": {
-      "title": "Pirates of the Caribbean: Dead Man's Chest",
-      "created_at": "2024-02-15T15:31:08.698Z",
-      "updated_at": "2024-02-15T15:31:08.699Z",
-      "rated": "PG-13",
-      "released": "2006-07-07",
-      "runtime": 151,
-      "plot": "Jack Sparrow races to recover the heart of Davy Jones to avoid enslaving his soul to Jones' service, as other friends and foes seek the heart for their own agenda as well.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTcwODc1MTMxM15BMl5BanBnXkFtZTYwMDg1NzY3._V1_.jpg",
-      "imdbrating": "7.40",
-      "imdbvotes": 759170,
-      "imdbid": "tt0383574",
-      "boxoffice": 423315812,
-      "genres": ["Action", "Adventure", "Fantasy"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "French", "Greek", "Mandarin", "Turkish"],
-      "actors": ["Johnny Depp", "Keira Knightley", "Orlando Bloom"],
-      "directors": ["Gore Verbinski"],
-      "writers": ["Stuart Beattie", "Ted Elliott", "Terry Rossio"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "7bb3dede-b024-4523-9706-834bc3fe50e2",
     "fields": {
       "title": "Frozen II",
@@ -3138,56 +2690,6 @@
       "actors": ["Idina Menzel", "Josh Gad", "Kristen Bell"],
       "directors": ["Chris Buck", "Jennifer Lee"],
       "writers": ["Chris Buck", "Hans Christian Andersen", "Jennifer Lee"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "7cdbbe07-91bb-4633-9b2c-534e2b7bf6b4",
-    "fields": {
-      "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
-      "created_at": "2024-02-15T15:28:00.084Z",
-      "updated_at": "2024-02-15T15:28:00.085Z",
-      "rated": "PG-13",
-      "released": "2003-07-09",
-      "runtime": 143,
-      "plot": "Blacksmith Will Turner teams up with eccentric pirate \"Captain\" Jack Sparrow to save his love, the governor's daughter, from Jack's former pirate allies, who are now undead.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNGYyZGM5MGMtYTY2Ni00M2Y1LWIzNjQtYWUzM2VlNGVhMDNhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
-      "imdbrating": "8.10",
-      "imdbvotes": 1193718,
-      "imdbid": "tt0325980",
-      "boxoffice": 305413918,
-      "genres": ["Action", "Adventure", "Fantasy"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English"],
-      "actors": ["Geoffrey Rush", "Johnny Depp", "Orlando Bloom"],
-      "directors": ["Gore Verbinski"],
-      "writers": ["Stuart Beattie", "Ted Elliott", "Terry Rossio"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "7d1c8cf5-46e3-4384-a307-b57818a22139",
-    "fields": {
-      "title": "Monsters, Inc.",
-      "created_at": "2024-02-15T15:31:02.640Z",
-      "updated_at": "2024-02-15T15:31:02.640Z",
-      "rated": "G",
-      "released": "2001-11-23",
-      "runtime": 92,
-      "plot": "In order to power the city, monsters have to scare children so that they scream. However, the children are toxic to the monsters, and after a child gets through, two monsters realize things may not be what they think.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTY1NTI0ODUyOF5BMl5BanBnXkFtZTgwNTEyNjQ0MDE@._V1_.jpg",
-      "imdbrating": "8.10",
-      "imdbvotes": 967040,
-      "imdbid": "tt0198781",
-      "boxoffice": 290642256,
-      "genres": ["Adventure", "Animation", "Comedy"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English"],
-      "actors": ["Billy Crystal", "John Goodman", "Mary Gibbs"],
-      "directors": ["David Silverman", "Lee Unkrich", "Pete Docter"],
-      "writers": ["Jeff Pidgeon", "Jill Culton", "Pete Docter"]
     }
   },
   {
@@ -3219,31 +2721,6 @@
       "actors": ["Dakota Fanning", "Tim Robbins", "Tom Cruise"],
       "directors": ["Steven Spielberg"],
       "writers": ["David Koepp", "H.G. Wells", "Josh Friedman"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "7e6fa77a-e3bb-4b62-ac0d-1b7acde6ea8c",
-    "fields": {
-      "title": "Finding Nemo",
-      "created_at": "2024-02-15T15:27:58.492Z",
-      "updated_at": "2024-02-15T15:27:58.493Z",
-      "rated": "G",
-      "released": "2003-05-30",
-      "runtime": 100,
-      "plot": "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZTAzNWZlNmUtZDEzYi00ZjA5LWIwYjEtZGM1NWE1MjE4YWRhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
-      "imdbrating": "8.20",
-      "imdbvotes": 1102112,
-      "imdbid": "tt0266543",
-      "boxoffice": 380843261,
-      "genres": ["Adventure", "Animation", "Comedy"],
-      "awards": [],
-      "countries": ["Japan", "United States"],
-      "languages": ["English", "Japanese", "Russian"],
-      "actors": ["Albert Brooks", "Alexander Gould", "Ellen DeGeneres"],
-      "directors": ["Andrew Stanton", "Lee Unkrich"],
-      "writers": ["Andrew Stanton", "Bob Peterson", "David Reynolds"]
     }
   },
   {
@@ -3305,31 +2782,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "80fd4da9-fd0a-4779-adf8-6054309187ff",
-    "fields": {
-      "title": "Harry Potter and the Sorcerer's Stone",
-      "created_at": "2024-02-15T15:27:58.294Z",
-      "updated_at": "2024-02-15T15:27:58.295Z",
-      "rated": "PG",
-      "released": "2001-11-16",
-      "runtime": 152,
-      "plot": "An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNjQ3NWNlNmQtMTE5ZS00MDdmLTlkZjUtZTBlM2UxMGFiMTU3XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_.jpg",
-      "imdbrating": "7.60",
-      "imdbvotes": 847177,
-      "imdbid": "tt0241527",
-      "boxoffice": 318886962,
-      "genres": ["Adventure", "Family", "Fantasy"],
-      "awards": [],
-      "countries": ["United Kingdom", "United States"],
-      "languages": ["English", "Latin"],
-      "actors": ["Daniel Radcliffe", "Richard Harris", "Rupert Grint"],
-      "directors": ["Chris Columbus"],
-      "writers": ["J.K. Rowling", "Steve Kloves"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "810dc965-418a-4573-89e7-a413fd95deb2",
     "fields": {
       "title": "X-Men: Days of Future Past",
@@ -3351,56 +2803,6 @@
       "actors": ["Hugh Jackman", "Ian McKellen", "Patrick Stewart"],
       "directors": ["Bryan Singer"],
       "writers": ["Jane Goldman", "Matthew Vaughn", "Simon Kinberg"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "8318760d-8da2-4627-a0a6-943394a08fca",
-    "fields": {
-      "title": "The Lost World: Jurassic Park",
-      "created_at": "2024-02-15T15:30:59.233Z",
-      "updated_at": "2024-02-15T15:30:59.234Z",
-      "rated": "PG-13",
-      "released": "1997-05-23",
-      "runtime": 129,
-      "plot": "A research team is sent to the Jurassic Park Site B island to study the dinosaurs there, while an InGen team approaches with another agenda.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMDFlMmM4Y2QtNDg1ZS00MWVlLTlmODgtZDdhYjY5YjdhN2M0XkEyXkFqcGdeQXVyNTI4MjkwNjA@._V1_.jpg",
-      "imdbrating": "6.50",
-      "imdbvotes": 440408,
-      "imdbid": "tt0119567",
-      "boxoffice": 229086679,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Spanish"],
-      "actors": ["Jeff Goldblum", "Julianne Moore", "Pete Postlethwaite"],
-      "directors": ["Steven Spielberg"],
-      "writers": ["David Koepp", "Michael Crichton"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "84663058-42d1-4c66-9f4e-08fc09907f52",
-    "fields": {
-      "title": "Independence Day",
-      "created_at": "2024-02-15T15:00:13.704Z",
-      "updated_at": "2024-02-15T15:00:13.705Z",
-      "rated": "PG-13",
-      "released": "1996-07-03",
-      "runtime": 145,
-      "plot": "The aliens are coming and their goal is to invade and destroy Earth. Fighting superior technology, mankind's best weapon is the will to survive.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-      "imdbrating": "7.00",
-      "imdbvotes": 601166,
-      "imdbid": "tt0116629",
-      "boxoffice": 306169268,
-      "genres": [],
-      "awards": [],
-      "countries": [],
-      "languages": [],
-      "actors": ["Bill Pullman", "Jeff Goldblum", "Will Smith"],
-      "directors": ["Roland Emmerich"],
-      "writers": []
     }
   },
   {
@@ -3555,56 +2957,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "8ae2278b-f914-46bb-a3af-a109398b7265",
-    "fields": {
-      "title": "The Passion of the Christ",
-      "created_at": "2024-02-15T15:28:00.578Z",
-      "updated_at": "2024-02-15T15:28:00.579Z",
-      "rated": "R",
-      "released": "2004-02-25",
-      "runtime": 127,
-      "plot": "Depicts the final twelve hours in the life of Jesus of Nazareth, on the day of his crucifixion in Jerusalem.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNDY1N2IyYWMtZTY4OS00OGM1LTkxNmUtOTQzYmM5MmI2YmVmXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
-      "imdbrating": "7.20",
-      "imdbvotes": 247461,
-      "imdbid": "tt0335345",
-      "boxoffice": 370782930,
-      "genres": ["Drama"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["Aramaic", "English", "Hebrew", "Latin"],
-      "actors": ["Jim Caviezel", "Maia Morgenstern", "Monica Bellucci"],
-      "directors": ["Mel Gibson"],
-      "writers": ["Benedict Fitzgerald", "Mel Gibson"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "8b53fc40-32ba-4e29-8488-1b5fa364e74c",
-    "fields": {
-      "title": "Indiana Jones and the Kingdom of the Crystal Skull",
-      "created_at": "2024-02-15T15:31:06.855Z",
-      "updated_at": "2024-02-15T15:31:06.856Z",
-      "rated": "PG-13",
-      "released": "2008-05-22",
-      "runtime": 122,
-      "plot": "Indiana Jones becomes entangled in a Soviet plot to uncover the secret behind mysterious artifacts known as the Crystal Skulls.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZDIzNzM5MDUtZmI5MC00NGQ5LWFlNzEtYzE3ODIxNDI3ZmNhXkEyXkFqcGdeQXVyNjQ4ODE4MzQ@._V1_.jpg",
-      "imdbrating": "6.20",
-      "imdbvotes": 488307,
-      "imdbid": "tt0367882",
-      "boxoffice": 317101119,
-      "genres": ["Action", "Adventure"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "German", "Russian"],
-      "actors": ["Cate Blanchett", "Harrison Ford", "Shia LaBeouf"],
-      "directors": ["Steven Spielberg"],
-      "writers": ["David Koepp", "George Lucas", "Jeff Nathanson"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "8cd80a55-7edd-4006-909f-cc4facb8c9e7",
     "fields": {
       "title": "King Kong",
@@ -3755,31 +3107,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "90dcdaf6-549c-43d6-985d-1a70cd4836d6",
-    "fields": {
-      "title": "Mamma Mia!",
-      "created_at": "2024-02-15T15:28:29.159Z",
-      "updated_at": "2024-02-15T15:28:29.160Z",
-      "rated": "PG-13",
-      "released": "2008-07-18",
-      "runtime": 108,
-      "plot": "The story of a bride-to-be trying to find her real father told using hit songs by the popular 1970s group ABBA.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTA2MDU0MjM0MzReQTJeQWpwZ15BbWU3MDYwNzgwNzE@._V1_.jpg",
-      "imdbrating": "6.50",
-      "imdbvotes": 270516,
-      "imdbid": "tt0795421",
-      "boxoffice": 144330569,
-      "genres": ["Comedy", "Musical", "Romance"],
-      "awards": [],
-      "countries": ["Germany", "United Kingdom", "United States"],
-      "languages": ["English", "Greek"],
-      "actors": ["Amanda Seyfried", "Meryl Streep", "Pierce Brosnan"],
-      "directors": ["Phyllida Lloyd"],
-      "writers": ["Catherine Johnson"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "916bafba-04b6-4e3d-9f99-dad6e156f5d0",
     "fields": {
       "title": "Star Wars: Episode III - Revenge of the Sith",
@@ -3840,137 +3167,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "92a29144-0432-4fae-92c4-a1b55e68dad3",
-    "fields": {
-      "title": "Harry Potter and the Goblet of Fire",
-      "created_at": "2024-02-15T15:31:05.573Z",
-      "updated_at": "2024-02-15T15:31:05.573Z",
-      "rated": "PG-13",
-      "released": "2005-11-18",
-      "runtime": 157,
-      "plot": "Harry Potter finds himself competing in a hazardous tournament between rival schools of magic, but he is distracted by recurring nightmares.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTI1NDMyMjExOF5BMl5BanBnXkFtZTcwOTc4MjQzMQ@@._V1_.jpg",
-      "imdbrating": "7.70",
-      "imdbvotes": 674184,
-      "imdbid": "tt0330373",
-      "boxoffice": 290469928,
-      "genres": ["Adventure", "Family", "Fantasy"],
-      "awards": [],
-      "countries": ["United Kingdom", "United States"],
-      "languages": ["English", "French", "Latin"],
-      "actors": ["Daniel Radcliffe", "Emma Watson", "Rupert Grint"],
-      "directors": ["Mike Newell"],
-      "writers": ["J.K. Rowling", "Steve Kloves"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "9323d933-038a-4f95-a575-a3ad2b768351",
-    "fields": {
-      "title": "The Sixth Sense",
-      "created_at": "2024-02-15T15:27:56.694Z",
-      "updated_at": "2024-02-15T15:27:56.695Z",
-      "rated": "PG-13",
-      "released": "1999-08-06",
-      "runtime": 107,
-      "plot": "Malcolm Crowe, a child psychologist, starts treating a young boy, Cole, who encounters dead people and convinces him to help them. In turn, Cole helps Malcolm reconcile with his estranged wife.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMWM4NTFhYjctNzUyNi00NGMwLTk3NTYtMDIyNTZmMzRlYmQyXkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_.jpg",
-      "imdbrating": "8.20",
-      "imdbvotes": 1041928,
-      "imdbid": "tt0167404",
-      "boxoffice": 293506292,
-      "genres": ["Drama", "Mystery", "Thriller"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Latin", "Spanish"],
-      "actors": ["Bruce Willis", "Haley Joel Osment", "Toni Collette"],
-      "directors": ["M. Night Shyamalan"],
-      "writers": ["M. Night Shyamalan"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "94370cde-c224-4654-91e2-3b6c36c955fc",
-    "fields": {
-      "title": "Star Wars: Episode III - Revenge of the Sith",
-      "created_at": "2024-02-15T15:00:14.080Z",
-      "updated_at": "2024-02-15T15:00:14.080Z",
-      "rated": "PG-13",
-      "released": "2005-05-19",
-      "runtime": 140,
-      "plot": "Three years into the Clone Wars, Obi-Wan pursues a new threat, while Anakin is lured by Chancellor Palpatine into a sinister plot to rule the galaxy.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNTc4MTc3NTQ5OF5BMl5BanBnXkFtZTcwOTg0NjI4NA@@._V1_.jpg",
-      "imdbrating": "7.60",
-      "imdbvotes": 837300,
-      "imdbid": "tt0121766",
-      "boxoffice": 380270577,
-      "genres": [],
-      "awards": [],
-      "countries": [],
-      "languages": [],
-      "actors": ["Ewan McGregor", "Hayden Christensen", "Natalie Portman"],
-      "directors": ["George Lucas"],
-      "writers": []
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "9484f1c2-939f-47ca-a48b-8c3bee152217",
-    "fields": {
-      "title": "War of the Worlds",
-      "created_at": "2024-02-15T15:28:10.887Z",
-      "updated_at": "2024-02-15T15:28:10.888Z",
-      "rated": "PG-13",
-      "released": "2005-06-29",
-      "runtime": 116,
-      "plot": "An alien invasion threatens the future of humanity. The catastrophic nightmare is depicted through the eyes of one American family fighting for survival.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNDUyODAzNDI1Nl5BMl5BanBnXkFtZTcwMDA2NDAzMw@@._V1_.jpg",
-      "imdbrating": "6.50",
-      "imdbvotes": 471942,
-      "imdbid": "tt0407304",
-      "boxoffice": 234280354,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": [
-        "Japan",
-        "Mexico",
-        "Russia",
-        "South Korea",
-        "United States"
-      ],
-      "languages": ["Czech", "Dutch", "English", "German", "Russian"],
-      "actors": ["Dakota Fanning", "Tim Robbins", "Tom Cruise"],
-      "directors": ["Steven Spielberg"],
-      "writers": ["David Koepp", "H.G. Wells", "Josh Friedman"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "96432ddc-e7f0-4d79-a5a9-83f99de2f5c5",
-    "fields": {
-      "title": "Shrek 2",
-      "created_at": "2024-02-15T15:27:59.056Z",
-      "updated_at": "2024-02-15T15:27:59.056Z",
-      "rated": "PG",
-      "released": "2004-05-19",
-      "runtime": 93,
-      "plot": "Shrek and Fiona travel to the Kingdom of Far Far Away, where Fiona's parents are King and Queen, to celebrate their marriage. When they arrive, they find they are not as welcome as they thought they would be.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMDJhMGRjN2QtNDUxYy00NGM3LThjNGQtMmZiZTRhNjM4YzUxL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-      "imdbrating": "7.30",
-      "imdbvotes": 499360,
-      "imdbid": "tt0298148",
-      "boxoffice": 441426807,
-      "genres": ["Adventure", "Animation", "Comedy"],
-      "awards": [],
-      "countries": ["Canada", "United States"],
-      "languages": ["English", "Russian", "Ukrainian"],
-      "actors": ["Cameron Diaz", "Eddie Murphy", "Mike Myers"],
-      "directors": ["Andrew Adamson", "Conrad Vernon", "Kelly Asbury"],
-      "writers": ["Andrew Adamson", "Joe Stillman", "William Steig"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "968bd03a-07e1-4607-9a1c-66f1f853d8a9",
     "fields": {
       "title": "The Batman",
@@ -4024,31 +3220,6 @@
       "actors": ["Josh Brolin", "Morena Baccarin", "Ryan Reynolds"],
       "directors": ["David Leitch"],
       "writers": ["Paul Wernick", "Rhett Reese", "Ryan Reynolds"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "9a06ca09-c5ef-47a1-b6b3-3bae8d4a07d8",
-    "fields": {
-      "title": "Spider-Man 3",
-      "created_at": "2024-02-15T15:31:09.794Z",
-      "updated_at": "2024-02-15T15:31:09.795Z",
-      "rated": "PG-13",
-      "released": "2007-05-04",
-      "runtime": 139,
-      "plot": "A strange black entity from another world bonds with Peter Parker and causes inner turmoil as he contends with new villains, temptations, and revenge.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYTk3MDljOWQtNGI2My00OTEzLTlhYjQtOTQ4ODM2MzUwY2IwXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_.jpg",
-      "imdbrating": "6.30",
-      "imdbvotes": 630538,
-      "imdbid": "tt0413300",
-      "boxoffice": 336530303,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "French"],
-      "actors": ["Kirsten Dunst", "Tobey Maguire", "Topher Grace"],
-      "directors": ["Sam Raimi"],
-      "writers": ["Alvin Sargent", "Ivan Raimi", "Sam Raimi"]
     }
   },
   {
@@ -4153,31 +3324,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "9cfc730c-417a-480b-8a0a-f9f9119843e1",
-    "fields": {
-      "title": "Armageddon",
-      "created_at": "2024-02-15T15:31:01.070Z",
-      "updated_at": "2024-02-15T15:31:01.070Z",
-      "rated": "PG-13",
-      "released": "1998-07-01",
-      "runtime": 151,
-      "plot": "After discovering that an asteroid the size of Texas will impact Earth in less than a month, NASA recruits a misfit team of deep-core drillers to save the planet.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMGM0NzE2YjgtZGQ4YS00MmY3LTg4ZDMtYjUwNTNiNTJhNTQ5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-      "imdbrating": "6.70",
-      "imdbvotes": 447608,
-      "imdbid": "tt0120591",
-      "boxoffice": 201578182,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Indonesian", "Russian"],
-      "actors": ["Ben Affleck", "Billy Bob Thornton", "Bruce Willis"],
-      "directors": ["Michael Bay"],
-      "writers": ["J.J. Abrams", "Jonathan Hensleigh", "Tony Gilroy"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "9d582861-a7e0-4d5a-8dca-defec35a09cf",
     "fields": {
       "title": "Spider-Man: Homecoming",
@@ -4199,31 +3345,6 @@
       "actors": ["Michael Keaton", "Robert Downey Jr.", "Tom Holland"],
       "directors": ["Jon Watts"],
       "writers": ["John Francis Daley", "Jon Watts", "Jonathan Goldstein"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "9fc1d446-3811-4510-ac1c-8da6f54fc28e",
-    "fields": {
-      "title": "I Am Legend",
-      "created_at": "2024-02-15T15:31:13.650Z",
-      "updated_at": "2024-02-15T15:31:13.651Z",
-      "rated": "PG-13",
-      "released": "2007-12-14",
-      "runtime": 101,
-      "plot": "Years after a plague kills most of humanity and transforms the rest into monsters, the sole survivor in New York City struggles valiantly to find a cure.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYTE1ZTBlYzgtNmMyNS00ZTQ2LWE4NjEtZjUxNDJkNTg2MzlhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
-      "imdbrating": "7.20",
-      "imdbvotes": 804678,
-      "imdbid": "tt0480249",
-      "boxoffice": 256393010,
-      "genres": ["Action", "Drama", "Horror"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English"],
-      "actors": ["Alice Braga", "Charlie Tahan", "Will Smith"],
-      "directors": ["Francis Lawrence"],
-      "writers": ["Akiva Goldsman", "Mark Protosevich", "Richard Matheson"]
     }
   },
   {
@@ -4278,56 +3399,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "a16df271-bb56-4a64-a27c-1aebf594914f",
-    "fields": {
-      "title": "Madagascar: Escape 2 Africa",
-      "created_at": "2024-02-15T15:28:24.901Z",
-      "updated_at": "2024-02-15T15:28:24.901Z",
-      "rated": "PG",
-      "released": "2008-11-07",
-      "runtime": 89,
-      "plot": "The Madagascar animals fly back to New York City, but crash-land on an African nature reserve in Kenya, where they meet others of their own kind, and Alex especially discovers his royal heritage as prince of a lion pride.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzNlYjFmZTMtMGI1OS00YmQwLWI5M2EtMTllNmVhZjAyMmJjXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_.jpg",
-      "imdbrating": "6.60",
-      "imdbvotes": 244637,
-      "imdbid": "tt0479952",
-      "boxoffice": 180010950,
-      "genres": ["Adventure", "Animation", "Comedy"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Russian"],
-      "actors": ["Ben Stiller", "Chris Rock", "David Schwimmer"],
-      "directors": ["Eric Darnell", "Tom McGrath"],
-      "writers": ["Eric Darnell", "Etan Cohen", "Tom McGrath"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "a1e5f944-e6ca-43ac-8207-73c524bb51ef",
-    "fields": {
-      "title": "Forrest Gump",
-      "created_at": "2024-02-15T15:00:13.455Z",
-      "updated_at": "2024-02-15T15:00:13.456Z",
-      "rated": "PG-13",
-      "released": "1994-07-06",
-      "runtime": 142,
-      "plot": "The history of the United States from the 1950s to the '70s unfolds from the perspective of an Alabama man with an IQ of 75, who yearns to be reunited with his childhood sweetheart.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-      "imdbrating": "8.80",
-      "imdbvotes": 2228850,
-      "imdbid": "tt0109830",
-      "boxoffice": 330455270,
-      "genres": [],
-      "awards": [],
-      "countries": [],
-      "languages": [],
-      "actors": ["Gary Sinise", "Robin Wright", "Tom Hanks"],
-      "directors": ["Robert Zemeckis"],
-      "writers": []
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "a2bfe456-2c4e-412f-8b00-07148658ee3e",
     "fields": {
       "title": "Aquaman",
@@ -4357,38 +3428,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "a2c239d5-9d12-4409-b755-befe47f67db6",
-    "fields": {
-      "title": "Life of Pi",
-      "created_at": "2024-02-15T15:31:12.609Z",
-      "updated_at": "2024-02-15T15:31:12.609Z",
-      "rated": "PG",
-      "released": "2012-11-21",
-      "runtime": 127,
-      "plot": "A young man who survives a disaster at sea is hurtled into an epic journey of adventure and discovery. While cast away, he forms an unexpected connection with another survivor: a fearsome Bengal tiger.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNTg2OTY2ODg5OF5BMl5BanBnXkFtZTcwODM5MTYxOA@@._V1_.jpg",
-      "imdbrating": "7.90",
-      "imdbvotes": 661382,
-      "imdbid": "tt0454876",
-      "boxoffice": 124987023,
-      "genres": ["Adventure", "Drama", "Fantasy"],
-      "awards": [],
-      "countries": [
-        "Canada",
-        "France",
-        "India",
-        "Taiwan",
-        "United Kingdom",
-        "United States"
-      ],
-      "languages": ["English", "French", "Hindi", "Japanese"],
-      "actors": ["Adil Hussain", "Irrfan Khan", "Suraj Sharma"],
-      "directors": ["Ang Lee"],
-      "writers": ["David Magee", "Yann Martel"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "a33f3908-5251-4a56-9c03-d282f232764c",
     "fields": {
       "title": "Ready Player One",
@@ -4410,31 +3449,6 @@
       "actors": ["Ben Mendelsohn", "Olivia Cooke", "Tye Sheridan"],
       "directors": ["Steven Spielberg"],
       "writers": ["Ernest Cline", "Zak Penn"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "a38944f0-fd9a-415f-a4ec-c3d3d8f3c7bc",
-    "fields": {
-      "title": "The Amazing Spider-Man",
-      "created_at": "2024-02-15T15:28:35.730Z",
-      "updated_at": "2024-02-15T15:28:35.730Z",
-      "rated": "PG-13",
-      "released": "2012-07-03",
-      "runtime": 136,
-      "plot": "After Peter Parker is bitten by a genetically altered spider, he gains newfound, spider-like powers and ventures out to save the city from the machinations of a mysterious reptilian foe.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_.jpg",
-      "imdbrating": "6.90",
-      "imdbvotes": 695252,
-      "imdbid": "tt0948470",
-      "boxoffice": 262030663,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English"],
-      "actors": ["Andrew Garfield", "Emma Stone", "Rhys Ifans"],
-      "directors": ["Marc Webb"],
-      "writers": ["Alvin Sargent", "James Vanderbilt", "Steve Kloves"]
     }
   },
   {
@@ -4521,31 +3535,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "a767fb0a-856c-4f47-8d9f-cebf0430afb4",
-    "fields": {
-      "title": "Hancock",
-      "created_at": "2024-02-15T15:28:17.503Z",
-      "updated_at": "2024-02-15T15:28:17.503Z",
-      "rated": "PG-13",
-      "released": "2008-07-02",
-      "runtime": 92,
-      "plot": "Hancock is a superhero whose ill-considered behavior regularly causes damage in the millions. He changes when the person he saves helps him improve his public image.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTgyMzc4ODU3NV5BMl5BanBnXkFtZTcwNjk5Mzc1MQ@@._V1_.jpg",
-      "imdbrating": "6.40",
-      "imdbvotes": 508089,
-      "imdbid": "tt0448157",
-      "boxoffice": 227946274,
-      "genres": ["Action", "Comedy", "Drama"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Japanese", "Vietnamese"],
-      "actors": ["Charlize Theron", "Jason Bateman", "Will Smith"],
-      "directors": ["Peter Berg"],
-      "writers": ["Vince Gilligan", "Vy Vincent Ngo"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "a7c118ae-41af-4796-be3b-febb22f11900",
     "fields": {
       "title": "Kung Fu Panda",
@@ -4596,56 +3585,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "a7d36c11-0209-4012-a72a-440f20537def",
-    "fields": {
-      "title": "Star Wars: Episode IV - A New Hope",
-      "created_at": "2024-02-15T15:00:13.060Z",
-      "updated_at": "2024-02-15T15:00:13.063Z",
-      "rated": "PG",
-      "released": "1977-05-25",
-      "runtime": 121,
-      "plot": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth ...",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
-      "imdbrating": "8.60",
-      "imdbvotes": 1435882,
-      "imdbid": "tt0076759",
-      "boxoffice": 460998507,
-      "genres": [],
-      "awards": [],
-      "countries": [],
-      "languages": [],
-      "actors": ["Carrie Fisher", "Harrison Ford", "Mark Hamill"],
-      "directors": ["George Lucas"],
-      "writers": []
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "a9f6d4ac-592e-47b6-81ce-6091c9475dc7",
-    "fields": {
-      "title": "Star Wars: Episode IV - A New Hope",
-      "created_at": "2024-02-15T15:30:57.777Z",
-      "updated_at": "2024-02-15T15:30:57.778Z",
-      "rated": "PG",
-      "released": "1977-05-25",
-      "runtime": 121,
-      "plot": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth ...",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
-      "imdbrating": "8.60",
-      "imdbvotes": 1435882,
-      "imdbid": "tt0076759",
-      "boxoffice": 460998507,
-      "genres": ["Action", "Adventure", "Fantasy"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English"],
-      "actors": ["Carrie Fisher", "Harrison Ford", "Mark Hamill"],
-      "directors": ["George Lucas"],
-      "writers": ["George Lucas"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "ae5e7dcd-61eb-42c0-85fb-bb30ab7c0ef4",
     "fields": {
       "title": "It",
@@ -4692,31 +3631,6 @@
       "actors": ["Rosie Huntington-Whiteley", "Shia LaBeouf", "Tyrese Gibson"],
       "directors": ["Michael Bay"],
       "writers": ["Ehren Kruger"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "af183f49-3005-494e-8fd9-5c7acffb0d10",
-    "fields": {
-      "title": "Ice Age: The Meltdown",
-      "created_at": "2024-02-15T15:31:11.015Z",
-      "updated_at": "2024-02-15T15:31:11.016Z",
-      "rated": "PG",
-      "released": "2006-03-31",
-      "runtime": 91,
-      "plot": "Manny, Sid and Diego discover that the ice age is coming to an end, and join everybody for a journey to higher ground. On the trip, they discover that Manny is not in fact the last of the woolly mammoths.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMjAwODg3OTAxMl5BMl5BanBnXkFtZTcwMjg2NjYyMw@@._V1_.jpg",
-      "imdbrating": "6.80",
-      "imdbvotes": 294106,
-      "imdbid": "tt0438097",
-      "boxoffice": 195330621,
-      "genres": ["Adventure", "Animation", "Comedy"],
-      "awards": [],
-      "countries": ["United Kingdom", "United States"],
-      "languages": ["English", "Russian"],
-      "actors": ["Denis Leary", "John Leguizamo", "Ray Romano"],
-      "directors": ["Carlos Saldanha"],
-      "writers": ["Gerry Swallow", "Jim Hecht", "Peter Gaulke"]
     }
   },
   {
@@ -4817,106 +3731,6 @@
       "actors": ["Bryce Dallas Howard", "Chris Pratt", "Ty Simpkins"],
       "directors": ["Colin Trevorrow"],
       "writers": ["Amanda Silver", "Colin Trevorrow", "Rick Jaffa"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "b0937f3f-7492-4961-a196-26cdee514992",
-    "fields": {
-      "title": "Spider-Man 2",
-      "created_at": "2024-02-15T15:27:59.542Z",
-      "updated_at": "2024-02-15T15:27:59.543Z",
-      "rated": "PG-13",
-      "released": "2004-06-30",
-      "runtime": 127,
-      "plot": "Peter Parker is beset with troubles in his failing personal life as he battles a former brilliant scientist named Otto Octavius.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMzY2ODk4NmUtOTVmNi00ZTdkLTlmOWYtMmE2OWVhNTU2OTVkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-      "imdbrating": "7.50",
-      "imdbvotes": 700041,
-      "imdbid": "tt0316654",
-      "boxoffice": 373585825,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["Chinese", "English", "Russian"],
-      "actors": ["Alfred Molina", "Kirsten Dunst", "Tobey Maguire"],
-      "directors": ["Sam Raimi"],
-      "writers": ["Alfred Gough", "Stan Lee", "Steve Ditko"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "b0af6af7-0ab8-432d-aac4-3d3f02855447",
-    "fields": {
-      "title": "The Croods",
-      "created_at": "2024-02-15T15:31:13.908Z",
-      "updated_at": "2024-02-15T15:31:13.909Z",
-      "rated": "PG",
-      "released": "2013-03-22",
-      "runtime": 98,
-      "plot": "After their cave is destroyed, a caveman family must trek through an unfamiliar fantastical world with the help of an inventive boy.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTcyOTc2OTA1Ml5BMl5BanBnXkFtZTcwOTI1MjkzOQ@@._V1_.jpg",
-      "imdbrating": "7.20",
-      "imdbvotes": 229620,
-      "imdbid": "tt0481499",
-      "boxoffice": 187168425,
-      "genres": ["Action", "Adventure", "Animation"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English"],
-      "actors": ["Emma Stone", "Nicolas Cage", "Ryan Reynolds"],
-      "directors": ["Chris Sanders", "Kirk DeMicco"],
-      "writers": ["Chris Sanders", "John Cleese", "Kirk DeMicco"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "b0d284eb-53f8-4b8e-8a89-5926c852608c",
-    "fields": {
-      "title": "Spider-Man",
-      "created_at": "2024-02-15T15:27:56.398Z",
-      "updated_at": "2024-02-15T15:27:56.398Z",
-      "rated": "PG-13",
-      "released": "2002-05-03",
-      "runtime": 121,
-      "plot": "After being bitten by a genetically-modified spider, a shy teenager gains spider-like abilities that he uses to fight injustice as a masked superhero and face a vengeful enemy.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZDEyN2NhMjgtMjdhNi00MmNlLWE5YTgtZGE4MzNjMTRlMGEwXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg",
-      "imdbrating": "7.40",
-      "imdbvotes": 869515,
-      "imdbid": "tt0145487",
-      "boxoffice": 407022860,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English"],
-      "actors": ["Kirsten Dunst", "Tobey Maguire", "Willem Dafoe"],
-      "directors": ["Sam Raimi"],
-      "writers": ["David Koepp", "Stan Lee", "Steve Ditko"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "b1ab4c01-f200-44db-95ca-a37dcf626a8f",
-    "fields": {
-      "title": "Night at the Museum",
-      "created_at": "2024-02-15T15:28:23.990Z",
-      "updated_at": "2024-02-15T15:28:23.991Z",
-      "rated": "PG",
-      "released": "2006-12-22",
-      "runtime": 108,
-      "plot": "A newly recruited night security guard at the Museum of Natural History discovers that an ancient curse causes the animals and exhibits on display to come to life and wreak havoc.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTQyOTM4MDMxN15BMl5BanBnXkFtZTcwODg5NTQzMw@@._V1_.jpg",
-      "imdbrating": "6.50",
-      "imdbvotes": 373474,
-      "imdbid": "tt0477347",
-      "boxoffice": 250863268,
-      "genres": ["Adventure", "Comedy", "Family"],
-      "awards": [],
-      "countries": ["United Kingdom", "United States"],
-      "languages": ["English", "Hebrew", "Italian"],
-      "actors": ["Ben Stiller", "Carla Gugino", "Ricky Gervais"],
-      "directors": ["Shawn Levy"],
-      "writers": ["Milan Trenc", "Robert Ben Garant", "Thomas Lennon"]
     }
   },
   {
@@ -5046,31 +3860,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "b72e5b47-ade2-4b43-ad84-c1f7263de2af",
-    "fields": {
-      "title": "Harry Potter and the Half-Blood Prince",
-      "created_at": "2024-02-15T15:28:13.452Z",
-      "updated_at": "2024-02-15T15:28:13.453Z",
-      "rated": "PG",
-      "released": "2009-07-15",
-      "runtime": 153,
-      "plot": "As Harry Potter begins his sixth year at Hogwarts, he discovers an old book marked as \"the property of the Half-Blood Prince\" and begins to learn more about Lord Voldemort's dark past.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzU3NDg4NTAyNV5BMl5BanBnXkFtZTcwOTg2ODg1Mg@@._V1_.jpg",
-      "imdbrating": "7.60",
-      "imdbvotes": 587033,
-      "imdbid": "tt0417741",
-      "boxoffice": 302334374,
-      "genres": ["Action", "Adventure", "Family"],
-      "awards": [],
-      "countries": ["United Kingdom", "United States"],
-      "languages": ["English", "Latin"],
-      "actors": ["Daniel Radcliffe", "Emma Watson", "Rupert Grint"],
-      "directors": ["David Yates"],
-      "writers": ["J.K. Rowling", "Steve Kloves"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "b84682aa-4f08-408b-8d72-7625c60f6d44",
     "fields": {
       "title": "The Jungle Book",
@@ -5117,81 +3906,6 @@
       "actors": ["Ben Kingsley", "Bill Murray", "Neel Sethi"],
       "directors": ["Jon Favreau"],
       "writers": ["Justin Marks", "Rudyard Kipling"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "b8713182-9eb8-4cfc-9316-f4d8d8c44f1e",
-    "fields": {
-      "title": "The Dark Knight",
-      "created_at": "2024-02-15T15:28:22.171Z",
-      "updated_at": "2024-02-15T15:28:22.172Z",
-      "rated": "PG-13",
-      "released": "2008-07-18",
-      "runtime": 152,
-      "plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg",
-      "imdbrating": "9.00",
-      "imdbvotes": 2835809,
-      "imdbid": "tt0468569",
-      "boxoffice": 534987076,
-      "genres": ["Action", "Crime", "Drama"],
-      "awards": [],
-      "countries": ["United Kingdom", "United States"],
-      "languages": ["English", "Mandarin"],
-      "actors": ["Aaron Eckhart", "Christian Bale", "Heath Ledger"],
-      "directors": ["Christopher Nolan"],
-      "writers": ["Christopher Nolan", "David S. Goyer", "Jonathan Nolan"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "b9f7b209-bf2a-4980-8f88-4ed2a7dfd3ba",
-    "fields": {
-      "title": "Star Wars: Episode II - Attack of the Clones",
-      "created_at": "2024-02-15T15:00:14.197Z",
-      "updated_at": "2024-02-15T15:00:14.197Z",
-      "rated": "PG",
-      "released": "2002-05-16",
-      "runtime": 142,
-      "plot": "Ten years after initially meeting, Anakin Skywalker shares a forbidden romance with Padmé Amidala, while Obi-Wan Kenobi discovers a secret clone army crafted for the Jedi.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMDAzM2M0Y2UtZjRmZi00MzVlLTg4MjEtOTE3NzU5ZDVlMTU5XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg",
-      "imdbrating": "6.60",
-      "imdbvotes": 751572,
-      "imdbid": "tt0121765",
-      "boxoffice": 310676740,
-      "genres": [],
-      "awards": [],
-      "countries": [],
-      "languages": [],
-      "actors": ["Ewan McGregor", "Hayden Christensen", "Natalie Portman"],
-      "directors": ["George Lucas"],
-      "writers": []
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "bb135c0c-ec5a-4602-bfd4-424369350aef",
-    "fields": {
-      "title": "Jurassic Park",
-      "created_at": "2024-02-15T15:00:13.311Z",
-      "updated_at": "2024-02-15T15:00:13.312Z",
-      "rated": "PG-13",
-      "released": "1993-06-11",
-      "runtime": 127,
-      "plot": "A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_.jpg",
-      "imdbrating": "8.20",
-      "imdbvotes": 1055630,
-      "imdbid": "tt0107290",
-      "boxoffice": 407185075,
-      "genres": [],
-      "awards": [],
-      "countries": [],
-      "languages": [],
-      "actors": ["Jeff Goldblum", "Laura Dern", "Sam Neill"],
-      "directors": ["Steven Spielberg"],
-      "writers": []
     }
   },
   {
@@ -5275,31 +3989,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "c01015d0-2f3e-43d1-a7fb-848495446755",
-    "fields": {
-      "title": "Harry Potter and the Deathly Hallows: Part 1",
-      "created_at": "2024-02-15T15:31:16.618Z",
-      "updated_at": "2024-02-15T15:31:16.619Z",
-      "rated": "PG-13",
-      "released": "2010-11-19",
-      "runtime": 146,
-      "plot": "As Harry, Ron and Hermione race against time and evil to destroy the Horcruxes, they uncover the existence of the three most powerful objects in the wizarding world: the Deathly Hallows.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTQ2OTE1Mjk0N15BMl5BanBnXkFtZTcwODE3MDAwNA@@._V1_.jpg",
-      "imdbrating": "7.70",
-      "imdbvotes": 592430,
-      "imdbid": "tt0926084",
-      "boxoffice": 296374621,
-      "genres": ["Adventure", "Family", "Fantasy"],
-      "awards": [],
-      "countries": ["United Kingdom", "United States"],
-      "languages": ["English", "Latin"],
-      "actors": ["Daniel Radcliffe", "Emma Watson", "Rupert Grint"],
-      "directors": ["David Yates"],
-      "writers": ["J.K. Rowling", "Steve Kloves"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "c0173a84-e5d6-4423-9be6-a9007066bd8d",
     "fields": {
       "title": "Iron Man 3",
@@ -5321,56 +4010,6 @@
       "actors": ["Guy Pearce", "Gwyneth Paltrow", "Robert Downey Jr."],
       "directors": ["Shane Black"],
       "writers": ["Drew Pearce", "Shane Black", "Stan Lee"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "c0362348-2b96-444b-a97d-6a809e51ac39",
-    "fields": {
-      "title": "Star Wars: Episode II - Attack of the Clones",
-      "created_at": "2024-02-15T15:27:54.834Z",
-      "updated_at": "2024-02-15T15:27:54.834Z",
-      "rated": "PG",
-      "released": "2002-05-16",
-      "runtime": 142,
-      "plot": "Ten years after initially meeting, Anakin Skywalker shares a forbidden romance with Padmé Amidala, while Obi-Wan Kenobi discovers a secret clone army crafted for the Jedi.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMDAzM2M0Y2UtZjRmZi00MzVlLTg4MjEtOTE3NzU5ZDVlMTU5XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg",
-      "imdbrating": "6.60",
-      "imdbvotes": 751572,
-      "imdbid": "tt0121765",
-      "boxoffice": 310676740,
-      "genres": ["Action", "Adventure", "Fantasy"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English"],
-      "actors": ["Ewan McGregor", "Hayden Christensen", "Natalie Portman"],
-      "directors": ["George Lucas"],
-      "writers": ["George Lucas", "Jonathan Hales"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "c2b40214-6b54-4c19-b340-11485462ccf0",
-    "fields": {
-      "title": "Transformers",
-      "created_at": "2024-02-15T15:31:10.506Z",
-      "updated_at": "2024-02-15T15:31:10.507Z",
-      "rated": "PG-13",
-      "released": "2007-07-03",
-      "runtime": 144,
-      "plot": "An ancient struggle between two Cybertronian races, the heroic Autobots and the evil Decepticons, comes to Earth, with a clue to the ultimate power held by a teenager.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNDg1NTU2OWEtM2UzYi00ZWRmLWEwMTktZWNjYWQ1NWM1OThjXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-      "imdbrating": "7.00",
-      "imdbvotes": 670074,
-      "imdbid": "tt0418279",
-      "boxoffice": 319246193,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Spanish"],
-      "actors": ["Josh Duhamel", "Megan Fox", "Shia LaBeouf"],
-      "directors": ["Michael Bay"],
-      "writers": ["Alex Kurtzman", "John Rogers", "Roberto Orci"]
     }
   },
   {
@@ -5425,56 +4064,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "c4f0ab2d-0ebe-4978-963f-a3cd3b65ffc5",
-    "fields": {
-      "title": "Harry Potter and the Order of the Phoenix",
-      "created_at": "2024-02-15T15:31:07.683Z",
-      "updated_at": "2024-02-15T15:31:07.684Z",
-      "rated": "PG-13",
-      "released": "2007-07-11",
-      "runtime": 138,
-      "plot": "With their warning about Lord Voldemort's return scoffed at, Harry and Dumbledore are targeted by the Wizard authorities as an authoritarian bureaucrat slowly seizes power at Hogwarts.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTM0NTczMTUzOV5BMl5BanBnXkFtZTYwMzIxNTg3._V1_.jpg",
-      "imdbrating": "7.50",
-      "imdbvotes": 624401,
-      "imdbid": "tt0373889",
-      "boxoffice": 292382727,
-      "genres": ["Action", "Adventure", "Family"],
-      "awards": [],
-      "countries": ["United Kingdom", "United States"],
-      "languages": ["English", "Latin"],
-      "actors": ["Daniel Radcliffe", "Emma Watson", "Rupert Grint"],
-      "directors": ["David Yates"],
-      "writers": ["J.K. Rowling", "Michael Goldenberg"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "c597132a-306c-4641-9cdf-631e439e8e5c",
-    "fields": {
-      "title": "Star Wars: Episode III - Revenge of the Sith",
-      "created_at": "2024-02-15T15:30:59.801Z",
-      "updated_at": "2024-02-15T15:30:59.801Z",
-      "rated": "PG-13",
-      "released": "2005-05-19",
-      "runtime": 140,
-      "plot": "Three years into the Clone Wars, Obi-Wan pursues a new threat, while Anakin is lured by Chancellor Palpatine into a sinister plot to rule the galaxy.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNTc4MTc3NTQ5OF5BMl5BanBnXkFtZTcwOTg0NjI4NA@@._V1_.jpg",
-      "imdbrating": "7.60",
-      "imdbvotes": 837300,
-      "imdbid": "tt0121766",
-      "boxoffice": 380270577,
-      "genres": ["Action", "Adventure", "Fantasy"],
-      "awards": [],
-      "countries": ["Italy", "Switzerland", "Thailand", "United States"],
-      "languages": ["English"],
-      "actors": ["Ewan McGregor", "Hayden Christensen", "Natalie Portman"],
-      "directors": ["George Lucas"],
-      "writers": ["George Lucas", "Jan Duursema", "John Ostrander"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "c5dfcc22-3994-4bdc-ba23-aeb52ea9f9a9",
     "fields": {
       "title": "Captain Marvel",
@@ -5496,31 +4085,6 @@
       "actors": ["Ben Mendelsohn", "Brie Larson", "Samuel L. Jackson"],
       "directors": ["Anna Boden", "Ryan Fleck"],
       "writers": ["Anna Boden", "Geneva Robertson-Dworet", "Ryan Fleck"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "c660a529-ba0f-40da-850d-4b01c0092345",
-    "fields": {
-      "title": "The Da Vinci Code",
-      "created_at": "2024-02-15T15:31:08.188Z",
-      "updated_at": "2024-02-15T15:31:08.189Z",
-      "rated": "PG-13",
-      "released": "2006-05-19",
-      "runtime": 149,
-      "plot": "A murder inside the Louvre, and clues in Da Vinci paintings, lead to the discovery of a religious mystery protected by a secret society for two thousand years, which could shake the foundations of Christianity.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMjIxMjQyMTc3Nl5BMl5BanBnXkFtZTcwMTA1MDUzMw@@._V1_.jpg",
-      "imdbrating": "6.60",
-      "imdbvotes": 455785,
-      "imdbid": "tt0382625",
-      "boxoffice": 217536138,
-      "genres": ["Mystery", "Thriller"],
-      "awards": [],
-      "countries": ["France", "Malta", "United Kingdom", "United States"],
-      "languages": ["English", "French", "Latin", "Spanish"],
-      "actors": ["Audrey Tautou", "Jean Reno", "Tom Hanks"],
-      "directors": ["Ron Howard"],
-      "writers": ["Akiva Goldsman", "Dan Brown"]
     }
   },
   {
@@ -5596,114 +4160,6 @@
       "actors": ["Ian McKellen", "Martin Freeman", "Richard Armitage"],
       "directors": ["Peter Jackson"],
       "writers": ["Fran Walsh", "Peter Jackson", "Philippa Boyens"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "c91bc940-cc3a-4023-bbca-06f6f93730f7",
-    "fields": {
-      "title": "King Kong",
-      "created_at": "2024-02-15T15:31:06.369Z",
-      "updated_at": "2024-02-15T15:31:06.371Z",
-      "rated": "PG-13",
-      "released": "2005-12-14",
-      "runtime": 187,
-      "plot": "A greedy film producer assembles a team of moviemakers and sets out for the infamous Skull Island, where they find more than just cannibalistic natives.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMjYxYmRlZWYtMzAwNC00MDA1LWJjNTItOTBjMzlhNGMzYzk3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-      "imdbrating": "7.20",
-      "imdbvotes": 443257,
-      "imdbid": "tt0360717",
-      "boxoffice": 218080025,
-      "genres": ["Action", "Adventure", "Romance"],
-      "awards": [],
-      "countries": ["Germany", "New Zealand", "United States"],
-      "languages": ["English"],
-      "actors": ["Adrien Brody", "Jack Black", "Naomi Watts"],
-      "directors": ["Peter Jackson"],
-      "writers": ["Fran Walsh", "Peter Jackson", "Philippa Boyens"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "ca3ec5e3-9547-4f4b-99a3-3f6a1c81d319",
-    "fields": {
-      "title": "Pirates of the Caribbean: At World's End",
-      "created_at": "2024-02-15T15:28:18.723Z",
-      "updated_at": "2024-02-15T15:28:18.724Z",
-      "rated": "PG-13",
-      "released": "2007-05-25",
-      "runtime": 169,
-      "plot": "Captain Barbossa, Will Turner and Elizabeth Swann must sail off the edge of the map, navigate treachery and betrayal, find Jack Sparrow, and make their final alliances for one last decisive battle.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMjIyNjkxNzEyMl5BMl5BanBnXkFtZTYwMjc3MDE3._V1_.jpg",
-      "imdbrating": "7.10",
-      "imdbvotes": 686029,
-      "imdbid": "tt0449088",
-      "boxoffice": 309420425,
-      "genres": ["Action", "Adventure", "Fantasy"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English"],
-      "actors": ["Johnny Depp", "Keira Knightley", "Orlando Bloom"],
-      "directors": ["Gore Verbinski"],
-      "writers": ["Stuart Beattie", "Ted Elliott", "Terry Rossio"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "cafdf0e3-97dd-42f7-ab1c-c77a9dd968e2",
-    "fields": {
-      "title": "Jurassic Park",
-      "created_at": "2024-02-15T15:30:58.278Z",
-      "updated_at": "2024-02-15T15:30:58.279Z",
-      "rated": "PG-13",
-      "released": "1993-06-11",
-      "runtime": 127,
-      "plot": "A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_.jpg",
-      "imdbrating": "8.20",
-      "imdbvotes": 1055630,
-      "imdbid": "tt0107290",
-      "boxoffice": 407185075,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Spanish"],
-      "actors": ["Jeff Goldblum", "Laura Dern", "Sam Neill"],
-      "directors": ["Steven Spielberg"],
-      "writers": ["David Koepp", "Michael Crichton"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "cbd6e69e-e379-4cc7-9c9a-17c6c70121da",
-    "fields": {
-      "title": "Iron Man",
-      "created_at": "2024-02-15T15:28:04.101Z",
-      "updated_at": "2024-02-15T15:28:04.101Z",
-      "rated": "PG-13",
-      "released": "2008-05-02",
-      "runtime": 126,
-      "plot": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_.jpg",
-      "imdbrating": "7.90",
-      "imdbvotes": 1114341,
-      "imdbid": "tt0371746",
-      "boxoffice": 319034126,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": ["Canada", "United States"],
-      "languages": [
-        "Arabic",
-        "English",
-        "Hindi",
-        "Hungarian",
-        "Kurdish",
-        "Persian",
-        "Urdu"
-      ],
-      "actors": ["Gwyneth Paltrow", "Robert Downey Jr.", "Terrence Howard"],
-      "directors": ["Jon Favreau"],
-      "writers": ["Art Marcum", "Hawk Ostby", "Mark Fergus"]
     }
   },
   {
@@ -5904,38 +4360,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "d5a031c0-f12b-43be-8502-dc3888efacca",
-    "fields": {
-      "title": "Quantum of Solace",
-      "created_at": "2024-02-15T15:28:31.270Z",
-      "updated_at": "2024-02-15T15:28:31.271Z",
-      "rated": "PG-13",
-      "released": "2008-11-14",
-      "runtime": 106,
-      "plot": "James Bond descends into mystery as he tries to stop a mysterious organisation from eliminating a country's most valuable resource.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMjZiYTUzMzktZWI5Yy00Mzk4LWFlMDgtYjRmNWU0Mzc0MzNiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg",
-      "imdbrating": "6.60",
-      "imdbvotes": 468161,
-      "imdbid": "tt0830515",
-      "boxoffice": 168368427,
-      "genres": ["Action", "Adventure", "Mystery"],
-      "awards": [],
-      "countries": ["United Kingdom", "United States"],
-      "languages": [
-        "English",
-        "French",
-        "German",
-        "Italian",
-        "Spanish",
-        "Swiss German"
-      ],
-      "actors": ["Daniel Craig", "Mathieu Amalric", "Olga Kurylenko"],
-      "directors": ["Marc Forster"],
-      "writers": ["Neal Purvis", "Paul Haggis", "Robert Wade"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "d6d8f48f-aae2-436a-97c0-7320f8fa06b1",
     "fields": {
       "title": "Avengers: Age of Ultron",
@@ -6007,31 +4431,6 @@
       "actors": ["Ginnifer Goodwin", "Idris Elba", "Jason Bateman"],
       "directors": ["Byron Howard", "Jared Bush", "Rich Moore"],
       "writers": ["Byron Howard", "Jared Bush", "Rich Moore"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "d790d519-b904-4cb1-affd-7f70b8ca7732",
-    "fields": {
-      "title": "Man of Steel",
-      "created_at": "2024-02-15T15:31:14.686Z",
-      "updated_at": "2024-02-15T15:31:14.687Z",
-      "rated": "PG-13",
-      "released": "2013-06-14",
-      "runtime": 143,
-      "plot": "An alien child is evacuated from his dying world and sent to Earth to live among humans. His peace is threatened when other survivors of his home planet invade Earth.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTk5ODk1NDkxMF5BMl5BanBnXkFtZTcwNTA5OTY0OQ@@._V1_.jpg",
-      "imdbrating": "7.10",
-      "imdbvotes": 806928,
-      "imdbid": "tt0770828",
-      "boxoffice": 291045518,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United Kingdom", "United States"],
-      "languages": ["English"],
-      "actors": ["Amy Adams", "Henry Cavill", "Michael Shannon"],
-      "directors": ["Zack Snyder"],
-      "writers": ["Christopher Nolan", "David S. Goyer", "Jerry Siegel"]
     }
   },
   {
@@ -6170,106 +4569,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "dca50d64-3215-4c67-ad4c-14999674610e",
-    "fields": {
-      "title": "Star Wars: Episode I - The Phantom Menace",
-      "created_at": "2024-02-15T15:31:00.899Z",
-      "updated_at": "2024-02-15T15:31:00.900Z",
-      "rated": "PG",
-      "released": "1999-05-19",
-      "runtime": 136,
-      "plot": "Two Jedi escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force, but the long dormant Sith resurface to claim their original glory.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
-      "imdbrating": "6.50",
-      "imdbvotes": 848549,
-      "imdbid": "tt0120915",
-      "boxoffice": 474544677,
-      "genres": ["Action", "Adventure", "Fantasy"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Sanskrit"],
-      "actors": ["Ewan McGregor", "Liam Neeson", "Natalie Portman"],
-      "directors": ["George Lucas"],
-      "writers": ["George Lucas"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "dda87f14-1760-4f96-ab88-f8ebce0cec40",
-    "fields": {
-      "title": "The Lion King",
-      "created_at": "2024-02-15T15:30:58.702Z",
-      "updated_at": "2024-02-15T15:30:58.703Z",
-      "rated": "G",
-      "released": "1994-06-24",
-      "runtime": 88,
-      "plot": "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_.jpg",
-      "imdbrating": "8.50",
-      "imdbvotes": 1127781,
-      "imdbid": "tt0110357",
-      "boxoffice": 422783777,
-      "genres": ["Adventure", "Animation", "Drama"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Swahili", "Xhosa", "Zulu"],
-      "actors": ["James Earl Jones", "Jeremy Irons", "Matthew Broderick"],
-      "directors": ["Rob Minkoff", "Roger Allers"],
-      "writers": ["Irene Mecchi", "Jonathan Roberts", "Linda Woolverton"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "ddaf54fa-f814-4d7c-b5da-9f214be0c37c",
-    "fields": {
-      "title": "Tangled",
-      "created_at": "2024-02-15T15:28:09.842Z",
-      "updated_at": "2024-02-15T15:28:09.843Z",
-      "rated": "PG",
-      "released": "2010-11-24",
-      "runtime": 100,
-      "plot": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTAxNDYxMjg0MjNeQTJeQWpwZ15BbWU3MDcyNTk2OTM@._V1_.jpg",
-      "imdbrating": "7.70",
-      "imdbvotes": 488498,
-      "imdbid": "tt0398286",
-      "boxoffice": 200821936,
-      "genres": ["Adventure", "Animation", "Comedy"],
-      "awards": [],
-      "countries": ["Japan", "United States"],
-      "languages": ["English", "German"],
-      "actors": ["Donna Murphy", "Mandy Moore", "Zachary Levi"],
-      "directors": ["Byron Howard", "Nathan Greno"],
-      "writers": ["Dan Fogelman", "Jacob Grimm", "Wilhelm Grimm"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "ddbb2a76-830b-4a73-996f-dfe7816c3043",
-    "fields": {
-      "title": "Jurassic World",
-      "created_at": "2024-02-15T15:28:03.170Z",
-      "updated_at": "2024-02-15T15:28:03.171Z",
-      "rated": "PG-13",
-      "released": "2015-06-12",
-      "runtime": 124,
-      "plot": "A new theme park, built on the original site of Jurassic Park, creates a genetically modified hybrid dinosaur, the Indominus Rex, which escapes containment and goes on a killing spree.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzQ3OTY4NjAtNzM5OS00N2ZhLWJlOWUtYzYwZjNmOWRiMzcyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
-      "imdbrating": "6.90",
-      "imdbvotes": 674299,
-      "imdbid": "tt0369610",
-      "boxoffice": 653406625,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": ["Canada", "United States"],
-      "languages": ["English"],
-      "actors": ["Bryce Dallas Howard", "Chris Pratt", "Ty Simpkins"],
-      "directors": ["Colin Trevorrow"],
-      "writers": ["Amanda Silver", "Colin Trevorrow", "Rick Jaffa"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "e0ae863d-b0cf-40f0-9263-40ee3b01de25",
     "fields": {
       "title": "Operation Red Sea",
@@ -6291,31 +4590,6 @@
       "actors": ["Hai-Qing", "Johnny Huang", "Yi Zhang"],
       "directors": ["Dante Lam"],
       "writers": ["Dante Lam", "Ji Feng", "Zhuzhu Chen"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "e0ece185-547d-4155-b7ed-e08ec233f5ca",
-    "fields": {
-      "title": "Shrek Forever After",
-      "created_at": "2024-02-15T15:28:33.256Z",
-      "updated_at": "2024-02-15T15:28:33.257Z",
-      "rated": "PG",
-      "released": "2010-05-21",
-      "runtime": 93,
-      "plot": "Rumpelstiltskin tricks a mid-life crisis burdened Shrek into allowing himself to be erased from existence and cast in a dark alternate timeline where Rumpelstiltskin rules supreme.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTY0OTU1NzkxMl5BMl5BanBnXkFtZTcwMzI2NDUzMw@@._V1_.jpg",
-      "imdbrating": "6.30",
-      "imdbvotes": 221992,
-      "imdbid": "tt0892791",
-      "boxoffice": 238736787,
-      "genres": ["Adventure", "Animation", "Comedy"],
-      "awards": [],
-      "countries": ["France", "United States"],
-      "languages": ["English", "Russian", "Ukrainian"],
-      "actors": ["Cameron Diaz", "Eddie Murphy", "Mike Myers"],
-      "directors": ["Mike Mitchell"],
-      "writers": ["Darren Lemke", "Josh Klausner", "William Steig"]
     }
   },
   {
@@ -6351,113 +4625,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "e305b1d7-cdf7-46a7-adc2-ca751f34af99",
-    "fields": {
-      "title": "Titanic",
-      "created_at": "2024-02-15T15:31:00.600Z",
-      "updated_at": "2024-02-15T15:31:00.601Z",
-      "rated": "PG-13",
-      "released": "1997-12-19",
-      "runtime": 194,
-      "plot": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg",
-      "imdbrating": "7.90",
-      "imdbvotes": 1267049,
-      "imdbid": "tt0120338",
-      "boxoffice": 674292608,
-      "genres": ["Drama", "Romance"],
-      "awards": [],
-      "countries": ["Mexico", "United States"],
-      "languages": ["English", "French", "Italian", "Swedish"],
-      "actors": ["Billy Zane", "Kate Winslet", "Leonardo DiCaprio"],
-      "directors": ["James Cameron"],
-      "writers": ["James Cameron"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "e3e75b93-a61f-4133-a0f3-4a45aa67d153",
-    "fields": {
-      "title": "The Lord of the Rings: The Two Towers",
-      "created_at": "2024-02-15T15:31:02.462Z",
-      "updated_at": "2024-02-15T15:31:02.462Z",
-      "rated": "PG-13",
-      "released": "2002-12-18",
-      "runtime": 179,
-      "plot": "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
-      "imdbrating": "8.80",
-      "imdbvotes": 1763973,
-      "imdbid": "tt0167261",
-      "boxoffice": 342952511,
-      "genres": ["Action", "Adventure", "Drama"],
-      "awards": [],
-      "countries": ["New Zealand", "United States"],
-      "languages": ["English", "Old English", "Sindarin"],
-      "actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
-      "directors": ["Peter Jackson"],
-      "writers": ["Fran Walsh", "J.R.R. Tolkien", "Philippa Boyens"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "e60294ef-a50f-40fc-abc7-c596d31df75a",
-    "fields": {
-      "title": "Justice League",
-      "created_at": "2024-02-15T15:31:17.380Z",
-      "updated_at": "2024-02-15T15:31:17.381Z",
-      "rated": "PG-13",
-      "released": "2017-11-17",
-      "runtime": 120,
-      "plot": "Fueled by his restored faith in humanity and inspired by Superman's selfless act, Bruce Wayne enlists the help of his new-found ally, Diana Prince, to face an even greater enemy.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYWVhZjZkYTItOGIwYS00NmRkLWJlYjctMWM0ZjFmMDU4ZjEzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
-      "imdbrating": "6.10",
-      "imdbvotes": 475575,
-      "imdbid": "tt0974015",
-      "boxoffice": 229024295,
-      "genres": ["Action", "Adventure", "Fantasy"],
-      "awards": [],
-      "countries": ["Canada", "United Kingdom", "United States"],
-      "languages": ["English", "Icelandic", "Irish Gaelic", "Russian"],
-      "actors": ["Ben Affleck", "Gal Gadot", "Jason Momoa"],
-      "directors": ["Zack Snyder"],
-      "writers": ["Chris Terrio", "Jerry Siegel", "Joe Shuster"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "e6406a90-b60f-41dc-984a-5b51e4b4bfdc",
-    "fields": {
-      "title": "The Incredibles",
-      "created_at": "2024-02-15T15:27:59.824Z",
-      "updated_at": "2024-02-15T15:27:59.825Z",
-      "rated": "PG",
-      "released": "2004-11-05",
-      "runtime": 115,
-      "plot": "While trying to lead a quiet suburban life, a family of undercover superheroes are forced into action to save the world.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTY5OTU0OTc2NV5BMl5BanBnXkFtZTcwMzU4MDcyMQ@@._V1_.jpg",
-      "imdbrating": "8.00",
-      "imdbvotes": 798201,
-      "imdbid": "tt0317705",
-      "boxoffice": 261441092,
-      "genres": ["Action", "Adventure", "Animation"],
-      "awards": [],
-      "countries": ["Japan", "United States"],
-      "languages": [
-        "English",
-        "French",
-        "German",
-        "Italian",
-        "Portuguese",
-        "Russian"
-      ],
-      "actors": ["Craig T. Nelson", "Holly Hunter", "Samuel L. Jackson"],
-      "directors": ["Brad Bird"],
-      "writers": ["Brad Bird"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "e7205d14-5043-4b49-9f20-b8d061b02f4a",
     "fields": {
       "title": "Up",
@@ -6479,31 +4646,6 @@
       "actors": ["Edward Asner", "John Ratzenberger", "Jordan Nagai"],
       "directors": ["Bob Peterson", "Pete Docter"],
       "writers": ["Bob Peterson", "Pete Docter", "Tom McCarthy"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "e812a986-5519-4a47-b59a-9e47f5c81606",
-    "fields": {
-      "title": "The Lord of the Rings: The Fellowship of the Ring",
-      "created_at": "2024-02-15T15:31:01.346Z",
-      "updated_at": "2024-02-15T15:31:01.347Z",
-      "rated": "PG-13",
-      "released": "2001-12-19",
-      "runtime": 178,
-      "plot": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg",
-      "imdbrating": "8.90",
-      "imdbvotes": 1983238,
-      "imdbid": "tt0120737",
-      "boxoffice": 316115420,
-      "genres": ["Action", "Adventure", "Drama"],
-      "awards": [],
-      "countries": ["New Zealand", "United States"],
-      "languages": ["English", "Sindarin"],
-      "actors": ["Elijah Wood", "Ian McKellen", "Orlando Bloom"],
-      "directors": ["Peter Jackson"],
-      "writers": ["Fran Walsh", "J.R.R. Tolkien", "Philippa Boyens"]
     }
   },
   {
@@ -6664,81 +4806,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "ec205fbe-0bfb-4263-aea1-63da177e176b",
-    "fields": {
-      "title": "E.T. the Extra-Terrestrial",
-      "created_at": "2024-02-15T15:30:57.966Z",
-      "updated_at": "2024-02-15T15:30:57.966Z",
-      "rated": "PG",
-      "released": "1982-06-11",
-      "runtime": 115,
-      "plot": "A troubled child summons the courage to help a friendly alien escape from Earth and return to his home planet.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTQ2ODFlMDAtNzdhOC00ZDYzLWE3YTMtNDU4ZGFmZmJmYTczXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-      "imdbrating": "7.90",
-      "imdbvotes": 433702,
-      "imdbid": "tt0083866",
-      "boxoffice": 437345144,
-      "genres": ["Adventure", "Family", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English"],
-      "actors": ["Drew Barrymore", "Henry Thomas", "Peter Coyote"],
-      "directors": ["Steven Spielberg"],
-      "writers": ["Melissa Mathison"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "edbf3a65-24af-424b-9227-37d02416951f",
-    "fields": {
-      "title": "Avatar",
-      "created_at": "2024-02-15T15:31:14.505Z",
-      "updated_at": "2024-02-15T15:31:14.506Z",
-      "rated": "PG-13",
-      "released": "2009-12-18",
-      "runtime": 162,
-      "plot": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_.jpg",
-      "imdbrating": "7.90",
-      "imdbvotes": 1374723,
-      "imdbid": "tt0499549",
-      "boxoffice": 785221649,
-      "genres": ["Action", "Adventure", "Fantasy"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Spanish"],
-      "actors": ["Sam Worthington", "Sigourney Weaver", "Zoe Saldana"],
-      "directors": ["James Cameron"],
-      "writers": ["James Cameron"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "f0609571-0f09-4dca-b386-eb0ea05f8e92",
-    "fields": {
-      "title": "Independence Day",
-      "created_at": "2024-02-15T15:27:54.115Z",
-      "updated_at": "2024-02-15T15:27:54.115Z",
-      "rated": "PG-13",
-      "released": "1996-07-03",
-      "runtime": 145,
-      "plot": "The aliens are coming and their goal is to invade and destroy Earth. Fighting superior technology, mankind's best weapon is the will to survive.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-      "imdbrating": "7.00",
-      "imdbvotes": 601166,
-      "imdbid": "tt0116629",
-      "boxoffice": 306169268,
-      "genres": ["Action", "Adventure", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English"],
-      "actors": ["Bill Pullman", "Jeff Goldblum", "Will Smith"],
-      "directors": ["Roland Emmerich"],
-      "writers": ["Dean Devlin", "Roland Emmerich"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "f14e6e42-18d0-439f-8e6e-fd66052a9917",
     "fields": {
       "title": "Fast X",
@@ -6760,31 +4827,6 @@
       "actors": ["Jason Statham", "Michelle Rodriguez", "Vin Diesel"],
       "directors": ["Justin Lin", "Louis Leterrier"],
       "writers": ["Dan Mazeau", "Justin Lin", "Zach Dean"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "f257617a-f774-4ab9-b420-b7f9309b091a",
-    "fields": {
-      "title": "Ratatouille",
-      "created_at": "2024-02-15T15:31:08.413Z",
-      "updated_at": "2024-02-15T15:31:08.414Z",
-      "rated": "G",
-      "released": "2007-06-27",
-      "runtime": 111,
-      "plot": "A rat who can cook makes an unusual alliance with a young kitchen worker at a famous Paris restaurant.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTMzODU0NTkxMF5BMl5BanBnXkFtZTcwMjQ4MzMzMw@@._V1_.jpg",
-      "imdbrating": "8.10",
-      "imdbvotes": 810997,
-      "imdbid": "tt0382932",
-      "boxoffice": 206445654,
-      "genres": ["Adventure", "Animation", "Comedy"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "French", "Russian"],
-      "actors": ["Brad Garrett", "Lou Romano", "Patton Oswalt"],
-      "directors": ["Brad Bird", "Jan Pinkava"],
-      "writers": ["Brad Bird", "Jan Pinkava", "Jim Capobianco"]
     }
   },
   {
@@ -6896,31 +4938,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "f89c1520-1a94-4cf6-a36a-43d6377f5d6a",
-    "fields": {
-      "title": "Shrek the Third",
-      "created_at": "2024-02-15T15:28:12.622Z",
-      "updated_at": "2024-02-15T15:28:12.622Z",
-      "rated": "PG",
-      "released": "2007-05-18",
-      "runtime": 93,
-      "plot": "Reluctantly designated as the heir to the land of Far, Far Away, Shrek hatches a plan to install the rebellious Artie as the new king while Princess Fiona tries to fend off a coup d'état by the jilted Prince Charming.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BOTgyMjc3ODk2MV5BMl5BanBnXkFtZTcwMjY0MjEzMw@@._V1_.jpg",
-      "imdbrating": "6.10",
-      "imdbvotes": 329133,
-      "imdbid": "tt0413267",
-      "boxoffice": 322719944,
-      "genres": ["Adventure", "Animation", "Comedy"],
-      "awards": [],
-      "countries": ["Australia", "United States"],
-      "languages": ["English", "Russian", "Ukrainian"],
-      "actors": ["Cameron Diaz", "Eddie Murphy", "Mike Myers"],
-      "directors": ["Chris Miller", "Raman Hui"],
-      "writers": ["Andrew Adamson", "Jeffrey Price", "William Steig"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "f8b225c6-3b5f-4ece-93d6-5975fd99b118",
     "fields": {
       "title": "The Super Mario Bros. Movie",
@@ -6996,31 +5013,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "f9f9e502-68ca-44eb-84d8-6233df074fd7",
-    "fields": {
-      "title": "The Hobbit: An Unexpected Journey",
-      "created_at": "2024-02-15T15:28:34.078Z",
-      "updated_at": "2024-02-15T15:28:34.079Z",
-      "rated": "PG-13",
-      "released": "2012-12-14",
-      "runtime": 169,
-      "plot": "A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTcwNTE4MTUxMl5BMl5BanBnXkFtZTcwMDIyODM4OA@@._V1_.jpg",
-      "imdbrating": "7.80",
-      "imdbvotes": 865561,
-      "imdbid": "tt0903624",
-      "boxoffice": 303030651,
-      "genres": ["Adventure", "Fantasy"],
-      "awards": [],
-      "countries": ["New Zealand", "United States"],
-      "languages": ["English"],
-      "actors": ["Ian McKellen", "Martin Freeman", "Richard Armitage"],
-      "directors": ["Peter Jackson"],
-      "writers": ["Fran Walsh", "Peter Jackson", "Philippa Boyens"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "fb2eb276-a6f5-4739-b8db-378a1ef8103c",
     "fields": {
       "title": "The Lion King",
@@ -7046,56 +5038,6 @@
   },
   {
     "model": "movies.movie",
-    "pk": "fd51c822-d1fc-4cc5-b86c-afa5d1782f67",
-    "fields": {
-      "title": "The Lion King",
-      "created_at": "2024-02-15T15:27:53.959Z",
-      "updated_at": "2024-02-15T15:27:53.959Z",
-      "rated": "G",
-      "released": "1994-06-24",
-      "runtime": 88,
-      "plot": "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_.jpg",
-      "imdbrating": "8.50",
-      "imdbvotes": 1127781,
-      "imdbid": "tt0110357",
-      "boxoffice": 422783777,
-      "genres": ["Adventure", "Animation", "Drama"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "Swahili", "Xhosa", "Zulu"],
-      "actors": ["James Earl Jones", "Jeremy Irons", "Matthew Broderick"],
-      "directors": ["Rob Minkoff", "Roger Allers"],
-      "writers": ["Irene Mecchi", "Jonathan Roberts", "Linda Woolverton"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "fe081440-8b5a-408a-b2f1-d0147c8ad6cd",
-    "fields": {
-      "title": "The Matrix Reloaded",
-      "created_at": "2024-02-15T15:27:57.701Z",
-      "updated_at": "2024-02-15T15:27:57.702Z",
-      "rated": "R",
-      "released": "2003-05-15",
-      "runtime": 138,
-      "plot": "Freedom fighters Neo, Trinity and Morpheus continue to lead the revolt against the Machine Army, unleashing their arsenal of extraordinary skills and weaponry against the systematic forces of repression and exploitation.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BODE0MzZhZTgtYzkwYi00YmI5LThlZWYtOWRmNWE5ODk0NzMxXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
-      "imdbrating": "7.20",
-      "imdbvotes": 625295,
-      "imdbid": "tt0234215",
-      "boxoffice": 281576461,
-      "genres": ["Action", "Sci-Fi"],
-      "awards": [],
-      "countries": ["United States"],
-      "languages": ["English", "French"],
-      "actors": ["Carrie-Anne Moss", "Keanu Reeves", "Laurence Fishburne"],
-      "directors": ["Lana Wachowski", "Lilly Wachowski"],
-      "writers": ["Lana Wachowski", "Lilly Wachowski"]
-    }
-  },
-  {
-    "model": "movies.movie",
     "pk": "fe0d9c62-00aa-462d-bd7b-46e6b2dac52f",
     "fields": {
       "title": "Monsters University",
@@ -7117,31 +5059,6 @@
       "actors": ["Billy Crystal", "John Goodman", "Steve Buscemi"],
       "directors": ["Dan Scanlon"],
       "writers": ["Dan Scanlon", "Daniel Gerson", "Robert L. Baird"]
-    }
-  },
-  {
-    "model": "movies.movie",
-    "pk": "fe0ef3a4-ae46-46fc-97b4-6903e331b1d0",
-    "fields": {
-      "title": "Kung Fu Panda",
-      "created_at": "2024-02-15T15:31:11.199Z",
-      "updated_at": "2024-02-15T15:31:11.200Z",
-      "rated": "PG",
-      "released": "2008-06-06",
-      "runtime": 92,
-      "plot": "To everyone's surprise, including his own, Po, an overweight, clumsy panda, is chosen as protector of the Valley of Peace. His suitability will soon be tested as the valley's arch-enemy is on his way.",
-      "poster": "https://m.media-amazon.com/images/M/MV5BODJkZTZhMWItMDI3Yy00ZWZlLTk4NjQtOTI1ZjU5NjBjZTVjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg",
-      "imdbrating": "7.60",
-      "imdbvotes": 511413,
-      "imdbid": "tt0441773",
-      "boxoffice": 215771591,
-      "genres": ["Action", "Adventure", "Animation"],
-      "awards": [],
-      "countries": ["United Kingdom", "United States"],
-      "languages": ["English", "Russian"],
-      "actors": ["Angelina Jolie", "Ian McShane", "Jack Black"],
-      "directors": ["John Stevenson", "Mark Osborne"],
-      "writers": ["Ethan Reiff", "Glenn Berger", "Jonathan Aibel"]
     }
   },
   {

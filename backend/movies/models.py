@@ -43,7 +43,7 @@ class Movie(models.Model):
         default=None, max_digits=5, decimal_places=2, null=True, blank=True)
     imdbvotes = models.IntegerField(default=None, null=True, blank=True)
     imdbid = models.CharField(
-        default=None, max_length=64, null=True, blank=True)
+        default=None, max_length=64, null=True, blank=True, unique=True)
     boxoffice = models.IntegerField(default=None, null=True, blank=True)
 
     def __str__(self):
