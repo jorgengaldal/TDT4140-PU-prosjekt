@@ -34,9 +34,21 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
   const [isClickedWatched, setIsClickedWatched] = useState<boolean>(false);
   const [isClickedHeart, setIsClickedHeart] = useState<boolean>(false);
 
-  const authToken = "d39756c8cd7ed189a22213e07b14fa02280d25e6";
-  // TODO:
-  const defaultMovieListId = "TODO";
+  // TODO: Endre Token til å samsvare på tvers av alle kall.
+  const authToken = "81cd507c500afd358b31e705de59e185247b6f50";
+
+  const authHeaders = {
+    "Content-Type": "application/json",
+    Authorization: `Token ${authToken}`,
+  };
+
+  let defaultMovieListId: string | null = null;
+  // Fetches Id for default movie list
+  fetch("http://localhost:8000/api/profiles/profile", { headers: authHeaders })
+    .then((response) => response.json())
+    .then((data) => {
+      defaultMovieListId = data.my_movie_list;
+    });
 
   const handleClickWatched = () => {
     if (isClickedWatched) {
@@ -44,26 +56,28 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
     }
     if (movieData == null) {
       console.error("There's no movie to mark as watched.");
-    } else {
-      const review = {
-        movie: movieData.id,
-        movie_list: defaultMovieListId,
-      };
-      fetch("http://localhost:8000/api/reviews/moviereviews", {
-        headers: {
-          Authorization: `Token ${authToken}`,
-        },
-        method: "POST",
-        body: JSON.stringify(review),
-      }).then((response) => {
-        if (response.status != 201) {
-          console.error("Could not post review \n" + response.text);
-        }
-      });
-
-      // TODO: Kan bare markere som sett, ikke som usett.
-      setIsClickedWatched(true);
+      return;
     }
+    if (defaultMovieListId == null) {
+      console.error("Current profile has no assigned movie list");
+      return;
+    }
+    const review = {
+      movie: movieData.id,
+      movie_list: defaultMovieListId,
+    };
+    fetch("http://localhost:8000/api/reviews/moviereviews/", {
+      headers: authHeaders,
+      method: "POST",
+      body: JSON.stringify(review),
+    }).then((response: any) => {
+      if (response.status != 201) {
+        console.error("Could not post review \n" + response.text);
+      }
+    });
+
+    // TODO: Kan bare markere som sett, ikke som usett.
+    setIsClickedWatched(true);
   };
 
   const handleClickHeart = () => {
@@ -86,6 +100,19 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
         );
         if (selectedMovie) {
           setMovieData(selectedMovie);
+          // Checks if there exists a review of this movie.
+          fetch("http://localhost:8000/api/reviews/moviereviews/", {
+            headers: {
+              Authorization: `Token ${authToken}`,
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response: any) => response.json())
+            .then((data) => {
+              data.some(
+                (movieReview: any) => movieReview.movie.id == selectedMovie.id
+              );
+            });
         } else {
           console.error("Movie not found");
         }
