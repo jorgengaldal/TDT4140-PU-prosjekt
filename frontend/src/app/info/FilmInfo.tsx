@@ -34,8 +34,7 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
   const [isClickedWatched, setIsClickedWatched] = useState<boolean>(false);
   const [isClickedHeart, setIsClickedHeart] = useState<boolean>(false);
 
-  // TODO: Endre Token til å samsvare på tvers av alle kall.
-  const authToken = "81cd507c500afd358b31e705de59e185247b6f50";
+  const authToken = "7923a7f2f080d8144a4d2b3c2cb7d692f1770b4a";
 
   const authHeaders = {
     "Content-Type": "application/json",
