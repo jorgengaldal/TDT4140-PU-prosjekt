@@ -191,7 +191,7 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
             <h1 className="text-1g mt-2 mx-10">
               {movieData &&
                 movieData.genres.map((genre, index) => (
-                  <Link key={index} href={"/genre?name=" + genre}>
+                  <Link key={index} href={"/category?name=" + genre}>
                     <span className="mx-2">{genre}</span>
                   </Link>
                 ))}
