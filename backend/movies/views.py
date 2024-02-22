@@ -3,6 +3,9 @@ from django.shortcuts import render, get_object_or_404
 from rest_framework import generics, permissions
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
+from django.http import Http404
+
+import uuid
 
 from .models import Movie, Category, Person
 from .serializers import MovieSerializer, PersonSerializer, CategorySerializer
@@ -20,17 +23,19 @@ class MovieDetailView(generics.GenericAPIView):
     serializer_class = MovieSerializer
     permission_classes = [permissions.AllowAny]
 
-    def get(self, request, *args, **kwargs):
-        return self.retrieve(request, *args, **kwargs)
+    def get(self, request, identifier, format=None):
+        try:
+            uuid_obj = uuid.UUID(identifier, version=4)
+            movie = get_object_or_404(Movie, id=uuid_obj)
+        except (ValueError, Http404):
+            movie = get_object_or_404(Movie, imdbid=identifier)
+
+        serializer = self.get_serializer(movie)
+        return Response(serializer.data)
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
 
-    def get_object(self):
-        queryset = self.filter_queryset(self.get_queryset())
-        obj = queryset.get(pk=self.kwargs.get('pk'))
-        self.check_object_permissions(self.request, obj)
-        return obj
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
