@@ -25,22 +25,27 @@ function ScrollWindow(props: any) {
       });
   }, []);
 
-  const handleClick = (movie: any) => {
+  const handlePosterClick = (movie: any) => {
     // Pass movie as a parameter
     if (movie) {
       window.location.href = `/info?id=${movie.imdbid}`; // Use movie.id to create the URL
     }
   };
 
+  const handleGenreClick = () => {
+    // Pass movie as a parameter
+      window.location.href = `/category?name=${props.filterValue}`; // Use movie.id to create the URL
+  };
+
   return (
     <Layout contentMaxWidth="100ch">
-      <p className="scrollWindowTitle">{props.filterValue}</p>
+      <p className="scrollWindowTitle" onClick={() => handleGenreClick()}>{props.filterValue}</p>
       <GalleryDiv galleryItemsAspectRatio="portrait">
         {movies.map((movie: any, index: number) => (
           <div className="posterComponent" key={index}>
             <img
               className="posterImage"
-              onClick={() => handleClick(movie)} // Call handleClick with movie as argument
+              onClick={() => handlePosterClick(movie)} // Call handleClick with movie as argument
               src={movie.poster || "/no_poster.jpeg"}
               alt={`Movie Poster ${index}`}
               onError={(e) => {
