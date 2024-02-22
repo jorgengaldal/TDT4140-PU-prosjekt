@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
@@ -41,6 +41,14 @@ class MovieReviewDetailView(generics.GenericAPIView):
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+    def delete(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_delete(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def perform_delete(self, instance):
+        instance.delete()
 
 class MovieListListView(generics.ListCreateAPIView):
     queryset = MovieList.objects.all()
