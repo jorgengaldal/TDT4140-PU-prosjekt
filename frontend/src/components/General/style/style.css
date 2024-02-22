@@ -1,14 +1,11 @@
-.posterComponent{
-    flex-direction: column;
-    padding-top: 5px;
-    margin: 0px 5px 0px 5px;
-  }
+/* 
   .posterImage{
     width: 17rem;
     height: 25rem;
     object-fit: cover;
     object-position: center;
   }
+  
   .posterImage:hover {
     transform: translateY(-5px);
     transition: transform 0.3s;
@@ -16,11 +13,7 @@
     cursor: pointer;
   }
   
-  .posterTitle{
-    font-size: 1.5rem;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    text-align: center;
-    color: #fff;
+.posterTitle {
+    @apply text-2xl mt-5 mb-5 text-center text-white;
     text-shadow: 2px 2px 4px #000000;
-  }
+} */
