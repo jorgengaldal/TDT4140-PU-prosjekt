@@ -31,7 +31,7 @@ const Navbar = () => {
                     placeholder="Search for movies"
                     className="bg-accent1 order rounded-md focus:outline-none text-md w-[400px] px-4 py-2"
                 />
-                <Link href="/login">
+                <Link href="/profile">
                     <Icons name="Profile" />
                 </Link>
             </div>
