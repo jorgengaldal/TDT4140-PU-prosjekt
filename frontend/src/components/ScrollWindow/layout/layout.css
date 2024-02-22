@@ -125,6 +125,7 @@
   margin-top: 5px;
   color: #fff;
   text-shadow: 2px 2px 4px #000000;
+  cursor: pointer;
 }
 
 .ImageComponent {
