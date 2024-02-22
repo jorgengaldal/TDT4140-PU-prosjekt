@@ -23,7 +23,7 @@ export default function Poster(movie: any, index: number) {
           (e.target as HTMLImageElement).src = "/testImg1.jpg";
         }}
       />
-      <div className="posterTitle">{movie.title}</div>
+      <p className="text-lg mt-2 mb-2 text-center text-white shadow-lg">{movie.title}</p>
     </div>
   );
 }

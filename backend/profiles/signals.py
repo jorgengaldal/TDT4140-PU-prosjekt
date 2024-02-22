@@ -6,4 +6,7 @@ from reviews.models import MovieList
 @receiver(post_save, sender=Profile)
 def create_movie_list_for_profile(sender, instance, created, **kwargs):
     if created:
-        MovieList.objects.create(name=f"My Movie List").owners.add(instance)
+        movie_list = MovieList.objects.create(name="My Movie List")
+        movie_list.owners.add(instance)
+        instance.my_movie_list = movie_list
+        instance.save()

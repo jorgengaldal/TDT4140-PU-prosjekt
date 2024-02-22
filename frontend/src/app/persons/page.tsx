@@ -4,12 +4,12 @@ import { Grid } from "@mui/material";
 import Poster from "../../components/General/Poster";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import Layout from "../layout";
 
 const PersonPage = () => {
     const [writtenMovies, setWrittenMovies] = useState<any[]>([]);
     const [actedInMovies, setActedInMovies] = useState<any[]>([]);
     const [directedMovies, setDirectedMovies] = useState<any[]>([]);
+    const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
     const person = useSearchParams().get("name");
 
@@ -31,7 +31,6 @@ const PersonPage = () => {
             });
     }, [person]);
 
-    const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
     // Setting initial isFavorite state
     //   fetch("http://localhost:8000/api/profile/fa")
@@ -51,17 +50,17 @@ const PersonPage = () => {
     //   }
 
     return (
-        <Layout>
-            <div>
-                <h1>{person}</h1>
-                <button onClick={() => console.log("FAVOURITE")}>
+        <div className="min-h-screen m-20">
+            <ul className="flex flex-row gap-4 mb-10">
+                <h1 className="text-6xl font-bold">{person}</h1>
+                <button onClick={() => setIsFavorite(!isFavorite)}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill={isFavorite ? "white" : "none"}
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        className="w-6 h-6"
+                        className="w-10 h-10"
                     >
                         <path
                             strokeLinecap="round"
@@ -70,30 +69,58 @@ const PersonPage = () => {
                         />
                     </svg>
                 </button>
+            </ul>
 
-                {actedInMovies && (
-                    <p>{person} has not acted in any movies</p>
+
+            <div className="flex flex-col gap-5">
+                {actedInMovies.length == 0 ? (
+                    <p>{person} has not acted in any movies.</p>
+                ) : (
+                    <>
+                        <h2>Acted in: </h2>
+                        <Grid container spacing={2}>
+                            {actedInMovies.map((movie, index) => (
+                                <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+                                    <div className="flex flex-col items-center justify-center h-full">
+                                        <Poster movie={movie} index={index} />
+                                    </div>
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </>
                 )}
 
-                <h2>Har regissert disse filmene</h2>
-                <Grid container spacing={2}>
-                    {directedMovies.map((movie, index) => (
-                        <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-                            <Poster movie={movie} index={index} />
+                {directedMovies.length == 0 ? (
+                    <p>{person} has not directed any movies.</p>
+                ) : (
+                    <>
+                        <h2>Directed: </h2>
+                        <Grid container spacing={2}>
+                            {directedMovies.map((movie, index) => (
+                                <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+                                    <Poster movie={movie} index={index} />
+                                </Grid>
+                            ))}
                         </Grid>
-                    ))}
-                </Grid>
+                    </>
+                )}
 
-                <h2>Har skrevet disse filmene</h2>
-                <Grid container spacing={2}>
-                    {writtenMovies.map((movie, index) => (
-                        <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-                            <Poster movie={movie} index={index} />
+                {writtenMovies.length == 0 ? (
+                    <p>{person} has not writtenany movies.</p>
+                ) : (
+                    <>
+                        <h2>Written: </h2>
+                        <Grid container spacing={2}>
+                            {writtenMovies.map((movie, index) => (
+                                <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+                                    <Poster movie={movie} index={index} />
+                                </Grid>
+                            ))}
                         </Grid>
-                    ))}
-                </Grid>
+                    </>
+                )}
             </div>
-        </Layout>
+        </div>
     );
 };
 
