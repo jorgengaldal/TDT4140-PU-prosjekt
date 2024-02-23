@@ -73,3 +73,16 @@ Use the premade dump of top 200 boxoffice movies:
 cd backend
 python manage.py loaddata preloaded_db.json
 ```
+
+# Miscellaneous
+
+## ER diagram
+
+![ER](media\miscellaneuous\ER_diagram.png)
+
+### Update ER diagram
+
+Install Graphwiz https://graphviz.org/download/
+```bash
+python manage.py graph_models -a -g -o ER_diagrams.png
+```
