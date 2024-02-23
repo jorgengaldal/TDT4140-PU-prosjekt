@@ -84,5 +84,5 @@ python manage.py loaddata preloaded_db.json
 
 Install Graphwiz https://graphviz.org/download/
 ```bash
-python manage.py graph_models -a -g -o ER_diagrams.png
+python manage.py graph_models -a -g -o media\miscellaneuous\ER_diagram.png
 ```
