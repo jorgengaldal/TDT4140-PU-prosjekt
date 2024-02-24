@@ -22,6 +22,10 @@ class MovieSerializer(serializers.ModelSerializer):
         return round(average, 2)
 
 
+class SimpleMovieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = ["id", "title", "poster", "imdbid"]
 
 
 
@@ -42,7 +46,7 @@ class CategorySerializer(serializers.ModelSerializer):
             related_movies = obj.language_movies.all()
         elif obj.category_type == 4:
             related_movies = obj.genre_movies.all()
-        serializer = MovieSerializer(related_movies, many=True)
+        serializer = SimpleMovieSerializer(related_movies, many=True, context=self.context)
         return serializer.data
 
 
