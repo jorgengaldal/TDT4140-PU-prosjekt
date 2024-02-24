@@ -62,17 +62,17 @@ class PersonSerializer(serializers.ModelSerializer):
 
     def get_directed_movies(self, obj) -> List[Movie]:
         related_movies = obj.directed_movies.all()
-        serializer = MovieSerializer(related_movies, many=True)
+        serializer = MovieSerializer(related_movies, many=True, context=self.context)
         return serializer.data
 
     def get_acted_movies(self, obj) -> List[Movie]:
         related_movies = obj.acted_movies.all()
-        serializer = MovieSerializer(related_movies, many=True)
+        serializer = MovieSerializer(related_movies, many=True, context=self.context)
         return serializer.data
 
     def get_written_movies(self, obj) -> List[Movie]:
         related_movies = obj.written_movies.all()
-        serializer = MovieSerializer(related_movies, many=True)
+        serializer = MovieSerializer(related_movies, many=True, context=self.context)
         return serializer.data
 
 
