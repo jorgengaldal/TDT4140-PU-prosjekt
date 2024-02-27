@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CountrySelect from "./CountrySelect";
 import Collection from "./Collection";
 import Genres from "./Genres";
+import { useSearchParams } from "next/navigation";
+
+
+
 
 export const ProfileView = () => {
     return (
@@ -14,16 +18,18 @@ export const ProfileView = () => {
     );
 }
 
-export const PreferencesView =() => {
+export const PreferencesView = () => {
     return (
         <div className="w-2/3 bg-accent1 h-100% rounded-lg px-24 py-12">
-            <h1 className="text-xl">Preferences</h1>
-            <div className="App">
-            <CountrySelect />
-            </div>
-           
             <div className="flex flex-col">
+
                 <div className="flex justify-between">
+                    <h1 className="text-xl ">Preferences</h1>
+                    <CountrySelect />
+                </div>
+
+                <div className="flex justify-between">
+                    {/* Add content here */}
                 </div>
                 <div className="flex justify-between">
                     <h1 className="text-xl underline">Country</h1>
@@ -35,7 +41,56 @@ export const PreferencesView =() => {
                 </div>
             </div>
         </div>
-    );
+    )
+}
+
+export const GeneralView = () => {
+
+    const [username, setUsername] = React.useState<string>("");
+
+    useEffect(() => {
+        fetch('http://127.0.0.1:8000/api/profiles/profile').then(response => {
+            console.log(response)
+            return response.json();
+        }).then(data => {
+            console.log(data)
+            return setUsername(data.user);
+        }).catch(error => {
+            console.error("Error fetching user: ", error);
+        })
+    }, []);
+
+
+
+    return (
+        <div className="w-2/3 bg-accent1 h-100% rounded-lg px-24 py-12">
+            <div className="flex flex-col">
+
+                <div className="flex justify-between mb-4 ">
+                    <h1 className="text-xl ">General</h1>
+                </div>
+
+                <div className="flex justify-between mb-4">
+                    <h1 className="text-xl underline">Name</h1>
+                    <input type="text" className="text-xl text-black py-2" placeholder={username} />
+                </div>
+
+                <div className="flex justify-between mb-4">
+                    <h1 className="text-xl underline">Username</h1>
+                    <input type="text" className="text-xl text-black" placeholder="Enter your username" />
+                </div>
+
+                <div className="flex justify-between mb-4">
+                    <h1 className="text-xl underline">Password</h1>
+                    <input type="password" className="text-xl text-black" placeholder="Enter your password" />
+                </div>
+                <div className="flex justify-between mb-4">
+                    <h1 className="text-xl underline">Email</h1>
+                    <input type="email" className="text-xl text-black" placeholder="Enter your email" />
+                </div>
+            </div>
+        </div>
+    )
 }
 
 interface DisplayViewProps {
@@ -54,9 +109,7 @@ const DisplayView: React.FC<DisplayViewProps> = ({ currentSetting }) => {
 
     } else if (currentSetting === "Setting3") {
         return (
-            <div className="w-2/3 bg-accent1 h-100% rounded-lg px-24 py-12">
-                <h1>{currentSetting}</h1>
-            </div>
+            <GeneralView />
         )
 
     } else if (currentSetting === "Setting4") {

@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { ProfileInfo } from "./ProfileInfo";
 import { SettingsPanel } from "./SettingsPanel";
-import DisplayView, { ViewOne } from "./Views";
+import DisplayView, { ProfileView } from "./Views";
+
 
 export default function ProfilePage() {
     const [setting, setSetting] = useState<string>("main");
