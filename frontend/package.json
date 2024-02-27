@@ -18,13 +18,14 @@
     "next": "14.1.0",
     "next-auth": "^4.24.5",
     "react": "^18",
-    "react-dom": "^18",
-    "react-select": "^5.8.0",
     "react-content-loader": "^6.2.1",
+    "react-dom": "^18",
     "react-img-placeholder": "^0.1.5",
     "react-loading-skeleton": "^3.4.0",
     "react-router-dom": "^6.22.1",
-    "react-spinners": "^0.13.8"
+    "react-select": "^5.8.0",
+    "react-spinners": "^0.13.8",
+    "select": "^1.1.2"
   },
   "devDependencies": {
     "@types/node": "^20",
