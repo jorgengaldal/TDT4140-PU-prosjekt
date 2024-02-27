@@ -4,10 +4,7 @@ from django.contrib.auth.models import User
 from .models import Movie, Person, Category
 from django.db.models import Avg
 
-from django_typomatic import ts_interface, generate_ts
 
-
-@ts_interface()
 class MovieSerializer(serializers.ModelSerializer):
     average_rating = serializers.SerializerMethodField()
 
@@ -22,10 +19,6 @@ class MovieSerializer(serializers.ModelSerializer):
         return round(average, 2)
 
 
-
-
-
-@ts_interface()
 class CategorySerializer(serializers.ModelSerializer):
     movies = serializers.SerializerMethodField()
 
@@ -46,7 +39,6 @@ class CategorySerializer(serializers.ModelSerializer):
         return serializer.data
 
 
-@ts_interface()
 class PersonSerializer(serializers.ModelSerializer):
     acted_movies = serializers.SerializerMethodField()
     written_movies = serializers.SerializerMethodField()
@@ -70,6 +62,3 @@ class PersonSerializer(serializers.ModelSerializer):
         related_movies = obj.written_movies.all()
         serializer = MovieSerializer(related_movies, many=True)
         return serializer.data
-
-
-generate_ts('../frontend/backendTypes.ts')
