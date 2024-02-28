@@ -16,7 +16,6 @@ const GenrePage: React.FC = () => {
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/api/movies/categories/' + name).then(response => {
-      console.log(response)
       return response.json();
     }).then(data => {
       return setMovies(data.movies);
