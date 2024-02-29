@@ -88,15 +88,12 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
     const fetchMovieData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8000/api/movies/movies/`
+          `http://localhost:8000/api/movies/movies/${selectedMovieId}/`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch movie data");
         }
-        const allMovies = await response.json();
-        const selectedMovie = allMovies.find(
-          (movie: any) => movie.imdbid === selectedMovieId
-        );
+        const selectedMovie = await response.json();
         if (selectedMovie) {
           setMovieData(selectedMovie);
           // Checks if there exists a review of this movie.

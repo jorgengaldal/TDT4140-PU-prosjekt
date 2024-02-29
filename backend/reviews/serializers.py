@@ -77,7 +77,7 @@ class MovieReviewDetailSerializer(serializers.ModelSerializer):
 
     def get_movie(self, obj) -> Movie:
         related_movie = obj.movie
-        serializer = MovieSerializer(related_movie)
+        serializer = MovieSerializer(related_movie, context=self.context)
         return serializer.data
 
         
