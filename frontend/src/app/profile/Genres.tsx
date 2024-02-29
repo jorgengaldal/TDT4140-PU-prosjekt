@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Cookie from 'js-cookie';
 
 interface GenreBoxProps {
   title: string;
@@ -17,7 +18,7 @@ interface GenresProps {
 const Genres: React.FC<GenresProps> = ({ title }) => {
   const [films, setFilms] = useState<any>();
 
-  const authToken = localStorage.getItem("token");
+  const authToken = Cookie.get('token');
 
   useEffect(() => {
     // Fetch films from the API endpoint

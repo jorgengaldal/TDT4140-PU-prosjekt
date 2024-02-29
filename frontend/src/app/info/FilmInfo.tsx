@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Photo from "./Photo";
 import { useState, useEffect } from "react";
+import Cookie from 'js-cookie';
 
 interface FilmInfoProps {
   selectedMovieId: string;
@@ -34,7 +35,7 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
   const [isClickedWatched, setIsClickedWatched] = useState<boolean>(false);
   const [isClickedHeart, setIsClickedHeart] = useState<boolean>(false);
 
-  const authToken = localStorage.getItem("token");
+  const authToken = Cookie.get('token');
 
   const authHeaders = {
     "Content-Type": "application/json",

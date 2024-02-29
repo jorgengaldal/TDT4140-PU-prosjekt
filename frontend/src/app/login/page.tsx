@@ -3,8 +3,7 @@ import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+import Cookie from "js-cookie";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -45,7 +44,7 @@ export default function SignIn() {
       .then((data) => {
         console.log(data);
         if (data.token) {
-          localStorage.setItem("token", data.token);
+          Cookie.set("token", data.token, { expires: 52 * 7 });
           console.log("Token stored successfully");
           router.push("/");
         } else {
