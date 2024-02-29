@@ -19,8 +19,6 @@ class MovieSerializer(serializers.ModelSerializer):
         return round(average, 2)
 
 
-<<<<<<< e8e7c49a991378976ae554aebffa7e2a5aa90bbd
-=======
 class SimpleMovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
@@ -28,8 +26,6 @@ class SimpleMovieSerializer(serializers.ModelSerializer):
 
 
 
-@ts_interface()
->>>>>>> 8007ca7c3f80be02c7a8c20d6d739a3084b11d14
 class CategorySerializer(serializers.ModelSerializer):
     movies = serializers.SerializerMethodField()
 
