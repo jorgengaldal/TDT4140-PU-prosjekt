@@ -38,7 +38,7 @@ class Movie(models.Model):
 
     plot = models.TextField(default="", null=True, blank=True)
 
-    poster = models.URLField(default=None, null=True, blank=True)
+    poster = models.ImageField(default=None, null=True, blank=True)
     imdbrating = models.DecimalField(
         default=None, max_digits=5, decimal_places=2, null=True, blank=True)
     imdbvotes = models.IntegerField(default=None, null=True, blank=True)

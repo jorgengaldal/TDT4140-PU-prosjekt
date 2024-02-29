@@ -10,7 +10,7 @@ export default function InfoPage() {
     const id = searchParams.get('id');
 
     return (
-        <main className="flex min-h-screen flex-col bg-primary  items-center justify-between">
+        <main className="flex min-h-screen flex-col bg-primary items-center justify-between">
             {id ? (
                 <>
                 <Banner selectedMovieId={id} />
