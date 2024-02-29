@@ -4,8 +4,8 @@ from .models import MovieList, MovieReview
 from movies.models import Movie
 from movies.serializers import MovieSerializer
 from django.db.models import Prefetch
-from django_typomatic import ts_interface, generate_ts
 from typing import List
+
 
 class MovieListSerializer(serializers.ModelSerializer):
     reviews = serializers.SerializerMethodField()
@@ -23,7 +23,8 @@ class MovieListSerializer(serializers.ModelSerializer):
 
     def get_genre_data(self, obj):
         reviews = obj.reviews.prefetch_related(
-            Prefetch('movie', queryset=Movie.objects.all().prefetch_related('genres'))
+            Prefetch('movie', queryset=Movie.objects.all(
+            ).prefetch_related('genres'))
         ).all()
 
         reviews_per_genre = defaultdict(int)
@@ -54,8 +55,6 @@ class MovieListSerializer(serializers.ModelSerializer):
         }
 
 
-
-# @ts_interface
 class MovieReviewCreateSerializer(serializers.ModelSerializer):
     movie = serializers.PrimaryKeyRelatedField(queryset=Movie.objects.all())
 
@@ -65,8 +64,10 @@ class MovieReviewCreateSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         movie_data = validated_data.pop('movie')
-        movie_review_instance = MovieReview.objects.create(movie=movie_data, **validated_data)
+        movie_review_instance = MovieReview.objects.create(
+            movie=movie_data, **validated_data)
         return movie_review_instance
+
 
 class MovieReviewDetailSerializer(serializers.ModelSerializer):
     movie = serializers.SerializerMethodField()
@@ -79,6 +80,3 @@ class MovieReviewDetailSerializer(serializers.ModelSerializer):
         related_movie = obj.movie
         serializer = MovieSerializer(related_movie, context=self.context)
         return serializer.data
-
-        
-generate_ts('../frontend/backendTypes.ts')
