@@ -1,7 +1,7 @@
 'use client';
 
 import { Grid } from '@mui/material';
-import Poster from '../../components/General/Poster';
+import Poster from '@/components/General/Poster';
 import { GridView } from '@mui/icons-material';
 import React, { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';

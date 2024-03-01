@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useRouter } from "next/navigation";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Card, CardContent } from "@mui/material";
+import { Card, CardContent, CssBaseline } from "@mui/material";
 
 const defaultTheme = createTheme({
   palette: {
