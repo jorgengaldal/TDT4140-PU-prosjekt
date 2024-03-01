@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useRouter } from "next/navigation";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Card, CardContent } from "@mui/material";
+import { Card, CardContent, Grid, Link } from "@mui/material";
 
 const defaultTheme = createTheme({
   palette: {
@@ -121,6 +121,10 @@ export default function SignUp() {
                   />
                   <Typography color="error">{errors["password"]}</Typography>
                   <Button
+                    style={{
+                      backgroundColor: "#45ACFF",
+                      color: "white",
+                    }}
                     type="submit"
                     fullWidth
                     variant="contained"
@@ -128,6 +132,13 @@ export default function SignUp() {
                   >
                     Sign Up
                   </Button>
+                  <Grid container>
+                    <Grid item>
+                      <Link href="/login" variant="body2">
+                        {"Already have an account? Sign In"}
+                      </Link>
+                    </Grid>
+                  </Grid>
                 </Box>
               </Box>
             </CardContent>

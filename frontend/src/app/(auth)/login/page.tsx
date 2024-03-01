@@ -112,6 +112,10 @@ export default function SignIn() {
                     type="submit"
                     fullWidth
                     variant="contained"
+                    style={{
+                      backgroundColor: "#45ACFF",
+                      color: "white",
+                    }}
                     sx={{ mt: 3, mb: 2 }}
                   >
                     Sign In
