@@ -71,8 +71,16 @@ python manage.py runserver
 Use the premade dump of top 200 boxoffice movies:
 ```bash
 cd backend
+python manage.py loaddata fixtures/movies.json
+python manage.py loaddata fixtures/users.json
+```
+
+Add movies and users:
+```bash
+cd backend
 python manage.py loaddata preloaded_db.json
 ```
+
 
 # Miscellaneous
 
