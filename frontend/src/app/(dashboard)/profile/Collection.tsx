@@ -1,7 +1,7 @@
 import Icons from "@/components/General/Icons";
-import Image from "next/image";
 import Link from "next/link";
-import { Key, useEffect, useState } from "react";
+import Cookie from 'js-cookie';
+import { useEffect, useState } from "react";
 
 interface PosterProps {
   link: string;
@@ -36,7 +36,7 @@ const Rectangle: React.FC = () => {
 const Collection: React.FC<CollectionProps> = ({ title, link }) => {
   const [films, setFilms] = useState<any>();
 
-  const authToken = "7923a7f2f080d8144a4d2b3c2cb7d692f1770b4a";
+  const authToken = Cookie.get('token');
 
   useEffect(() => {
     // Fetch films from the API endpoint
