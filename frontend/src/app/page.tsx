@@ -35,6 +35,15 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <ScrollWindow
         movies={movies}
+        sortBy={(a: Movie, b: Movie) =>
+          parseFloat(a.imdbrating) - parseFloat(b.imdbrating)
+        }
+        title={"Bottom 10 movies"}
+        limit={10}
+        doNotLinkTitle 
+      />
+      <ScrollWindow
+        movies={movies}
         filterBy={(movie: Movie) => movie.genres.includes("Comedy")}
         title={"Comedy"}
       />
