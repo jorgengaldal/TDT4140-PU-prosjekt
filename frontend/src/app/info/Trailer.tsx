@@ -34,11 +34,11 @@ export default function Trailer({ selectedMovieId }: FilmInfoProps) {
     }, [selectedMovieId]);
 
     return (
-            <div className="flex flex-col w-2/3 items-center justify-center relative my-20">
+            <div className="flex flex-col w-[50%] items-center justify-center relative my-20">
                 {trailerData?.trailer && (
                     <iframe
-                        width="1260"
-                        height="675"
+                        width="100%"
+                        style={{aspectRatio: "16/9"}}
                         src={`https://www.youtube.com/embed/${trailerData?.trailer.youtube_video_id}`}
                         allowFullScreen
                     ></iframe>

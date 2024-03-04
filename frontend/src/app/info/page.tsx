@@ -16,7 +16,6 @@ export default function InfoPage() {
                 <>
                 <Banner selectedMovieId={id}/>
                 <FilmInfo selectedMovieId={id}/>
-                <Trailer selectedMovieId={id}/>
                 </>
             ) : (
                 <p>URL IS WRONG</p>

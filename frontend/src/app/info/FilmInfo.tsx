@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Photo from "./Photo";
 import { useState, useEffect } from "react";
+import Trailer from "./Trailer";
 
 interface FilmInfoProps {
   selectedMovieId: string;
@@ -205,7 +206,9 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
           <p className="mt-1">Description:</p> */}
         </div>
       </div>
-
+      <div className="flex items-center justify-center">
+        <Trailer selectedMovieId={selectedMovieId} />
+      </div>
       <div className="w-full relative inset-x-0 bottom-0 bg-accent1 rounded-lg h-[55%]">
         <p className="mt-40">Top 3 cast:</p>
         <div className="p-4">
