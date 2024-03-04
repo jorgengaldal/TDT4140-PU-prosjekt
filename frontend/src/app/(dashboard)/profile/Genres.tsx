@@ -43,7 +43,9 @@ const Genres: React.FC<GenresProps> = ({ title }) => {
 
   const rankedGenres: string[] = []; // Declare rankedGenres outside the forEach loop
 
-  films?.movie_lists.forEach((movieList: { reviews: any[] }) => {
+  films?.movie_lists.forEach((movieList: {
+    genre_data: any; reviews: any[]
+  }) => {
     const data = movieList.genre_data;
     const allGenres = new Set<string>();
     Object.keys(data.reviews_per_genre).forEach((genre) =>
