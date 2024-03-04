@@ -1,53 +1,99 @@
-import { useEffect, useRef, useState } from 'react';
-import Icons from './Icons';
+import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Icons from "./Icons"; // Assuming you have appropriate icons here
+import { ButtonBase } from "@mui/material";
 
 const Dropdown = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const dropdownRef = useRef<HTMLDivElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const isOpen = Boolean(anchorEl);
 
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-    const closeDropdown = () => {
-        setIsOpen(false);
-    };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-    const handleClickOutside = (event: MouseEvent) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-            closeDropdown();
-        }
-    };
-
-    useEffect(() => {
-        // Attach the event listener when the component mounts
-        document.addEventListener('click', handleClickOutside);
-
-        // Detach the event listener when the component unmounts
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
-    }, []); // Empty dependency array to run this effect only once
-
-    return (
-        <div className="relative group " ref={dropdownRef}>
-            <button onClick={toggleDropdown} className='flex justify-center items-center'>
-                {isOpen ?
-                    <Icons name="Cross" /> : <Icons name="Dropdown" />
-                }
-            </button>
-            {/* Dropdown content */}
-            <div className={`flex flex-col absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-4 bg-gray-600 rounded-md shadow-lg ${isOpen ? 'block' : 'hidden'}`}>
-                <a href={"/category?name=" + "Action"}>Action</a>
-                <a href={"/category?name=" + "Thriller"}>Thriller</a>
-                <a href={"/category?name=" + "Adventure"}>Adventure</a>
-                <a href={"/category?name=" + "Comedy"}>Comedy</a>
-                <a href={"/category?name=" + "Horror"}>Horror</a>
-                <a href={"/category?name=" + "Drama"}>Drama</a>
-                <a href={"/category?name=" + "Sci-Fi"}>Sci-Fi</a>
-            </div>
-        </div>
-    );
+  return (
+    <div>
+      <ButtonBase
+        aria-controls="customized-menu"
+        aria-haspopup="true"
+        variant="contained"
+        onClick={handleClick}
+      >
+        {isOpen ? <Icons name="Cross" /> : <Icons name="Dropdown" />}
+      </ButtonBase>
+      <Menu
+        id="customized-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={isOpen}
+        onClose={handleClose}
+        transformOrigin={{ vertical: "top", horizontal: "center" }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        sx={{
+          "& .MuiPaper-root": {
+            backgroundColor: "#2D3250", 
+            color: "white"
+          },
+        }}
+      >
+        <MenuItem
+          onClick={handleClose}
+          component="a"
+          href="/category?name=Action"
+        >
+          Action
+        </MenuItem>
+        <MenuItem
+          onClick={handleClose}
+          component="a"
+          href="/category?name=Thriller"
+        >
+          Thriller
+        </MenuItem>
+        <MenuItem
+          onClick={handleClose}
+          component="a"
+          href="/category?name=Adventure"
+        >
+          Adventure
+        </MenuItem>
+        <MenuItem
+          onClick={handleClose}
+          component="a"
+          href="/category?name=Comedy"
+        >
+          Comedy
+        </MenuItem>
+        <MenuItem
+          onClick={handleClose}
+          component="a"
+          href="/category?name=Horror"
+        >
+          Horror
+        </MenuItem>
+        <MenuItem
+          onClick={handleClose}
+          component="a"
+          href="/category?name=Drama"
+        >
+          Drama
+        </MenuItem>
+        <MenuItem
+          onClick={handleClose}
+          component="a"
+          href="/category?name=Sci-Fi"
+        >
+          Sci-Fi
+        </MenuItem>
+      </Menu>
+    </div>
+  );
 };
 
 export default Dropdown;
