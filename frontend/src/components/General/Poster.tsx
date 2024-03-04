@@ -7,9 +7,10 @@ import { Movie } from "@/backend-types";
 type PosterProps = {
   movie: Movie;
   index: number;
+  height?: string;
 };
 
-export default function Poster({ movie, index }: PosterProps) {
+export default function Poster({ movie, index, height }: PosterProps) {
   const router = useRouter();
 
   function handleClick() {
@@ -25,19 +26,20 @@ export default function Poster({ movie, index }: PosterProps) {
     <div key={index}>
       <Card
         sx={{
-          transition: "transform 0.3s", // This applies the transition effect
+          transition: "transform 0.3s",
           bgcolor: "transparent",
           borderRadius: "8px",
+          width: height ? height : "17rem",
+          aspectRatio: "17/25",
           ":hover": {
-            transform: "translateY(-5px)", // This moves the card up on hover
-            boxShadow: 20, // Assuming theme.shadows[20] exists and you want a deeper shadow on hover
+            transform: "translateY(-5px)",
+            boxShadow: 20,
           },
         }}
       >
         <CardMedia
           sx={{
-            width: "17rem",
-            height: "25rem",
+            width: height ? height : "17rem",
             aspectRatio: "17/25",
             cursor: "pointer",
             "& img": {
@@ -56,7 +58,7 @@ export default function Poster({ movie, index }: PosterProps) {
           />
         </CardMedia>
       </Card>
-      <div className="text-2xl mt-1 mb-1 text-center text-white  object-fit">
+      <div className="text-2xl mt-1 mb-1 text-center text-white object-fit">
         {movie.title}
       </div>
     </div>
