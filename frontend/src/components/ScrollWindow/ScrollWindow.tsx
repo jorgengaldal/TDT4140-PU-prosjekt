@@ -7,24 +7,15 @@ interface MoviePoster {
   imageUrl: string;
   // Add other properties as needed
 }
+//Arguments for ScrollWindow
+//movies: list of movies
+//filterBy: filter function
+//sortBy: sort function
+//title: title of the scroll window
+//limit: number of movies to display
+//doNotLinkTitle: if true, the title is not a link
 
 function ScrollWindow(props: any) {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/movies/categories/${props.filterValue}`)
-      .then((response) => {
-        console.log(response);
-        return response.json();
-      })
-      .then((data) => {
-        return setMovies(data.movies);
-      })
-      .catch((error) => {
-        console.error("Error fetching movie posters: ", error);
-      });
-  }, []);
-
   const handlePosterClick = (movie: any) => {
     // Pass movie as a parameter
     if (movie) {
@@ -34,14 +25,33 @@ function ScrollWindow(props: any) {
 
   const handleGenreClick = () => {
     // Pass movie as a parameter
-      window.location.href = `/category?name=${props.filterValue}`; // Use movie.id to create the URL
+    if (!props.doNotLinkTitle) {
+      window.location.href = `/category?name=${props.title}`; // Use movie.id to create the URL
+    }
   };
+
+  if (!props.movies) {
+    return <div>Loading...</div>;
+  }
+
+  let filteredMovies = [...props.movies];
+  if (props.filterBy) {
+    filteredMovies = props.movies.filter(props.filterBy);
+  }
+  if (props.sortBy) {
+    filteredMovies = filteredMovies.sort(props.sortBy);
+  }
+  if (props.limit) {
+    filteredMovies = filteredMovies.slice(0, props.limit);
+  }
 
   return (
     <Layout contentMaxWidth="100ch">
-      <p className="scrollWindowTitle" onClick={() => handleGenreClick()}>{props.filterValue}</p>
+      <p className="scrollWindowTitle" onClick={() => handleGenreClick()}>
+        {props.title}
+      </p>
       <GalleryDiv galleryItemsAspectRatio="portrait">
-        {movies.map((movie: any, index: number) => (
+        {filteredMovies.map((movie: any, index: number) => (
           <div className="posterComponent" key={index}>
             <img
               className="posterImage"
