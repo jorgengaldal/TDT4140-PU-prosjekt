@@ -7,6 +7,7 @@ import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import Trailer from "./Trailer";
 import {
   Box,
   Card,
@@ -137,131 +138,105 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
   }, [selectedMovieId]);
 
   return (
-    <Box
-      className="w-2/3 mt-10 rounded-t-lg"
-      sx={{ backgroundColor: "#262B47", boxShadow: 4 }}
-    >
-      <Grid container spacing={4} sx={{ padding: 3, marginBottom: 5 }}>
-        <Grid item md={3}>
-          <div>
-            {movieData && (
-              <Card
+    <Grid container spacing={4} sx={{marginBottom: 7}} >
+      <Grid item md={3}>
+        <div>
+          {movieData && (
+            <Card
+              sx={{
+                borderRadius: "8px",
+                bgcolor: "transparent",
+                width: "250px",
+                aspectRatio: "17/25",
+              }}
+            >
+              <CardMedia
                 sx={{
-                  borderRadius: "8px",
-                  bgcolor: "transparent",
-                  width: "250px",
-                  aspectRatio: "17/25",
+                  height: "100%",
+                  width: "100%",
+                  "& img": {
+                    objectFit: "fill",
+                    width: "100%",
+                    height: "100%",
+                  },
                 }}
               >
-                <CardMedia
-                  sx={{
-                    height: "100%",
-                    width: "100%",
-                    "& img": {
-                      objectFit: "fill",
-                      width: "100%",
-                      height: "100%",
-                    },
-                  }}
-                >
-                  <img src={movieData.poster} alt="Movie Photo" />
-                </CardMedia>
-              </Card>
-            )}
+                <img src={movieData.poster} alt="Movie Photo" />
+              </CardMedia>
+            </Card>
+          )}
+        </div>
+      </Grid>
+      <Grid item container md={9}>
+        <Grid item md={12}>
+          <div className="flex flex-row mb-3">
+            <Typography
+              variant="h3"
+              className="mr-4"
+              sx={{ textShadow: "1px 1px 2px black" }}
+            >
+              {movieData && movieData.title}
+            </Typography>
+            <IconButton
+              className="mr-2"
+              sx={{ color: "white" }}
+              onClick={handleClickWatched}
+            >
+              {isClickedWatched ? (
+                <VisibilityIcon sx={{ fontSize: 35 }} />
+              ) : (
+                <VisibilityOffIcon sx={{ fontSize: 35 }} />
+              )}
+            </IconButton>
+            <IconButton sx={{ color: "pink" }} onClick={handleClickHeart}>
+              {isClickedHeart ? (
+                <FavoriteIcon sx={{ fontSize: 35 }} />
+              ) : (
+                <FavoriteBorderIcon sx={{ fontSize: 35 }} />
+              )}
+            </IconButton>
           </div>
-        </Grid>
-        <Grid item container md={9}>
-          <Grid item md={12}>
-            <div className="flex flex-row mb-3">
-              <Typography
-                variant="h3"
-                className="mr-4"
-                sx={{ textShadow: "1px 1px 2px black" }}
-              >
-                {movieData && movieData.title}
-              </Typography>
-              <IconButton
-                className="mr-2"
-                sx={{ color: "white" }}
-                onClick={handleClickWatched}
-              >
-                {isClickedWatched ? (
-                  <VisibilityIcon sx={{ fontSize: 35 }} />
-                ) : (
-                  <VisibilityOffIcon sx={{ fontSize: 35 }} />
-                )}
-              </IconButton>
-              <IconButton sx={{ color: "pink" }} onClick={handleClickHeart}>
-                {isClickedHeart ? (
-                  <FavoriteIcon sx={{ fontSize: 35 }} />
-                ) : (
-                  <FavoriteBorderIcon sx={{ fontSize: 35 }} />
-                )}
-              </IconButton>
-            </div>
-            <div className="flex flex-row mb-6">
-              <p>{movieData && movieData.released} | </p>
-              <p className="text-1g ml-2.5" style={{ color: "LightCyan" }}>
-                {movieData &&
-                  movieData.genres.map((genre, index) => (
-                    <Link key={index} href={"/category?name=" + genre}>
-                      <span className="mx-2">{genre} </span>
-                    </Link>
-                  ))}
-              </p>
-            </div>
-            <h1 className="mt-3 text-2 mr-4">{movieData && movieData.plot}</h1>
-            <div className="mt-5">
-              Directors:
+          <div className="flex flex-row mb-6">
+            <p>{movieData && movieData.released} | </p>
+            <p className="text-1g ml-2.5" style={{ color: "LightCyan" }}>
+              {movieData &&
+                movieData.genres.map((genre, index) => (
+                  <Link key={index} href={"/category?name=" + genre}>
+                    <span className="mx-2">{genre} </span>
+                  </Link>
+                ))}
+            </p>
+          </div>
+          <h1 className="mt-3 text-2 mr-4">{movieData && movieData.plot}</h1>
+          <div className="mt-5">
+            Directors:
+            <span className="text-1g ml-2.5" style={{ color: "LightCyan" }}>
+              {movieData?.directors.join(", ")}
+            </span>
+            <div>
+              Writers:
               <span className="text-1g ml-2.5" style={{ color: "LightCyan" }}>
-                {movieData?.directors.join(", ")}
+                {movieData?.writers.join(", ")}
               </span>
+            </div>
+          </div>
+          <a href={`https://www.imdb.com/title/${movieData?.imdbid}/`}>
+            <div className="mt-10">
+              <Typography sx={{ fontSize: 15, opacity: 0.8 }}>
+                IMDb RATING:
+              </Typography>
               <div>
-                Writers:
-                <span className="text-1g ml-2.5" style={{ color: "LightCyan" }}>
-                  {movieData?.writers.join(", ")}
-                </span>
+                <Typography sx={{ fontSize: 20 }}>
+                  <StarRoundedIcon sx={{ color: "#F5C519", fontSize: 30 }} />
+
+                  {movieData && movieData.imdbrating}
+                  <span style={{ opacity: 0.8, fontSize: 17 }}>/10</span>
+                </Typography>
               </div>
             </div>
-            <a href={`https://www.imdb.com/title/${movieData?.imdbid}/`}>
-              <div className="mt-10">
-                <Typography sx={{ fontSize: 15, opacity: 0.8 }}>
-                  IMDb RATING:
-                </Typography>
-                <div>
-                  <Typography sx={{ fontSize: 20 }}>
-                    <StarRoundedIcon sx={{ color: "#F5C519", fontSize: 30 }} />
-
-                    {movieData && movieData.imdbrating}
-                    <span style={{ opacity: 0.8, fontSize: 17 }}>/10</span>
-                  </Typography>
-                </div>
-              </div>
-            </a>
-          </Grid>
+          </a>
         </Grid>
       </Grid>
-      <div className="w-full relative inset-x-0 bottom-0 h-[55%] bg-[#202439]">
-        <div className="p-10">
-          <Typography variant="h5" className="mb-4">
-            Top Cast:
-          </Typography>
-          <div className="flex flex-row mb-3 space-x-4">
-            {movieData?.actors.map((actor, index) => (
-              <div>
-                <div className="rounded-lg bg-transparent w-[150px] h-[calc(150px*25/17)] overflow-hidden mb-3">
-                  <img
-                    src="https://m.media-amazon.com/images/M/MV5BMjExNzA4MDYxN15BMl5BanBnXkFtZTcwOTI1MDAxOQ@@._V1_.jpg"
-                    alt="Movie Photo"
-                    className="object-fill w-full h-full"
-                  />
-                </div>
-                <Typography>{actor}</Typography>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </Box>
+    </Grid>
   );
 }
