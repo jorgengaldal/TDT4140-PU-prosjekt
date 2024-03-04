@@ -1,7 +1,7 @@
 'use client';
 
 import { Grid } from "@mui/material";
-import Poster from "../../components/General/Poster";
+import Poster from "@/components/General/Poster";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
