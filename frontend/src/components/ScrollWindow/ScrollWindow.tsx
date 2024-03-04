@@ -4,25 +4,40 @@ import Layout from "./layout/Layout";
 import Poster from "@/components/General/Poster";
 import { Movie } from "@/backend-types";
 
-function ScrollWindow(props: { filterValue: string; filterBy: string }) {
-  const [movies, setMovies] = useState([]);
+interface MoviePoster {
+  imageUrl: string;
+  // Add other properties as needed
+}
+//Arguments for ScrollWindow
+//movies: list of movies
+//filterBy: filter function
+//sortBy: sort function
+//title: title of the scroll window
+//limit: number of movies to display
+//doNotLinkTitle: if true, the title is not a link
 
-  useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/movies/categories/${props.filterValue}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setMovies(data.movies);
-      })
-      .catch((error) => {
-        console.error("Error fetching movie posters: ", error);
-      });
-  }, []);
-
+function ScrollWindow(props: any) {
   const handleGenreClick = () => {
-    window.location.href = `/category?name=${props.filterValue}`;
+    // Pass movie as a parameter
+    if (!props.doNotLinkTitle) {
+      window.location.href = `/category?name=${props.title}`; // Use movie.id to create the URL
+    }
   };
+
+  if (!props.movies) {
+    return <div>Loading...</div>;
+  }
+
+  let filteredMovies = [...props.movies];
+  if (props.filterBy) {
+    filteredMovies = props.movies.filter(props.filterBy);
+  }
+  if (props.sortBy) {
+    filteredMovies = filteredMovies.sort(props.sortBy);
+  }
+  if (props.limit) {
+    filteredMovies = filteredMovies.slice(0, props.limit);
+  }
 
   return (
     <Layout contentMaxWidth="90vw">
@@ -37,11 +52,11 @@ function ScrollWindow(props: { filterValue: string; filterBy: string }) {
         }}
         onClick={handleGenreClick}
       >
-        {props.filterValue}
+        {props.title}
       </p>
       <div className="gallery" data-direction="right">
         <div className="floating_content" data-images="portrait">
-          {movies.map((movie: Movie, index: number) => (
+          {filteredMovies.map((movie: Movie, index: number) => (
             <div
               style={{
                 flexDirection: "column",
