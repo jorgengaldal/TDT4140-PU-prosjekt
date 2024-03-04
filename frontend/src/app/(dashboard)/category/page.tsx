@@ -3,6 +3,7 @@ import { Grid } from "@mui/material";
 import Poster from "@/components/General/Poster";
 import React, { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import { Container } from "@mui/material";
 
 const GenrePage: React.FC = () => {
   const [movies, setMovies] = React.useState<any[]>([]);
@@ -23,7 +24,7 @@ const GenrePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="mx-5 justify-center items-center min-h-screen">
+    <Container className="min-h-screen">
       <h1
         style={{
           fontSize: "2rem",
@@ -37,14 +38,14 @@ const GenrePage: React.FC = () => {
       >
         {name}
       </h1>
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={3} justifyContent="center">
         {movies?.map((movie, index) => (
-          <Grid item xs={10} sm={5} md={3} lg={2} key={index}>
+          <Grid item xs={10} sm={5} md={4} lg={3} key={index}>
             <Poster movie={movie} index={index} />
           </Grid>
         ))}
       </Grid>
-    </div>
+    </Container>
   );
 };
 
