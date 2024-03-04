@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import Banner from "./Banner";
 import FilmInfo from "./FilmInfo";
+import Trailer from "./Trailer";
 
 export default function InfoPage() {
     const searchParams = useSearchParams()
@@ -13,8 +14,8 @@ export default function InfoPage() {
         <main className="flex min-h-screen flex-col bg-primary items-center justify-between">
             {id ? (
                 <>
-                <Banner selectedMovieId={id} />
-                <FilmInfo selectedMovieId={id} />
+                <Banner selectedMovieId={id}/>
+                <FilmInfo selectedMovieId={id}/>
                 </>
             ) : (
                 <p>URL IS WRONG</p>
