@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Photo from "./Photo";
 import { useState, useEffect } from "react";
+import Trailer from "./Trailer";
 
 interface FilmInfoProps {
   selectedMovieId: string;
@@ -88,15 +89,12 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
     const fetchMovieData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8000/api/movies/movies/`
+          `http://localhost:8000/api/movies/movies/${selectedMovieId}/`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch movie data");
         }
-        const allMovies = await response.json();
-        const selectedMovie = allMovies.find(
-          (movie: any) => movie.imdbid === selectedMovieId
-        );
+        const selectedMovie = await response.json();
         if (selectedMovie) {
           setMovieData(selectedMovie);
           // Checks if there exists a review of this movie.
@@ -132,7 +130,7 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
       <div className="flex flex-row">
         {movieData && (
           <div className="p-4 w-1/5 rounded-lg">
-            <Photo width="150" height="200" imageUrl={movieData.poster} />
+            <Photo width="150" height="300" imageUrl={movieData.poster} />
           </div>
         )}
         <div className="p-4 w-4/5">
@@ -208,7 +206,9 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
           <p className="mt-1">Description:</p> */}
         </div>
       </div>
-
+      <div className="flex items-center justify-center">
+        <Trailer selectedMovieId={selectedMovieId} />
+      </div>
       <div className="w-full relative inset-x-0 bottom-0 bg-accent1 rounded-lg h-[55%]">
         <p className="mt-40">Top 3 cast:</p>
         <div className="p-4">

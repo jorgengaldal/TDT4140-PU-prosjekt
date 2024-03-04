@@ -4,10 +4,7 @@ from django.contrib.auth.models import User
 from .models import Movie, Person, Category
 from django.db.models import Avg
 
-from django_typomatic import ts_interface, generate_ts
 
-
-@ts_interface()
 class MovieSerializer(serializers.ModelSerializer):
     average_rating = serializers.SerializerMethodField()
 
@@ -22,10 +19,13 @@ class MovieSerializer(serializers.ModelSerializer):
         return round(average, 2)
 
 
+class SimpleMovieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = ["id", "title", "poster", "imdbid"]
 
 
 
-@ts_interface()
 class CategorySerializer(serializers.ModelSerializer):
     movies = serializers.SerializerMethodField()
 
@@ -42,11 +42,10 @@ class CategorySerializer(serializers.ModelSerializer):
             related_movies = obj.language_movies.all()
         elif obj.category_type == 4:
             related_movies = obj.genre_movies.all()
-        serializer = MovieSerializer(related_movies, many=True)
+        serializer = SimpleMovieSerializer(related_movies, many=True, context=self.context)
         return serializer.data
 
 
-@ts_interface()
 class PersonSerializer(serializers.ModelSerializer):
     acted_movies = serializers.SerializerMethodField()
     written_movies = serializers.SerializerMethodField()
@@ -58,18 +57,15 @@ class PersonSerializer(serializers.ModelSerializer):
 
     def get_directed_movies(self, obj) -> List[Movie]:
         related_movies = obj.directed_movies.all()
-        serializer = MovieSerializer(related_movies, many=True)
+        serializer = MovieSerializer(related_movies, many=True, context=self.context)
         return serializer.data
 
     def get_acted_movies(self, obj) -> List[Movie]:
         related_movies = obj.acted_movies.all()
-        serializer = MovieSerializer(related_movies, many=True)
+        serializer = MovieSerializer(related_movies, many=True, context=self.context)
         return serializer.data
 
     def get_written_movies(self, obj) -> List[Movie]:
         related_movies = obj.written_movies.all()
-        serializer = MovieSerializer(related_movies, many=True)
+        serializer = MovieSerializer(related_movies, many=True, context=self.context)
         return serializer.data
-
-
-generate_ts('../frontend/backendTypes.ts')
