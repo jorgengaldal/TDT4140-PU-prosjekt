@@ -4,7 +4,7 @@ import Layout from "./layout/Layout";
 import Poster from "@/components/General/Poster";
 import { Movie } from "@/backend-types";
 
-function ScrollWindow(props: { filterValue: string }) {
+function ScrollWindow(props: { filterValue: string; filterBy: string }) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function ScrollWindow(props: { filterValue: string }) {
   };
 
   return (
-    <Layout contentMaxWidth="100ch">
+    <Layout contentMaxWidth="90vw">
       <p
         style={{
           fontSize: "2rem",
