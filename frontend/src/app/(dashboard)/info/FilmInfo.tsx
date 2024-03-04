@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Photo from "./Photo";
 import { useState, useEffect } from "react";
+import Cookie from 'js-cookie';
+import Trailer from "./Trailer";
 
 interface FilmInfoProps {
   selectedMovieId: string;
@@ -34,7 +36,7 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
   const [isClickedWatched, setIsClickedWatched] = useState<boolean>(false);
   const [isClickedHeart, setIsClickedHeart] = useState<boolean>(false);
 
-  const authToken = "7923a7f2f080d8144a4d2b3c2cb7d692f1770b4a";
+  const authToken = Cookie.get('token');
 
   const authHeaders = {
     "Content-Type": "application/json",
@@ -129,7 +131,7 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
       <div className="flex flex-row">
         {movieData && (
           <div className="p-4 w-1/5 rounded-lg">
-            <Photo width="150" height="200" imageUrl={movieData.poster} />
+            <Photo width="150" height="300" imageUrl={movieData.poster} />
           </div>
         )}
         <div className="p-4 w-4/5">
@@ -205,7 +207,9 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
           <p className="mt-1">Description:</p> */}
         </div>
       </div>
-
+      <div className="flex items-center justify-center">
+        <Trailer selectedMovieId={selectedMovieId} />
+      </div>
       <div className="w-full relative inset-x-0 bottom-0 bg-accent1 rounded-lg h-[55%]">
         <p className="mt-40">Top 3 cast:</p>
         <div className="p-4">

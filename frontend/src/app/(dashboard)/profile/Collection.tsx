@@ -1,6 +1,6 @@
 import Icons from "@/components/General/Icons";
-import Image from "next/image";
 import Link from "next/link";
+import Cookie from 'js-cookie';
 import { useEffect, useState } from "react";
 
 interface PosterProps {
@@ -36,7 +36,7 @@ const Rectangle: React.FC = () => {
 const Collection: React.FC<CollectionProps> = ({ title, link }) => {
   const [films, setFilms] = useState<any>();
 
-  const authToken = "7923a7f2f080d8144a4d2b3c2cb7d692f1770b4a";
+  const authToken = Cookie.get('token');
 
   useEffect(() => {
     // Fetch films from the API endpoint
@@ -73,7 +73,7 @@ const Collection: React.FC<CollectionProps> = ({ title, link }) => {
 
         return (
           <div className="flex flex-row">
-            {likedFilms.slice(0, 5).map((film, index) => (
+            {likedFilms.slice(0, 5).map((film: { movie: { poster: string; imdbid: string; }; }, index: number) => (
               <ImagePoster
                 key={index}
                 link={film.movie.poster}
@@ -94,7 +94,7 @@ const Collection: React.FC<CollectionProps> = ({ title, link }) => {
 
         return (
           <div className="flex flex-row">
-            {wacthedFilms.slice(0, 5).map((film, index) => (
+            {wacthedFilms.slice(0, 5).map((film: { movie: { poster: string; imdbid: string; }; }, index: number) => (
               <ImagePoster
                 key={index}
                 link={film.movie.poster}
