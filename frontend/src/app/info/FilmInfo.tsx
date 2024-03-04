@@ -129,7 +129,7 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
       <div className="flex flex-row">
         {movieData && (
           <div className="p-4 w-1/5 rounded-lg">
-            <Photo width="150" height="200" imageUrl={movieData.poster} />
+            <Photo width="150" height="300" imageUrl={movieData.poster} />
           </div>
         )}
         <div className="p-4 w-4/5">

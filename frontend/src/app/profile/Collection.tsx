@@ -1,7 +1,7 @@
 import Icons from "@/components/General/Icons";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Key, useEffect, useState } from "react";
 
 interface PosterProps {
   link: string;
@@ -73,7 +73,7 @@ const Collection: React.FC<CollectionProps> = ({ title, link }) => {
 
         return (
           <div className="flex flex-row">
-            {likedFilms.slice(0, 5).map((film, index) => (
+            {likedFilms.slice(0, 5).map((film: { movie: { poster: string; imdbid: string; }; }, index: number) => (
               <ImagePoster
                 key={index}
                 link={film.movie.poster}
@@ -94,7 +94,7 @@ const Collection: React.FC<CollectionProps> = ({ title, link }) => {
 
         return (
           <div className="flex flex-row">
-            {wacthedFilms.slice(0, 5).map((film, index) => (
+            {wacthedFilms.slice(0, 5).map((film: { movie: { poster: string; imdbid: string; }; }, index: number) => (
               <ImagePoster
                 key={index}
                 link={film.movie.poster}

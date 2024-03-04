@@ -1,3 +1,5 @@
+'use client';
+
 export default function LikedPage() {
     console.log("HERE I AM")
     return (
