@@ -18,7 +18,7 @@ class MovieListSerializer(serializers.ModelSerializer):
     def get_reviews(self, obj) -> List[MovieReview]:
         # This is where you could optimize the query if necessary
         related_reviews = obj.reviews.all()
-        serializer = MovieReviewDetailSerializer(related_reviews, many=True)
+        serializer = MovieReviewDetailSerializer(related_reviews, many=True, context=self.context)
         return serializer.data
 
     def get_genre_data(self, obj):

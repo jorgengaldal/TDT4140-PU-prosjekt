@@ -1,28 +1,9 @@
 import Icons from "@/components/General/Icons";
 import Link from "next/link";
-import Cookie from 'js-cookie';
 import { useEffect, useState } from "react";
-
-interface PosterProps {
-  link: string;
-  index: number;
-  id: string;
-}
-
-const ImagePoster: React.FC<PosterProps> = ({ link, index, id }) => {
-  return (
-    <Link href={"/info?id=" + id} className="mx-2">
-      <img
-        width={140}
-        height={210}
-        style={{ height: "100%" }}
-        key={index}
-        src={link}
-        alt={`Poster ${index}`}
-      />
-    </Link>
-  );
-};
+import Cookie from 'js-cookie';
+import { MovieReviewDetail } from "@/backend-types";
+import Poster from "@/components/General/Poster";
 
 interface CollectionProps {
   title: string;
@@ -60,71 +41,38 @@ const Collection: React.FC<CollectionProps> = ({ title, link }) => {
   }, []);
 
   const renderContent = () => {
+    const getFilmsBasedOnCondition = (condition) => films?.movie_lists.flatMap(movieList =>
+      movieList.reviews.filter(review => condition(review))
+    ).slice(0, 5);
+
+    const renderFilms = (films) => (
+      <div className="flex flex-row">
+        {films?.slice(0,4).map((review, index) => (
+          <div key={review.imdbid} className="mx-10">
+            <Poster
+              height="140px"
+              fontSize="sm"
+              movie={review?.movie}
+              index={index}
+            />
+          </div>
+        ))}
+      </div>
+    );
+
     switch (link) {
       case "liked":
-        const likedFilms: any = [];
-        films?.movie_lists.forEach((movieList: { reviews: any[] }) => {
-          movieList.reviews.forEach((movie) => {
-            if (movie.is_favorite) {
-              likedFilms.push(movie);
-            }
-          });
-        });
-
-        return (
-          <div className="flex flex-row">
-            {likedFilms.slice(0, 5).map((film: { movie: { poster: string; imdbid: string; }; }, index: number) => (
-              <ImagePoster
-                key={index}
-                link={film.movie.poster}
-                index={index}
-                id={film.movie.imdbid}
-              />
-            ))}
-          </div>
-        );
-
+        return renderFilms(getFilmsBasedOnCondition(review => review.is_favorite));
       case "watched":
-        const wacthedFilms: any = [];
-        films?.movie_lists.forEach((movieList: { reviews: any[] }) => {
-          movieList.reviews.forEach((movie) => {
-            wacthedFilms.push(movie);
-          });
-        });
-
-        return (
-          <div className="flex flex-row">
-            {wacthedFilms.slice(0, 5).map((film: { movie: { poster: string; imdbid: string; }; }, index: number) => (
-              <ImagePoster
-                key={index}
-                link={film.movie.poster}
-                index={index}
-                id={film.movie.imdbid}
-              />
-            ))}
-          </div>
-        );
+        return renderFilms(getFilmsBasedOnCondition(() => true));
+      // Uncomment and modify the condition for "watchlist" if needed
       // case "watchlist":
-      //     const watchList: any = [];
-      //     films?.movie_lists.forEach((movieList: { reviews: any[]; }) => {
-      //         movieList.reviews.forEach(movie => {
-      //             if (movie.is_favorite) {
-      //                 watchList.push(movie);
-      //             }
-      //         });
-      //     });
-
-      //     return (
-      //         <div className="flex flex-row">
-      //             {watchList.map((film, index) => (
-      //                 <ImagePoster key={index} link={film.movie.poster} index={index}/>
-      //             ))}
-      //         </div>
-      //     );
+      //   return renderFilms(getFilmsBasedOnCondition(review => /* your condition here */));
       default:
         return <div>No content available in this category</div>;
     }
   };
+
 
   return (
     <div className="flex flex flex-col items-center pb-12">
@@ -137,7 +85,7 @@ const Collection: React.FC<CollectionProps> = ({ title, link }) => {
           </h1>
         </Link>
       </div>
-      <div className="flex">{renderContent()}</div>
+      <div className="flex mt-4">{renderContent()}</div>
     </div>
   );
 };
