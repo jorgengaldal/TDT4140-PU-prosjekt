@@ -1,7 +1,8 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "./layout/Layout";
-import GalleryDiv from "./layout/GalleryDiv";
+import Poster from "@/components/General/Poster";
+import { Movie } from "@/backend-types";
 
 interface MoviePoster {
   imageUrl: string;
@@ -16,13 +17,6 @@ interface MoviePoster {
 //doNotLinkTitle: if true, the title is not a link
 
 function ScrollWindow(props: any) {
-  const handlePosterClick = (movie: any) => {
-    // Pass movie as a parameter
-    if (movie) {
-      window.location.href = `/info?id=${movie.imdbid}`; // Use movie.id to create the URL
-    }
-  };
-
   const handleGenreClick = () => {
     // Pass movie as a parameter
     if (!props.doNotLinkTitle) {
@@ -46,27 +40,36 @@ function ScrollWindow(props: any) {
   }
 
   return (
-    <Layout contentMaxWidth="100ch">
-      <p className="scrollWindowTitle" onClick={() => handleGenreClick()}>
+    <Layout contentMaxWidth="90vw">
+      <p
+        style={{
+          fontSize: "2rem",
+          fontWeight: "bold",
+          marginTop: "5px",
+          color: "#fff",
+          textShadow: "2px 2px 4px #000000",
+          cursor: "pointer",
+        }}
+        onClick={handleGenreClick}
+      >
         {props.title}
       </p>
-      <GalleryDiv galleryItemsAspectRatio="portrait">
-        {filteredMovies.map((movie: any, index: number) => (
-          <div className="posterComponent" key={index}>
-            <img
-              className="posterImage"
-              onClick={() => handlePosterClick(movie)} // Call handleClick with movie as argument
-              src={movie.poster || "/no_poster.jpeg"}
-              alt={`Movie Poster ${index}`}
-              onError={(e) => {
-                (e.target as HTMLImageElement).onerror = null;
-                (e.target as HTMLImageElement).src = "/no_poster.jpeg";
+      <div className="gallery" data-direction="right">
+        <div className="floating_content" data-images="portrait">
+          {filteredMovies.map((movie: Movie, index: number) => (
+            <div
+              style={{
+                flexDirection: "column",
+                paddingTop: "5px",
+                margin: "0px 5px 0px 5px",
               }}
-            />
-            <div className="posterTitle">{movie.title}</div>
-          </div>
-        ))}
-      </GalleryDiv>
+              key={index}
+            >
+              <Poster movie={movie} index={index} />
+            </div>
+          ))}
+        </div>
+      </div>
     </Layout>
   );
 }

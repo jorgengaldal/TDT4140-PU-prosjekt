@@ -61,7 +61,6 @@
   inline-size: 100%;
   max-inline-size: 17rem;
   font-size: 1rem;
-  /*background: #f08080; /* Change this color */
   border-radius: 4px;
   overflow: hidden;
   object-fit: cover;
@@ -88,56 +87,3 @@
   );
 }
 
-
-.gallery img {
-  border-radius: 8px;
-}
-
-.posterComponent{
-  flex-direction: column;
-  padding-top: 5px;
-  margin: 0px 5px 0px 5px;
-}
-.posterImage{
-  width: 17rem;
-  height: 25rem;
-  object-fit: cover;
-  object-position: center;
-}
-.posterImage:hover {
-  transform: translateY(-5px);
-  transition: transform 0.3s;
-  box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
-
-.posterTitle{
-  font-size: 1.5rem;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  text-align: center;
-  color: #fff;
-  text-shadow: 2px 2px 4px #000000;
-}
-.scrollWindowTitle{
-  font-size: 2rem;
-  font-weight: bold;
-  margin-top: 5px;
-  color: #fff;
-  text-shadow: 2px 2px 4px #000000;
-  cursor: pointer;
-}
-
-.ImageComponent {
-  background: linear-gradient(90deg, #dddddd 25%, #eeeeee 50%, #dddddd 75%);
-  animation: placeholderAnimation 1.5s infinite linear;
-}
-
-@keyframes placeholderAnimation {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
-}

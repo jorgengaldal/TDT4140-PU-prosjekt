@@ -27,10 +27,6 @@ export default function SignUp() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("username"),
-      password: data.get("password"),
-    });
     fetch("http://localhost:8000/api/members/register/", {
       method: "POST",
       headers: {
@@ -44,12 +40,10 @@ export default function SignUp() {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log(responseData);
         if (
           responseData.email == data.get("email") &&
           responseData.username == data.get("username")
         ) {
-          console.log("Sign up successful");
           router.push("/login");
         } else {
           setErrors(responseData);

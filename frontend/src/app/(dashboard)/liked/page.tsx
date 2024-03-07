@@ -2,35 +2,16 @@
 
 import { useEffect, useState } from "react";
 import Cookie from 'js-cookie';
-import Link from "next/link";
-import Icons from "@/components/General/Icons";
-import Layout from "../layout";
-import link from "next/link";
-
-interface PosterProps {
-    link: string;
-    index: number;
-    id: string;
-}
-
-const ImagePoster: React.FC<PosterProps> = ({ link, index, id }) => {
-    return (
-        <Link href={"/info?id=" + id} className="mx-2">
-            <img
-                width={140}
-                height={210}
-                style={{ height: "100%" }}
-                key={index}
-                src={link || "/no_poster.jpeg"}
-                alt={`Poster ${index}`}
-            />
-        </Link>
-    );
-};
+import { Container, Typography } from "@mui/material";
+import Poster from "@/components/General/Poster";
+import { Movie, MovieReviewDetail } from "@/backend-types";
+import StarRoundedIcon from "@mui/icons-material/StarRounded";
+import { grey } from "@mui/material/colors";
 
 export default function LikedPage() {
     const authToken = Cookie.get('token');
     const [films, setFilms] = useState<any>();
+    const [selected, setSelected] = useState<string>("watched");
 
     useEffect(() => {
         // Fetch films from the API endpoint
@@ -53,30 +34,116 @@ export default function LikedPage() {
             });
     }, []);
 
-    const likedFilms: any = [];
+    const watchedFilms: any = [];
     films?.movie_lists.forEach((movieList: { reviews: any[] }) => {
         movieList.reviews.forEach((movie) => {
-            likedFilms.push(movie);
+            watchedFilms.push(movie);
         });
     });
 
+    const likedFilms: any = [];
+    films?.movie_lists.forEach((movieList: { reviews: any[] }) => {
+        movieList.reviews.forEach((movie) => {
+            if (movie.is_favorite) {
+                likedFilms.push(movie);
+            }
+        });
+    });
+
+    const getColor = (title: string) => {
+        return selected === title ? "#fff" : "grey";
+    }
+
+    // Define filmMap variable based on selected value
+    const filmMap = selected === "watched" ? watchedFilms : likedFilms;
+
     return (
-        <div className="flex flex flex-col items-center pb-12 min-h-screen">
-            <div className="flex">
-                <div className="flex flex-row">
-                    {likedFilms.map((likedFilm: { movie: { poster: string; imdbid: string; }; }, index: number) => (
-                        <Link href={"/info?id=" + likedFilm.imdbid} className="mx-2" key={likedFilm.imdbid}>
-                            <img
-                                width={140}
-                                height={210}
-                                style={{ height: "100%" }}
-                                src={likedFilm.movie.poster || "/no_poster.jpeg"}
-                                alt={`Poster ${index}`}
-                            />
-                        </Link>
-                    ))}
-                </div>
+        <Container className="min-h-screen mb-20">
+            <div className="flex flex-row gap-6">
+                <h1
+                    style={{
+                        fontSize: "2rem",
+                        fontWeight: "bold",
+                        marginTop: "5px",
+                        color: getColor("watched"),
+                        cursor: "pointer",
+                        marginBottom: "10px",
+                    }}
+                    onClick={() => setSelected("watched")}
+                >
+                    My Watched
+                </h1>
+                <h1
+                    style={{
+                        fontSize: "2rem",
+                        fontWeight: "bold",
+                        marginTop: "5px",
+                        color: getColor("liked"),
+                        cursor: "pointer",
+                        marginBottom: "10px",
+                    }}
+                    onClick={() => setSelected("liked")}
+                >
+                    My Liked
+                </h1>
             </div>
-        </div>
+
+            {filmMap.length === 0 && (
+                <p>You have not {selected === "watched" ? "watched" : "liked"} any films</p>
+            )}
+            {filmMap?.map((filmReview: MovieReviewDetail, index) => {
+                const movie = filmReview.movie as unknown as Movie;
+                return (
+                    <div key={index} className="flex flex-row w-full bg-primary mb-4">
+                        <Poster movie={movie} index={index} text={false} height={150} />
+                        <div className="ml-4">
+                            <h1
+                                style={{
+                                    fontSize: "2rem",
+                                    marginTop: "5px",
+                                    color: "#fff",
+                                    cursor: "pointer",
+                                    marginBottom: "10px",
+                                }}
+                            >
+                                {movie.title}
+                            </h1>
+                            <div className="flex flex-row justify-content-between">
+                                <div className="mr-4">
+                                    <Typography sx={{ fontSize: 15, opacity: 0.8 }}>
+                                        IMDb RATING:
+                                    </Typography>
+                                    <div>
+                                        <Typography sx={{ fontSize: 20 }}>
+                                            <StarRoundedIcon sx={{ color: "#F5C519", fontSize: 30 }} />
+                                            {movie && movie.imdbrating}
+                                            <span style={{ opacity: 0.8, fontSize: 17 }}>/10</span>
+                                        </Typography>
+                                    </div>
+                                </div>
+                                <div className="mx-4">
+                                    <Typography sx={{ fontSize: 15, opacity: 0.8 }}>
+                                        Your RATING:
+                                    </Typography>
+                                    <div>
+                                        {filmReview.rating ? (
+                                            <Typography sx={{ fontSize: 20 }}>
+                                                <StarRoundedIcon sx={{ color: "#F5C519", fontSize: 30 }} />
+                                                {filmReview.rating && filmReview.rating}
+                                                <span style={{ opacity: 0.8, fontSize: 17 }}>/10</span>
+                                            </Typography>
+                                        ) : (
+                                            <Typography sx={{ fontSize: 20 }}>
+                                                <span>Not rated</span>
+                                            </Typography>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            })}
+        </Container>
     );
 }
