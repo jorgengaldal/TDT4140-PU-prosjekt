@@ -50,6 +50,7 @@ const Collection: React.FC<CollectionProps> = ({ title, link }) => {
         {films?.map((review, index) => (
           <Poster
             height="140px"
+            fontSize="sm"
             movie={review?.movie}
             index={index}
           />

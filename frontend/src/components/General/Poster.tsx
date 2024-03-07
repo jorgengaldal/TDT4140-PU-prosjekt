@@ -8,12 +8,25 @@ type PosterProps = {
   movie: Movie;
   index: number;
   height?: string;
+  fontSize?: string;
+  text?: boolean;
+  clickable?: boolean;
 };
 
-export default function Poster({ movie, index, height }: PosterProps) {
+export default function Poster({
+  movie,
+  index,
+  height,
+  fontSize="2xl",
+  text=true,
+  clickable=true
+}: PosterProps) {
   const router = useRouter();
-
+  console.log(movie);
   function handleClick() {
+    if (!clickable) {
+      return;
+    }
     router.push(`/info?id=${movie.imdbid}`);
   }
 
@@ -31,16 +44,16 @@ export default function Poster({ movie, index, height }: PosterProps) {
           borderRadius: "8px",
           width: height ? height : "17rem",
           aspectRatio: "17/25",
-          ":hover": {
+          ":hover": (clickable? {
             transform: "translateY(-5px)",
             boxShadow: 20,
-          },
+          } : {}),
         }}
       >
         <CardMedia
           sx={{
-            width: height ? height : "17rem",
-            aspectRatio: "17/25",
+            width: "100%",
+            height: "100%",
             cursor: "pointer",
             "& img": {
               objectFit: "fill",
@@ -58,9 +71,13 @@ export default function Poster({ movie, index, height }: PosterProps) {
           />
         </CardMedia>
       </Card>
-      <div className="text-2xl mt-1 mb-1 text-center text-white object-fit">
-        {movie.title}
-      </div>
+      { text && 
+        <div
+          className={`text-${fontSize} mt-1 mb-1 text-center text-white object-fit`}
+        >
+          {movie.title}
+        </div>
+      }
     </div>
   );
 }
