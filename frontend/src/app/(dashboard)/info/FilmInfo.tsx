@@ -7,7 +7,8 @@ import ReviewCard from "./ReviewCard";
 import { useState, useEffect } from "react";
 import Cookie from 'js-cookie';
 import Trailer from "./Trailer";
-import Icons from "../../../components/General/Icons";
+import Icons from "@/components/General/Icons";
+import ReviewForm from "../info/ReviewForm";
 
 interface FilmInfoProps {
   selectedMovieId: string;
@@ -137,7 +138,7 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
 
 
   return (
-    <div className="w-2/3 mt-10 bg-accent2 rounded-t-lg h-[800px]">
+    <div className="w-2/3 mt-10 bg-accent1 rounded-t-lg h-[800px]">
       <div className="flex flex-row">
         {movieData && (
           <div className="p-4 w-1/5 rounded-lg">
@@ -220,6 +221,7 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
               ))}
           </h1>
         </div>
+        <ReviewForm movieListId={defaultMovieListId} />
       </div>
     </div>
   );
