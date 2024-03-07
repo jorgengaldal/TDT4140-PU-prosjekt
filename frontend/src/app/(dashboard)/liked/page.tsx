@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Cookie from 'js-cookie';
 import { Container, Typography } from "@mui/material";
 import Poster from "@/components/General/Poster";
-import { Movie, MovieReviewDetail } from "@/backend-types";
+import { Movie, MovieList, MovieReviewDetail } from "@/backend-types";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { grey } from "@mui/material/colors";
 
@@ -35,14 +35,14 @@ export default function LikedPage() {
     }, []);
 
     const watchedFilms: MovieReviewDetail[] = [];
-    films?.movie_lists.forEach((movieList: { reviews: any[] }) => {
+    films?.movie_lists.forEach((movieList: { reviews: MovieReviewDetail[] }) => {
         movieList.reviews.forEach((movie) => {
             watchedFilms.push(movie);
         });
     });
 
     const likedFilms: MovieReviewDetail[] = [];
-    films?.movie_lists.forEach((movieList: { reviews: any[] }) => {
+    films?.movie_lists.forEach((movieList: { reviews: MovieReviewDetail[] }) => {
         movieList.reviews.forEach((movie) => {
             if (movie.is_favorite) {
                 likedFilms.push(movie);
