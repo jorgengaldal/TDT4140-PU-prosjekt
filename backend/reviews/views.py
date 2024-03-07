@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.http import Http404
+from django.shortcuts import render, get_object_or_404
 from rest_framework import generics, permissions, status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
+
+from profiles.models import Profile
 
 from .models import MovieReview, MovieList
 from .serializers import MovieListSerializer, MovieReviewDetailSerializer, MovieReviewCreateSerializer
@@ -10,6 +13,15 @@ class MovieReviewListView(generics.ListCreateAPIView):
     queryset = MovieReview.objects.all()
     model = MovieReview
     
+    def post(self, request, *args, **kwargs):
+        try:
+            if not "movie_list" in request.data:
+                request.data["movie_list"] = get_object_or_404(Profile, user=self.request.user).my_movie_list.id
+        except (ValueError, Http404, AttributeError):
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+        return self.create(request, *args, **kwargs)
+
     def get_serializer_class(self):
         if self.request.method == 'POST':
             return MovieReviewCreateSerializer
