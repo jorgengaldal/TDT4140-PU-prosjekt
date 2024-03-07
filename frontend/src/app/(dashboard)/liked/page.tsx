@@ -34,14 +34,14 @@ export default function LikedPage() {
             });
     }, []);
 
-    const watchedFilms: any = [];
+    const watchedFilms: MovieReviewDetail[] = [];
     films?.movie_lists.forEach((movieList: { reviews: any[] }) => {
         movieList.reviews.forEach((movie) => {
             watchedFilms.push(movie);
         });
     });
 
-    const likedFilms: any = [];
+    const likedFilms: MovieReviewDetail[] = [];
     films?.movie_lists.forEach((movieList: { reviews: any[] }) => {
         movieList.reviews.forEach((movie) => {
             if (movie.is_favorite) {
@@ -91,7 +91,7 @@ export default function LikedPage() {
             {filmMap.length === 0 && (
                 <p>You have not {selected === "watched" ? "watched" : "liked"} any films</p>
             )}
-            {filmMap?.map((filmReview: MovieReviewDetail, index) => {
+            {filmMap?.map((filmReview, index) => {
                 const movie = filmReview.movie as unknown as Movie;
                 return (
                     <div key={index} className="flex flex-row w-full bg-primary mb-4">
