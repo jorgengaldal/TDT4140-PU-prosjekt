@@ -11,7 +11,7 @@ import { Grid, IconButton, Typography } from "@mui/material";
 import Poster from "@/components/General/Poster";
 
 interface FilmInfoProps {
-  movieData: Movie;
+  movieData: Movie | null;
 }
 
 interface Movie {
@@ -49,8 +49,6 @@ export default function FilmInfo({
     });
 
   const handleClickWatched = () => {
-    setIsClickedWatched(!isClickedWatched);
-    return;
     if (defaultMovieListId == null) {
       console.error("Current profile has no assigned movie list");
       return;
@@ -70,7 +68,7 @@ export default function FilmInfo({
     });
 
     // TODO: Kan bare markere som sett, ikke som usett.
-    setIsClickedWatched(!isClickedWatched);
+    setIsClickedWatched(true);
   };
 
   const handleClickHeart = () => {
@@ -91,7 +89,7 @@ export default function FilmInfo({
           .then((data) => {
             if (
               data.some(
-                (movieReview: any) => movieReview.movie.id == movieData.id
+                (movieReview: any) => movieReview.movie.id == movieData?.imdbid
               )
             ) {
               setIsClickedWatched(true);
@@ -163,12 +161,31 @@ export default function FilmInfo({
           <div className="mt-5">
             Directors:
             <span className="text-1g ml-2.5" style={{ color: "LightCyan" }}>
-              {movieData?.directors.join(", ")}
+              {movieData?.directors.map((director, index) => {
+                return (
+                  <Link href={"/persons?name=" + director} key={index}>
+                    <span>
+                      {director}
+                      {index !== movieData.directors.length - 1 && ', '}
+                    </span>
+                  </Link>
+                );
+              })}
             </span>
             <div>
               Writers:
               <span className="text-1g ml-2.5" style={{ color: "LightCyan" }}>
-                {movieData?.writers.join(", ")}
+                {movieData?.writers.map((writer, index) => {
+                  return (
+                    <Link href={"/persons?name=" + writer} key={index}>
+                      <span>
+                        {writer}
+                        {index !== movieData.writers.length - 1 && ', '}
+                      </span>
+                    </Link>
+
+                  );
+                })}
               </span>
             </div>
           </div>

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 interface FilmInfoProps {
-  selectedMovieId: string;
+  selectedMovieId: string | null;
 }
 
 export default function Trailer({ selectedMovieId }: FilmInfoProps) {

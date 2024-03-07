@@ -2,7 +2,7 @@ import Icons from "@/components/General/Icons";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Cookie from 'js-cookie';
-import {MovieReviewDetail} from "@/backend-types";
+import { MovieReviewDetail } from "@/backend-types";
 import Poster from "@/components/General/Poster";
 
 interface CollectionProps {
@@ -41,23 +41,25 @@ const Collection: React.FC<CollectionProps> = ({ title, link }) => {
   }, []);
 
   const renderContent = () => {
-    const getFilmsBasedOnCondition = (condition) => films?.movie_lists.flatMap(movieList => 
+    const getFilmsBasedOnCondition = (condition) => films?.movie_lists.flatMap(movieList =>
       movieList.reviews.filter(review => condition(review))
     ).slice(0, 5);
-  
+
     const renderFilms = (films) => (
       <div className="flex flex-row">
-        {films?.map((review, index) => (
-          <Poster
-            height="140px"
-            fontSize="sm"
-            movie={review?.movie}
-            index={index}
-          />
+        {films?.slice(0,4).map((review, index) => (
+          <div key={review.imdbid} className="mx-10">
+            <Poster
+              height="140px"
+              fontSize="sm"
+              movie={review?.movie}
+              index={index}
+            />
+          </div>
         ))}
       </div>
     );
-  
+
     switch (link) {
       case "liked":
         return renderFilms(getFilmsBasedOnCondition(review => review.is_favorite));
@@ -70,7 +72,7 @@ const Collection: React.FC<CollectionProps> = ({ title, link }) => {
         return <div>No content available in this category</div>;
     }
   };
-  
+
 
   return (
     <div className="flex flex flex-col items-center pb-12">
@@ -83,7 +85,7 @@ const Collection: React.FC<CollectionProps> = ({ title, link }) => {
           </h1>
         </Link>
       </div>
-      <div className="flex">{renderContent()}</div>
+      <div className="flex mt-4">{renderContent()}</div>
     </div>
   );
 };

@@ -73,7 +73,7 @@ export default function Poster({
       </Card>
       { text && 
         <div
-          className={`text-${fontSize} mt-1 mb-1 text-center text-white object-fit`}
+          className={`text-${fontSize} mt-1 mb-1 text-center text-white object-fit flex flex-wrap`}
         >
           {movie.title}
         </div>
