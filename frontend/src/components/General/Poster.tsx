@@ -1,32 +1,83 @@
+"use client";
 import React from "react";
+import { Card, CardMedia } from "@mui/material";
+import { useRouter } from "next/navigation";
+import { Movie } from "@/backend-types";
 
-import "./style/style.css";
+type PosterProps = {
+  movie: Movie;
+  index: number;
+  height?: string;
+  fontSize?: string;
+  text?: boolean;
+  clickable?: boolean;
+};
 
-export default function Poster(movie: any, index: number) {
+export default function Poster({
+  movie,
+  index,
+  height,
+  fontSize="2xl",
+  text=true,
+  clickable=true
+}: PosterProps) {
+  const router = useRouter();
+  console.log(movie);
   function handleClick() {
-    window.location.href = "/info?id=" + movie.imdbid;
+    if (!clickable) {
+      return;
+    }
+    router.push(`/info?id=${movie.imdbid}`);
   }
 
-  movie = movie.movie
-  index = movie.index
+  function handleImageError(e: React.SyntheticEvent<HTMLImageElement, Event>) {
+    e.currentTarget.src = "/no_poster.jpeg";
+    e.currentTarget.onerror = null;
+  }
 
   return (
-    <div className="pt-5 flex flex-col items-center">
-
-      <img
-        className="text-2xl mt-5 mb-5 text-center text-white hover:transform hover:scale-110 transition duration-300 cursor-pointer"
-        key={index}
-        onClick={handleClick}
-        src={movie.poster || '/testImg1.jpg'}
-        alt={`Movie Poster ${index}`}
-        onError={(e) => {
-          (e.target as HTMLImageElement).onerror = null;
-          (e.target as HTMLImageElement).src = '/testImg1.jpg';
+    <div key={index}>
+      <Card
+        sx={{
+          transition: "transform 0.3s",
+          bgcolor: "transparent",
+          borderRadius: "8px",
+          width: height ? height : "17rem",
+          aspectRatio: "17/25",
+          ":hover": (clickable? {
+            transform: "translateY(-5px)",
+            boxShadow: 20,
+          } : {}),
         }}
-        style={{ width: "250px", height: "320px" }} // Add this line
-      />
-      <p className="text-lg mt-2 mb-2 text-center text-white">{movie.title}</p>
-
+      >
+        <CardMedia
+          sx={{
+            width: "100%",
+            height: "100%",
+            cursor: "pointer",
+            "& img": {
+              objectFit: "fill",
+              width: "100%",
+              height: "100%",
+            },
+          }}
+        >
+          <img
+            loading="lazy"
+            onClick={handleClick}
+            src={movie.poster || "/testImg1.jpg"}
+            alt={`Movie Poster of ${movie.title}`}
+            onError={handleImageError}
+          />
+        </CardMedia>
+      </Card>
+      { text && 
+        <div
+          className={`text-${fontSize} mt-1 mb-1 text-center text-white object-fit flex flex-wrap`}
+        >
+          {movie.title}
+        </div>
+      }
     </div>
   );
 }
