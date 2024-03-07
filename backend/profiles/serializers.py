@@ -18,7 +18,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         related_movie_lists = obj.movie_lists.prefetch_related(
             'reviews__movie__genres'
         ).all()
-        serializer = MovieListSerializer(related_movie_lists, many=True)
+        serializer = MovieListSerializer(related_movie_lists, many=True, context=self.context)
         return serializer.data
 
     def get_genre_data(self, obj):
