@@ -54,21 +54,6 @@ class MovieListSerializer(serializers.ModelSerializer):
             "genre_rating_averages": genre_rating_averages
         }
 
-class MovieReviewChangeSerializer(serializers.ModelSerializer):
-    movie = serializers.SerializerMethodField()
-
-
-    class Meta:
-        model = MovieReview
-        fields = "__all__"
-
-    def update(self, instance, validated_data):
-        instance.review_text = validated_data.get("review_text", instance.review_text)
-        instance.rating = validated_data.get("rating", instance.rating)
-        instance.is_favorite = validated_data.get("is_favorite", instance.is_favorite)
-        instance.save()
-        return instance
-
 
 class MovieReviewCreateSerializer(serializers.ModelSerializer):
     movie = serializers.PrimaryKeyRelatedField(queryset=Movie.objects.all())

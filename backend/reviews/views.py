@@ -4,7 +4,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 from .models import MovieReview, MovieList
-from .serializers import MovieListSerializer, MovieReviewChangeSerializer, MovieReviewDetailSerializer, MovieReviewCreateSerializer
+from .serializers import MovieListSerializer, MovieReviewDetailSerializer, MovieReviewCreateSerializer
 
 class MovieReviewListView(generics.ListCreateAPIView):
     queryset = MovieReview.objects.all()
