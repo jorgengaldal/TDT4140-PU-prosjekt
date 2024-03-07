@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import Photo from "./Photo";
+import ReviewCard from "./ReviewCard";
+
 import { useState, useEffect } from "react";
 import Cookie from 'js-cookie';
 import Trailer from "./Trailer";
@@ -12,11 +14,15 @@ interface FilmInfoProps {
 }
 
 interface Review {
-  review_text?: string;
-  rating?: number;
-  is_favorite?: boolean;
+  id: string;
+  username: string; // Brukernavn til den som skrev anmeldelsen
+  review_text: string;
+  rating: number;
+  is_favorite: boolean;
   movie_list: string;
+  date: string; // Formateres som dd/mm/yyyy
 }
+
 
 interface Movie {
   id: string;
@@ -43,6 +49,8 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
     "Content-Type": "application/json",
     Authorization: `Token ${authToken}`,
   };
+
+  const [reviews, setReviews] = useState<Review[]>([]);
 
   let defaultMovieListId: string | null = null;
   // Fetches Id for default movie list
@@ -127,6 +135,7 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
     fetchMovieData();
   }, [selectedMovieId]);
 
+
   return (
     <div className="w-2/3 mt-10 bg-accent2 rounded-t-lg h-[800px]">
       <div className="flex flex-row">
@@ -182,6 +191,12 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
       <div className="flex items-center justify-center">
         <Trailer selectedMovieId={selectedMovieId} />
       </div>
+      <div className="reviews-container">
+  {/* Loop gjennom hver anmeldelse og send data til ReviewCard */}
+  {reviews.map((review) => (
+    <ReviewCard key={review.id} review={review} />
+  ))}
+</div>
       <div className="w-full relative inset-x-0 bottom-0 bg-accent1 rounded-lg h-[55%]">
         <p className="mt-40">Top 3 cast:</p>
         <div className="p-4">
