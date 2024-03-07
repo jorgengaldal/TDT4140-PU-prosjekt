@@ -12,7 +12,6 @@ export default function Poster(movie: any, index: number) {
 
   return (
     <div className="pt-5 flex flex-col items-center">
-
       <img
         className="text-2xl mt-5 mb-5 text-center text-white hover:transform hover:scale-110 transition duration-300 cursor-pointer"
         key={index}

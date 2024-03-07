@@ -29,10 +29,6 @@ interface CollectionProps {
   link: string;
 }
 
-const Rectangle: React.FC = () => {
-  return <div className="w-[140px] h-[210px] bg-white m-2"></div>;
-};
-
 const Collection: React.FC<CollectionProps> = ({ title, link }) => {
   const [films, setFilms] = useState<any>();
 
