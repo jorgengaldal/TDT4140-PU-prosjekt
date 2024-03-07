@@ -49,23 +49,17 @@ export default function InfoPage() {
 
   return (
     <main className="flex min-h-screen flex-col bg-primary items-center justify-between">
-      {id ? (
-        <>
-          <Banner selectedMovieId={id} />
-          <Box
-            className="w-2/3 mt-10 rounded-t-lg"
-            sx={{ backgroundColor: "#262B47", boxShadow: 4 }}
-          >
-            <Box sx={{ padding: 3 }}>
-              <FilmInfo selectedMovieId={id} />
-              <Trailer selectedMovieId={id} />
-            </Box>
-            <CastList movieData={movieData} />
-          </Box>
-        </>
-      ) : (
-        <p>URL IS WRONG</p>
-      )}
+      <Banner movieData={movieData} />
+      <Box
+        className="w-2/3 mt-10 rounded-t-lg"
+        sx={{ backgroundColor: "#262B47", boxShadow: 4 }}
+      >
+        <Box sx={{ padding: 3 }}>
+          <FilmInfo selectedMovieId={id} movieData={movieData} />
+          <Trailer selectedMovieId={id} />
+        </Box>
+        <CastList movieData={movieData} />
+      </Box>
     </main>
   );
 }

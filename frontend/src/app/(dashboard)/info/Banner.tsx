@@ -12,39 +12,8 @@ interface Movie {
   title: string;
 }
 
-export default function Banner({ selectedMovieId }: FilmInfoProps) {
-  const [movieData, setMovieData] = useState<Movie | null>(null);
-
-  const [isClicked, setIsClicked] = useState<boolean>(false);
-
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-  };
-
-  useEffect(() => {
-    const fetchMovieData = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:8000/api/movies/movies/${selectedMovieId}`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch movie data");
-        }
-        const selectedMovie = await response.json();
-        if (selectedMovie) {
-          setMovieData(selectedMovie);
-        } else {
-          console.error("Movie not found");
-        }
-      } catch (error) {
-        console.error("Error fetching movie data:", error);
-      }
-    };
-
-    fetchMovieData();
-  }, [selectedMovieId]);
-
-  return (
+export default function Banner({ movieData }: FilmInfoProps) {
+   return (
     <div className="w-full h-[500px] relative bg-primary">
       <div
         className="w-full bg-accent1 h-[500px] relative"

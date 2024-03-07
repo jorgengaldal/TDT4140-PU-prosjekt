@@ -1,6 +1,4 @@
 "use client";
-import Link from "next/link";
-import Photo from "./Photo";
 import { useState, useEffect } from "react";
 
 interface FilmInfoProps {

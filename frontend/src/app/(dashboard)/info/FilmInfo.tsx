@@ -7,25 +7,11 @@ import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import Trailer from "./Trailer";
-import {
-  Box,
-  Card,
-  CardMedia,
-  Grid,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Grid, IconButton, Typography } from "@mui/material";
+import Poster from "@/components/General/Poster";
 
 interface FilmInfoProps {
-  selectedMovieId: string;
-}
-
-interface Review {
-  review_text?: string;
-  rating?: number;
-  is_favorite?: boolean;
-  movie_list: string;
+  movieData: Movie;
 }
 
 interface Movie {
@@ -42,9 +28,9 @@ interface Movie {
   imdbrating: string;
 }
 
-export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
-  const [movieData, setMovieData] = useState<Movie | null>(null);
-
+export default function FilmInfo({
+  movieData,
+}: FilmInfoProps) {
   const [isClickedWatched, setIsClickedWatched] = useState<boolean>(false);
   const [isClickedHeart, setIsClickedHeart] = useState<boolean>(false);
 
@@ -56,7 +42,6 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
   };
 
   let defaultMovieListId: string | null = null;
-  // Fetches Id for default movie list
   fetch("http://localhost:8000/api/profiles/profile", { headers: authHeaders })
     .then((response) => response.json())
     .then((data) => {
@@ -66,10 +51,6 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
   const handleClickWatched = () => {
     setIsClickedWatched(!isClickedWatched);
     return;
-    if (movieData == null) {
-      console.error("There's no movie to mark as watched.");
-      return;
-    }
     if (defaultMovieListId == null) {
       console.error("Current profile has no assigned movie list");
       return;
@@ -100,70 +81,41 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
   useEffect(() => {
     const fetchMovieData = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:8000/api/movies/movies/${selectedMovieId}/`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch movie data");
-        }
-        const selectedMovie = await response.json();
-        if (selectedMovie) {
-          setMovieData(selectedMovie);
-          // Checks if there exists a review of this movie.
-          fetch("http://localhost:8000/api/reviews/moviereviews/", {
-            headers: {
-              Authorization: `Token ${authToken}`,
-              "Content-Type": "application/json",
-            },
-          })
-            .then((response: any) => response.json())
-            .then((data) => {
-              if (
-                data.some(
-                  (movieReview: any) => movieReview.movie.id == selectedMovie.id
-                )
-              ) {
-                setIsClickedWatched(true);
-              }
-            });
-        } else {
-          console.error("Movie not found");
-        }
+        fetch("http://localhost:8000/api/reviews/moviereviews/", {
+          headers: {
+            Authorization: `Token ${authToken}`,
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response: any) => response.json())
+          .then((data) => {
+            if (
+              data.some(
+                (movieReview: any) => movieReview.movie.id == movieData.id
+              )
+            ) {
+              setIsClickedWatched(true);
+            }
+          });
       } catch (error) {
         console.error("Error fetching movie data:", error);
       }
     };
 
     fetchMovieData();
-  }, [selectedMovieId]);
+  }, [movieData]);
 
   return (
-    <Grid container spacing={4} sx={{marginBottom: 7}} >
+    <Grid container spacing={4} sx={{ marginBottom: 7 }}>
       <Grid item md={3}>
         <div>
           {movieData && (
-            <Card
-              sx={{
-                borderRadius: "8px",
-                bgcolor: "transparent",
-                width: "250px",
-                aspectRatio: "17/25",
-              }}
-            >
-              <CardMedia
-                sx={{
-                  height: "100%",
-                  width: "100%",
-                  "& img": {
-                    objectFit: "fill",
-                    width: "100%",
-                    height: "100%",
-                  },
-                }}
-              >
-                <img src={movieData.poster} alt="Movie Photo" />
-              </CardMedia>
-            </Card>
+            <Poster
+              movie={movieData}
+              height="250px"
+              text={false}
+              clickable={false}
+            />
           )}
         </div>
       </Grid>
@@ -228,7 +180,6 @@ export default function FilmInfo({ selectedMovieId }: FilmInfoProps) {
               <div>
                 <Typography sx={{ fontSize: 20 }}>
                   <StarRoundedIcon sx={{ color: "#F5C519", fontSize: 30 }} />
-
                   {movieData && movieData.imdbrating}
                   <span style={{ opacity: 0.8, fontSize: 17 }}>/10</span>
                 </Typography>
