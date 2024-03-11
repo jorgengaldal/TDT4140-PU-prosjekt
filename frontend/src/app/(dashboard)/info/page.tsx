@@ -6,6 +6,7 @@ import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import CastList from "./CastList";
 import Trailer from "./Trailer";
+import ReviewSection from "./ReviewSection";
 
 interface Movie {
   id: string;
@@ -59,6 +60,9 @@ export default function InfoPage() {
           <Trailer selectedMovieId={id} />
         </Box>
         <CastList movieData={movieData} />
+        <Box className=" w-[100%] p-10">
+          <ReviewSection movieID={movieData?.id} imdbID={id} />
+        </Box>
       </Box>
     </main>
   );
