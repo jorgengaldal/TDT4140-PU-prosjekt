@@ -14,7 +14,7 @@ class MovieReview(models.Model):
         'MovieList', on_delete=models.CASCADE, related_name='reviews')
     review_text = models.TextField(default=None, blank=True, null=True)
     rating = models.IntegerField(default=None, validators=[
-        MaxValueValidator(10),
+        MaxValueValidator(5),
         MinValueValidator(1)
     ], blank=True, null=True)
     is_favorite = models.BooleanField(default=False)
