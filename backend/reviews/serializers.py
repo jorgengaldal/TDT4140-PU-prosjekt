@@ -5,6 +5,8 @@ from movies.models import Movie
 from movies.serializers import MovieSerializer
 from django.db.models import Prefetch
 from typing import List
+from profiles.models import Profile
+from members.models import CustomUser
 
 
 class MovieListSerializer(serializers.ModelSerializer):
@@ -18,7 +20,8 @@ class MovieListSerializer(serializers.ModelSerializer):
     def get_reviews(self, obj) -> List[MovieReview]:
         # This is where you could optimize the query if necessary
         related_reviews = obj.reviews.all()
-        serializer = MovieReviewDetailSerializer(related_reviews, many=True, context=self.context)
+        serializer = MovieReviewDetailSerializer(
+            related_reviews, many=True, context=self.context)
         return serializer.data
 
     def get_genre_data(self, obj):
@@ -71,6 +74,7 @@ class MovieReviewCreateSerializer(serializers.ModelSerializer):
 
 class MovieReviewDetailSerializer(serializers.ModelSerializer):
     movie = serializers.SerializerMethodField()
+    movie_list_owners = serializers.SerializerMethodField()
 
     class Meta:
         model = MovieReview
@@ -80,3 +84,17 @@ class MovieReviewDetailSerializer(serializers.ModelSerializer):
         related_movie = obj.movie
         serializer = MovieSerializer(related_movie, context=self.context)
         return serializer.data
+
+    def get_movie_list_owners(self, obj):
+        owners = obj.movie_list.owners.all()  # Directly access related objects
+        return SimpleProfileSerializer(owners, many=True).data
+
+
+class SimpleProfileSerializer(serializers.ModelSerializer):
+    username = serializers.SerializerMethodField()
+    class Meta:
+        model = Profile
+        fields = '__all__'
+
+    def get_username(self, obj):
+        return obj.user.username
