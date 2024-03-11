@@ -26,10 +26,6 @@ export default function SignIn() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("username"),
-      password: data.get("password"),
-    });
     fetch("http://localhost:8000/api/members/login/", {
       method: "POST",
       headers: {
@@ -42,13 +38,10 @@ export default function SignIn() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.token) {
           Cookie.set("token", data.token, { expires: 52 * 7 });
-          console.log("Token stored successfully");
           router.push("/");
         } else {
-          console.log("No token in response");
           setError(data["error"]);
         }
       })

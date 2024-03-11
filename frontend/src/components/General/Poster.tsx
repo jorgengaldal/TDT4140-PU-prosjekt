@@ -7,7 +7,7 @@ import { Movie } from "@/backend-types";
 type PosterProps = {
   movie: Movie;
   index: number;
-  height?: string;
+  height?: number;
   fontSize?: string;
   text?: boolean;
   clickable?: boolean;
@@ -22,7 +22,6 @@ export default function Poster({
   clickable=true
 }: PosterProps) {
   const router = useRouter();
-  console.log(movie);
   function handleClick() {
     if (!clickable) {
       return;

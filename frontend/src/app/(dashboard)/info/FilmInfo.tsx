@@ -89,7 +89,7 @@ export default function FilmInfo({
           .then((data) => {
             if (
               data.some(
-                (movieReview: any) => movieReview.movie.id == movieData?.imdbid
+                (movieReview: any) => movieReview.movie.imdbid == movieData?.imdbid
               )
             ) {
               setIsClickedWatched(true);
@@ -99,6 +99,7 @@ export default function FilmInfo({
         console.error("Error fetching movie data:", error);
       }
     };
+
 
     fetchMovieData();
   }, [movieData]);
