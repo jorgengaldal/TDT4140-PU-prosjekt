@@ -1,9 +1,10 @@
 // ReviewCard.tsx
 
-import { Grid } from "@mui/material";
+import { Grid, IconButton } from "@mui/material";
 import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
-import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
+import EditIcon from "@mui/icons-material/Edit";
 import StarBorderRounded from "@mui/icons-material/StarBorderRounded";
+import { propagateServerField } from "next/dist/server/lib/render-server";
 
 interface Review {
   review_text?: string;
@@ -19,7 +20,7 @@ interface ReviewCardProps {
 // Example: Format date in a more readable form
 // This will format the date according to the default locale
 
-const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
+const ReviewCard: React.FC<ReviewCardProps> = ({ review, setIsEditing }) => {
   return (
     <div className="review-card p-4 bg-primary shadow-md rounded-md mt-5">
       {/* <p className="text-sm">Favorite: {review.is_favorite ? "Yes" : "No"}</p> */}
@@ -51,6 +52,9 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
               month: "long",
               day: "numeric",
             }).format(new Date(review?.created_at))}
+            {setIsEditing && <IconButton sx={{color: "white"}} onClick={() => setIsEditing(true)}>
+              <EditIcon />
+            </IconButton>}
           </p>
         </Grid>
       </Grid>
