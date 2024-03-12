@@ -9,9 +9,11 @@ interface ReviewFormProps {
   movieListId: string | null;
 }
 
-export default function ReviewForm({ movieID }) {
-  const [reviewText, setReviewText] = useState("");
-  const [rating, setRating] = useState<number>(0);
+export default function ReviewForm({ movieID, review, setIsEditing, fetchData }) {
+  const [reviewText, setReviewText] = useState(
+    review ? review.review_text : ""
+  );
+  const [rating, setRating] = useState<number>(review ? review.rating : 0);
   const [movieListId, setMovieListId] = useState("");
 
   const authToken = Cookie.get("token");
@@ -51,44 +53,57 @@ export default function ReviewForm({ movieID }) {
         alert("You need to provide both rating and review.");
         return;
       }
-      console.log(
-        JSON.stringify({
-          movie: movieID,
-          review_text: reviewText,
-          rating: rating,
-          movie_list: movieListId,
-        })
-      );
-      const response = await fetch(
-        "http://localhost:8000/api/reviews/moviereviews/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            movie: movieID,
-            review_text: reviewText,
-            rating: rating,
-            movie_list: movieListId,
-          }),
+      if (review) {
+        const response = await fetch(
+          `http://localhost:8000/api/reviews/moviereviews/${review.id}/`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              review_text: reviewText,
+              rating: rating,
+            }),
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Failed to submit review");
         }
-      );
-      if (!response.ok) {
-        throw new Error("Failed to submit review");
+        console.log("Review submitted successfully");
       }
-      console.log("Review submitted successfully");
-
-      //oppdaterer feltene til å bli tomme etter at man har submittet:
+      else {
+        const response = await fetch(
+          "http://localhost:8000/api/reviews/moviereviews/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              movie: movieID,
+              review_text: reviewText,
+              rating: rating,
+              movie_list: movieListId,
+            }),
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Failed to submit review");
+        }
+        console.log("Review submitted successfully");
+      }
       setReviewText("");
       setRating(0);
+      setIsEditing(false)
+      fetchData()
     } catch (error) {
       console.error("Error: ", error);
     }
   };
 
   return (
-    <div className="border p-4 rounded-md">
+    <div className="bg-primary p-4 rounded-md">
       <h2 className="text-1g font-semibold mb-2">Write a Review</h2>
       <textarea
         value={reviewText}
@@ -108,9 +123,9 @@ export default function ReviewForm({ movieID }) {
             } focus:outline-none`}
           >
             {value <= rating ? (
-              <StarRateRoundedIcon sx={{ color: "#F5C519", fontSize: 30 }}  />
+              <StarRateRoundedIcon sx={{ color: "#F5C519", fontSize: 30 }} />
             ) : (
-              <StarBorderRounded sx={{ color: "#F5C519", fontSize: 30 }}  />
+              <StarBorderRounded sx={{ color: "#F5C519", fontSize: 30 }} />
             )}
           </button>
         ))}
