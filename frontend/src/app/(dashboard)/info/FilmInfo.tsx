@@ -28,11 +28,10 @@ interface Movie {
   imdbrating: string;
 }
 
-export default function FilmInfo({
-  movieData,
-}: FilmInfoProps) {
+export default function FilmInfo({ movieData }: FilmInfoProps) {
   const [isClickedWatched, setIsClickedWatched] = useState<boolean>(false);
   const [isClickedHeart, setIsClickedHeart] = useState<boolean>(false);
+  const [reviewData, setReviewData] = useState({});
 
   const authToken = Cookie.get("token");
 
@@ -48,38 +47,86 @@ export default function FilmInfo({
       defaultMovieListId = data.my_movie_list;
     });
 
-  const handleClickWatched = () => {
+  const handleClickWatched = async () => {
     if (defaultMovieListId == null) {
       console.error("Current profile has no assigned movie list");
       return;
     }
-    const review = {
-      movie: movieData.id,
-      movie_list: defaultMovieListId,
-    };
-    fetch("http://localhost:8000/api/reviews/moviereviews/", {
-      headers: authHeaders,
-      method: "POST",
-      body: JSON.stringify(review),
-    }).then((response: any) => {
-      if (response.status != 201) {
-        console.error("Could not post review \n" + response.text);
-      }
-    });
-
-    // TODO: Kan bare markere som sett, ikke som usett.
-    setIsClickedWatched(true);
+    if (!isClickedWatched) {
+      const review = {
+        movie: movieData.id,
+        movie_list: defaultMovieListId,
+      };
+      console.log(review);
+      await fetch("http://localhost:8000/api/reviews/moviereviews/", {
+        headers: authHeaders,
+        method: "POST",
+        body: JSON.stringify(review),
+      }).then((response: any) => {
+        if (response.status != 201) {
+          console.error("Could not post review \n" + response.text);
+        }
+      });
+      setIsClickedWatched(true);
+    } else {
+      await fetch(`http://localhost:8000/api/reviews/moviereviews/${reviewData.id}`, {
+        headers: authHeaders,
+        method: "DELETE",
+      }).then((response: any) => {
+        if (response.status != 201) {
+          console.error("Could not DELETE review \n" + response.text);
+        }
+      });
+      setIsClickedWatched(false);
+      setIsClickedHeart(false);
+      setReviewData({});
+    }
   };
 
-  const handleClickHeart = () => {
+  const handleClickHeart = async () => {
     //   const review = { is_favorite };
+    if (defaultMovieListId == null) {
+      console.error("Current profile has no assigned movie list");
+      return;
+    }
+    if (!isClickedWatched) {
+      const review = {
+        movie: movieData.id,
+        movie_list: defaultMovieListId,
+        is_favorite: true,
+      };
+      console.log(review);
+      await fetch("http://localhost:8000/api/reviews/moviereviews/", {
+        headers: authHeaders,
+        method: "POST",
+        body: JSON.stringify(review),
+      }).then((response: any) => {
+        if (response.status != 201) {
+          console.error("Could not post review \n" + response.text);
+        }
+      });
+      setIsClickedWatched(true);
+      setIsClickedHeart(true)
+      return;
+    }
+
+    await fetch(`http://localhost:8000/api/reviews/moviereviews/${reviewData.id}/`, {
+      method: "PATCH", // Specify the request method
+      headers: {
+        "Content-Type": "application/json", // Specify the content type in the headers
+      },
+      body: JSON.stringify({ is_favorite: !isClickedHeart }), // Convert the JavaScript object to a JSON string
+    })
+      .then((response) => response.json()) // Parse the JSON response
+      .then((data) => console.log("Success:", data)) // Handle success
+      .catch((error) => console.error("Error:", error)); // Handle errors
     setIsClickedHeart(!isClickedHeart);
   };
 
   useEffect(() => {
     const fetchMovieData = async () => {
       try {
-        fetch("http://localhost:8000/api/reviews/moviereviews/", {
+        fetch("http://localhost:8000/api/profiles/profile/", {
           headers: {
             Authorization: `Token ${authToken}`,
             "Content-Type": "application/json",
@@ -87,22 +134,23 @@ export default function FilmInfo({
         })
           .then((response: any) => response.json())
           .then((data) => {
-            if (
-              data.some(
-                (movieReview: any) => movieReview.movie.imdbid == movieData?.imdbid
-              )
-            ) {
-              setIsClickedWatched(true);
-            }
+            console.log(data);
+            const reviews = data.movie_lists[0].reviews;
+            reviews.forEach((review) => {
+              if (review.movie.imdbid == movieData?.imdbid) {
+                setReviewData(review);
+                setIsClickedWatched(true);
+                setIsClickedHeart(review.is_favorite)
+              }
+            });
           });
       } catch (error) {
         console.error("Error fetching movie data:", error);
       }
     };
 
-
     fetchMovieData();
-  }, [movieData]);
+  }, [movieData, isClickedWatched]);
 
   return (
     <Grid container spacing={4} sx={{ marginBottom: 7 }}>
@@ -167,7 +215,7 @@ export default function FilmInfo({
                   <Link href={"/persons?name=" + director} key={index}>
                     <span>
                       {director}
-                      {index !== movieData.directors.length - 1 && ', '}
+                      {index !== movieData.directors.length - 1 && ", "}
                     </span>
                   </Link>
                 );
@@ -181,10 +229,9 @@ export default function FilmInfo({
                     <Link href={"/persons?name=" + writer} key={index}>
                       <span>
                         {writer}
-                        {index !== movieData.writers.length - 1 && ', '}
+                        {index !== movieData.writers.length - 1 && ", "}
                       </span>
                     </Link>
-
                   );
                 })}
               </span>
