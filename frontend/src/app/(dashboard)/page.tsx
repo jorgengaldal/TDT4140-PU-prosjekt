@@ -1,6 +1,7 @@
 "use client";
 import ScrollWindow from "@/components/ScrollWindow/ScrollWindow";
 import React, { useEffect, useState } from "react";
+import Cookie from "js-cookie";
 
 interface Movie {
   id: string;
@@ -19,7 +20,13 @@ export default function Home() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/movies/movies/`)
+    const authToken = Cookie.get("token");
+
+    const authHeaders = {
+      "Content-Type": "application/json",
+      Authorization: `Token ${authToken}`,
+    };
+    fetch(`http://127.0.0.1:8000/api/movies/movies/`, {"headers": authHeaders})
       .then((response) => {
         return response.json();
       })
@@ -40,7 +47,7 @@ export default function Home() {
         }
         title={"Bottom 10 movies"}
         limit={10}
-        doNotLinkTitle 
+        doNotLinkTitle
       />
       <ScrollWindow
         movies={movies}
