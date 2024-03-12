@@ -10,12 +10,25 @@ import uuid
 from .models import Movie, Category, Person
 from .serializers import MovieSerializer, PersonSerializer, CategorySerializer
 
-
+from profiles.models import Profile
+from reviews.models import MovieList
+ 
 class MovieListView(generics.ListCreateAPIView):
-    model = Movie
-    queryset = Movie.objects.all()
     serializer_class = MovieSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [permissions.AllowAny]
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_authenticated:
+            profile = Profile.objects.filter(user=user).first()
+            if profile and profile.my_movie_list:
+                reviewed_movie_ids = [review.movie.id for review in profile.my_movie_list.reviews.all()]
+                return Movie.objects.exclude(id__in=reviewed_movie_ids)
+            else:
+                return Movie.objects.all()
+        else:
+            return Movie.objects.all()
+    
 
 
 class MovieDetailView(generics.GenericAPIView):
