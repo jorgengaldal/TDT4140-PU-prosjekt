@@ -13,6 +13,7 @@ interface Movie {
   directors: string[];
   released: string;
   imdbrating: string;
+  is_sponsored: boolean;
 }
 
 export default function Home() {
@@ -33,6 +34,11 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <ScrollWindow
+        movies={movies}
+        filterBy={(movie: Movie) => movie.is_sponsored}
+        title={"Sponsored"}
+      />
       <ScrollWindow
         movies={movies}
         sortBy={(a: Movie, b: Movie) =>
