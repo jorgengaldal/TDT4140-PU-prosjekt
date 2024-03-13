@@ -54,4 +54,4 @@ class LikedNotMovie(models.Model):
         super().save(*args, **kwargs)
         
     def __str__(self):
-        return f"{self.profile.user.username} - {self.catergory.name if self.catergory.name else self.person.name}"
+        return f"{self.profile.user.username} <3 {self.catergory.name if self.catergory.name else self.person.name}"
