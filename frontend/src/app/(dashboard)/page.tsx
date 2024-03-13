@@ -38,6 +38,7 @@ export default function Home() {
         movies={movies}
         filterBy={(movie: Movie) => movie.is_sponsored}
         title={"Sponsored"}
+        doNotLinkTitle
       />
       <ScrollWindow
         movies={movies}
@@ -46,7 +47,7 @@ export default function Home() {
         }
         title={"Bottom 10 movies"}
         limit={10}
-        doNotLinkTitle 
+        doNotLinkTitle
       />
       <ScrollWindow
         movies={movies}
