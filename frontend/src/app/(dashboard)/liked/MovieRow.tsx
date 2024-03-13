@@ -48,7 +48,7 @@ export const MovieRow = ({ movie, filmReview }: MovieRowProps) => {
                 <Typography sx={{ fontSize: 20 }}>
                   <StarRoundedIcon sx={{ color: "#F5C519", fontSize: 30 }} />
                   {filmReview.rating && filmReview.rating}
-                  <span style={{ opacity: 0.8, fontSize: 17 }}>/10</span>
+                  <span style={{ opacity: 0.8, fontSize: 17 }}>/5</span>
                 </Typography>
               ) : (
                 <Typography sx={{ fontSize: 20 }}>
