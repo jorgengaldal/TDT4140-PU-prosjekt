@@ -43,15 +43,15 @@ class MovieList(models.Model):
 class LikedNotMovie(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     profile = models.ForeignKey("profiles.Profile", on_delete=models.CASCADE, related_name="liked_notmovies")
-    category = models.ForeignKey("movies.Category", on_delete=models.CASCADE, related_name="liked_notmovies")
-    person = models.ForeignKey("movies.Person", on_delete=models.CASCADE, related_name="liked_notmovies")
+    category = models.ForeignKey("movies.Category", on_delete=models.CASCADE, related_name="liked_notmovies", null=True, blank=True)
+    person = models.ForeignKey("movies.Person", on_delete=models.CASCADE, related_name="liked_notmovies", null=True, blank=True)
 
     def save(self, *args, **kwargs):
         
-        if not (self.category ^ self.person):
-            raise ValidationError("Category must be a person or a catergory")
+        if not (bool(self.category) ^ bool(self.person)):
+            raise ValidationError("LikedNotMovie must be a person OR a category")
          
         super().save(*args, **kwargs)
         
     def __str__(self):
-        return f"{self.profile.user.username} <3 {self.catergory.name if self.catergory.name else self.person.name}"
+        return f"{self.profile.user.username} <3 {self.category.name if self.category.name else self.person.name}"
