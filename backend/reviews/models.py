@@ -2,6 +2,7 @@ from django.db import models
 from movies.models import Movie
 from profiles.models import Profile
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.exceptions import ValidationError
 
 import uuid
 
@@ -37,4 +38,20 @@ class MovieList(models.Model):
     owners = models.ManyToManyField(Profile, related_name='movie_lists')
 
     def __str__(self):
-        return self.name
+        return f"{self.name} - {self.owners.all()}" 
+
+class LikedNotMovie(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    profile = models.ForeignKey("profiles.Profile", on_delete=models.CASCADE, related_name="liked_notmovies")
+    category = models.ForeignKey("movies.Category", on_delete=models.CASCADE, related_name="liked_notmovies")
+    person = models.ForeignKey("movies.Person", on_delete=models.CASCADE, related_name="liked_notmovies")
+
+    def save(self, *args, **kwargs):
+        
+        if not (self.category ^ self.person):
+            raise ValidationError("Category must be a person or a catergory")
+         
+        super().save(*args, **kwargs)
+        
+    def __str__(self):
+        return f"{self.profile.user.username} - {self.catergory.name if self.catergory.name else self.person.name}"
