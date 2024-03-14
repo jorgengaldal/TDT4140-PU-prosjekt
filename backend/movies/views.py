@@ -8,7 +8,7 @@ from django.http import Http404
 import uuid
 
 from .models import Movie, Category, Person
-from .serializers import MovieSerializer, PersonSerializer, CategorySerializer
+from .serializers import MovieSerializer, PersonSerializer, CategorySerializer, SimplePersonSerializer
 
 from profiles.models import Profile
 from reviews.models import MovieList
@@ -116,7 +116,7 @@ class CategoryDetailView(generics.GenericAPIView):
 class PersonListView(generics.ListCreateAPIView):
     model = Person
     queryset = Person.objects.all()
-    serializer_class = PersonSerializer
+    serializer_class = SimplePersonSerializer
     permission_classes = [AllowAny]
 
 
