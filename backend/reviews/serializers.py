@@ -1,12 +1,13 @@
 from collections import defaultdict
 from rest_framework import serializers
-from .models import MovieList, MovieReview
-from movies.models import Movie
+from .models import MovieList, MovieReview, LikedNotMovie
+from movies.models import Movie, Category,Person
 from movies.serializers import MovieSerializer
 from django.db.models import Prefetch
 from typing import List
 from profiles.models import Profile
 from members.models import CustomUser
+from movies.serializers import PersonSerializer, CategorySerializer
 
 
 class MovieListSerializer(serializers.ModelSerializer):
@@ -98,3 +99,50 @@ class SimpleProfileSerializer(serializers.ModelSerializer):
 
     def get_username(self, obj):
         return obj.user.username
+    
+class LikedNotMovieSerializer(serializers.ModelSerializer):
+    person = serializers.SerializerMethodField()
+    category = serializers.SerializerMethodField()
+    class Meta:
+        model = LikedNotMovie
+        fields = '__all__'
+    
+    def get_person(self, obj):
+        
+        return SimplePersonSerializer(obj.person).data
+    def get_category(self, obj):
+        return SimpleCategorySerializer(obj.category).data
+
+    
+class LikedNotMovieCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LikedNotMovie
+        fields = '__all__'
+    
+    def create(self, validated_data):
+        liked_not_movie_instance = LikedNotMovie.objects.create(**validated_data)
+        return liked_not_movie_instance
+    
+class SimpleCategorySerializer(serializers.ModelSerializer):
+    category_type = serializers.SerializerMethodField()
+    class Meta:
+        model = Category
+        fields = "__all__"
+    def get_category_type(self, obj):
+        return obj.get_category_type_display()
+
+class SimplePersonSerializer(serializers.ModelSerializer):
+    person_type=serializers.SerializerMethodField()
+    class Meta:
+        model = Person
+        fields = ["name", "person_type"]
+    
+    def get_person_type(self, obj):
+        person_type =[]
+        if obj.directed_movies.all():  # Checks if there are any directed movies
+            person_type.append("Director")
+        if obj.acted_movies.all():  # Checks if there are any acted movies
+            person_type.append("Actor")
+        if obj.written_movies.all():  # Checks if there are any written movies
+            person_type.append("Writer")
+        return person_type
