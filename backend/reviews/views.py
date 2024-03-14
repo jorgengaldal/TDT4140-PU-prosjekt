@@ -107,3 +107,17 @@ class LikedNotMovieListView(generics.ListCreateAPIView):
         else:
             return LikedNotMovie.objects.all()
     
+        
+class LikedNotMovieDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = LikedNotMovie.objects.all()
+    serializer_class = LikedNotMovieSerializer
+    permission_classes = [AllowAny]  # Adjust permissions as needed
+    
+    def delete(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_delete(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def perform_delete(self, instance):
+        instance.delete()
+    
