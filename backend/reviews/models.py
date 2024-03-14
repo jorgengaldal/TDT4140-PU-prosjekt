@@ -55,3 +55,17 @@ class LikedNotMovie(models.Model):
         
     def __str__(self):
         return f"{self.profile.user.username} <3 {self.category.name if self.category.name else self.person.name}"
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['profile', 'category'], 
+                condition=models.Q(person__isnull=True),
+                name='unique_profile_category'
+            ),
+            models.UniqueConstraint(
+                fields=['profile', 'person'], 
+                condition=models.Q(person__isnull=True),
+                name='unique_profile_person'
+            )
+        ]
