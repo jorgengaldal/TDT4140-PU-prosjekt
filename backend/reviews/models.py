@@ -65,7 +65,7 @@ class LikedNotMovie(models.Model):
             ),
             models.UniqueConstraint(
                 fields=['profile', 'person'], 
-                condition=models.Q(person__isnull=True),
+                condition=models.Q(category__isnull=True),
                 name='unique_profile_person'
             )
         ]
