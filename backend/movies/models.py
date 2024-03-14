@@ -14,14 +14,13 @@ class Movie(models.Model):
     created_at = models.DateTimeField(
         default=datetime.now, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
     rated = models.CharField(
         default=None, max_length=64, null=True, blank=True)
     released = models.DateField(default=None, null=True, blank=True)
     runtime = models.IntegerField(default=None, null=True, blank=True)
-
     is_sponsored = models.BooleanField(default=False)
-
+    
     genres = models.ManyToManyField(
         "Category", related_name="genre_movies", default=None, blank=True)
     awards = models.ManyToManyField(
@@ -94,7 +93,7 @@ class Category(models.Model):
 
 class Person(models.Model):
     name = models.CharField(max_length=MAX_NAME_LENGTH, primary_key=True)
-
+    picture = models.URLField(null=True, blank=True)
     #imdb_id = models.CharField(
     #    max_length=MAX_NAME_LENGTH, default=None, blank=True)
 
