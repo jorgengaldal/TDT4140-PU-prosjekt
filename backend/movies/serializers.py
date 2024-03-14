@@ -45,6 +45,10 @@ class CategorySerializer(serializers.ModelSerializer):
         serializer = SimpleMovieSerializer(related_movies, many=True, context=self.context)
         return serializer.data
 
+class SimplePersonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Person
+        fields = "__all__"
 
 class PersonSerializer(serializers.ModelSerializer):
     acted_movies = serializers.SerializerMethodField()
