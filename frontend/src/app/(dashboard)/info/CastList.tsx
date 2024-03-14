@@ -1,3 +1,4 @@
+import PersonPoster from "@/components/General/PersonPoster";
 import { Typography } from "@mui/material";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -45,21 +46,7 @@ export default function CastList({ movieData }) {
         <div className="flex flex-row mb-3 space-x-4">
           {people.map((actor: any, index: number) => (
             <div key={index}>
-              <Link href={"/persons?name=" + actor.name}>
-                <div className="rounded-lg bg-transparent w-[150px] h-[calc(150px*25/17)] overflow-hidden mb-3">
-                  <img
-                    src={actor.picture}
-                    alt="Cast Photo"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center",
-                    }}
-                  />
-                </div>
-                <Typography>{actor.name}</Typography>
-              </Link>
+              <PersonPoster person={actor} />
             </div>
           ))}
         </div>

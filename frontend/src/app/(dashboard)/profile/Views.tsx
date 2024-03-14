@@ -2,14 +2,21 @@ import React from "react";
 import CountrySelect from "./CountrySelect";
 import Collection from "./Collection";
 import Genres from "./Genres";
+import LikedPerson from "./LikedPerson";
+import LikedGenres from "./LikedGenres";
 
 export const ProfileView = () => {
     return (
         <div className="w-2/3 bg-accent1 h-100% rounded-lg px-24 py-12">
-            <Collection title={"My Liked"} link={"liked"} />
+            <Collection title={"My Liked Movies"} link={"liked"} />
             <Collection title={"Watched"} link={"watched"} />
+            {/* TODO: Husk å endre person-filteret etter gutta har fikset endpoint */}
+            <LikedGenres title={"My Liked Genres"} link={"/liked-genres"}/>
             <Genres title={"Your Top Genres"} />
-            <Collection title={"Watch List"} link={"watchlist"} />
+            <LikedPerson title={"My Liked Actors"} link={"/likedPersons?actors"} filterBy={(person) => person.person_type.includes("Actor")} /> 
+            <LikedPerson title={"My Liked Directors"} link={"/likedPersons?directors"} filterBy={(person) => person.person_type.includes("Director")}/> 
+            <LikedPerson title={"My Liked Writers"} link={"/likedPersons?writers"} filterBy={(person) => person.person_type.includes("Writer")}/> 
+
         </div>
     );
 }
