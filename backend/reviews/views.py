@@ -6,8 +6,8 @@ from rest_framework.response import Response
 
 from profiles.models import Profile
 
-from .models import MovieReview, MovieList
-from .serializers import MovieListSerializer, MovieReviewDetailSerializer, MovieReviewCreateSerializer
+from .models import MovieReview, MovieList, LikedNotMovie
+from .serializers import MovieListSerializer, MovieReviewDetailSerializer, MovieReviewCreateSerializer, LikedNotMovieSerializer, LikedNotMovieCreateSerializer
 
 class MovieReviewListView(generics.ListCreateAPIView):
     queryset = MovieReview.objects.all()
@@ -91,3 +91,19 @@ class MovieListDetailView(generics.GenericAPIView):
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
+class LikedNotMovieListView(generics.ListCreateAPIView):
+    model = LikedNotMovie
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return LikedNotMovieCreateSerializer
+        return LikedNotMovieSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_authenticated:
+            profile = Profile.objects.filter(user=user).first()
+            return profile.liked_notmovies.all()
+        else:
+            return LikedNotMovie.objects.all()
+    
