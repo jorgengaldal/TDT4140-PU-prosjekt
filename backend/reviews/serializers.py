@@ -135,7 +135,7 @@ class SimplePersonSerializer(serializers.ModelSerializer):
     person_type=serializers.SerializerMethodField()
     class Meta:
         model = Person
-        fields = ["name", "person_type"]
+        fields = ["name", "person_type", "picture"]
     
     def get_person_type(self, obj):
         person_type =[]
