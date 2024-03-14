@@ -19,7 +19,8 @@ class Movie(models.Model):
         default=None, max_length=64, null=True, blank=True)
     released = models.DateField(default=None, null=True, blank=True)
     runtime = models.IntegerField(default=None, null=True, blank=True)
-
+    is_sponsored = models.BooleanField(default=False)
+    
     genres = models.ManyToManyField(
         "Category", related_name="genre_movies", default=None, blank=True)
     awards = models.ManyToManyField(
