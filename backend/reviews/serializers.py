@@ -108,8 +108,8 @@ class LikedNotMovieSerializer(serializers.ModelSerializer):
         fields = '__all__'
     
     def get_person(self, obj):
-        
         return SimplePersonSerializer(obj.person).data
+    
     def get_category(self, obj):
         return SimpleCategorySerializer(obj.category).data
 
