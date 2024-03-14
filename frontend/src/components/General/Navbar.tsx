@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Dropdown from "./Dropdown";
 import { Movie } from "@/backend-types";
 import { IconButton } from "@mui/material";
+import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 import { useRouter } from "next/navigation";
 
 const Navbar = () => {
@@ -91,6 +92,9 @@ const Navbar = () => {
         <IconButton onClick={selectRandomMovie} className="mr-10">
           <Icons name="Shuffle" />
         </IconButton>
+        <Link href="/filter" className="mr-10">
+          <FilterAltOutlinedIcon />
+        </Link>
         <Dropdown />
       </div>
 
