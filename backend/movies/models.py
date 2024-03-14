@@ -53,7 +53,7 @@ class Movie(models.Model):
 
     def save(self, *args, **kwargs):
         for category in self.awards.all():
-            if category.categor_type != 1:
+            if category.category_type != 1:
                 raise ValidationError(
                     "All awards must have the category_type of 1.")
         for category in self.countries.all():
