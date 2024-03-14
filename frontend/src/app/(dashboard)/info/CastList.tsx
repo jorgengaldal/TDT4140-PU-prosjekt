@@ -28,9 +28,8 @@ export default function CastList({ movieData }) {
           throw new Error("Failed to fetch movie data");
         }
         const tempPeople = await response.json();
-        const bruh = matchNamesAndPictures(tempPeople, movieData.actors);
-        console.log(bruh);
-        setPeople(bruh);
+        const peopleAndNames = matchNamesAndPictures(tempPeople, movieData.actors);
+        setPeople(peopleAndNames);
       } catch (error) {
         console.error("Error fetching movie data:", error);
       }
