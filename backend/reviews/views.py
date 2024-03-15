@@ -106,6 +106,14 @@ class LikedNotMovieListView(generics.ListCreateAPIView):
             return profile.liked_notmovies.all()
         else:
             return LikedNotMovie.objects.all()
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+    def create(self, request, *args, **kwargs):
+         user = self.request.user
+         if user.is_authenticated:
+            profile = Profile.objects.filter(user=user).first()
+            request.data["profile"] = profile.id
+         return super().create(request, *args, **kwargs)
     
         
 class LikedNotMovieDetailView(generics.RetrieveUpdateDestroyAPIView):
