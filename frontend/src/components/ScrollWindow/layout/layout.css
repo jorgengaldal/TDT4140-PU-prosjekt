@@ -31,7 +31,7 @@
   grid-column: full;
   display: grid;
   grid-template-columns: inherit;
-  padding-bottom: 10rem;
+  /* padding-bottom: 8rem; */
   overflow-x: scroll;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
@@ -60,7 +60,7 @@
   scroll-snap-align: center;
   inline-size: 100%;
   max-inline-size: 17rem;
-  font-size: 1rem;
+  font-size: 0.5rem;
   border-radius: 4px;
   overflow: hidden;
   object-fit: cover;
