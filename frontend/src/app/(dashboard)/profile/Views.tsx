@@ -10,8 +10,6 @@ export const ProfileView = () => {
         <div className="w-2/3 bg-accent1 h-100% rounded-lg px-24 py-12">
             <Collection title={"My Liked Movies"} link={"liked"} />
             <Collection title={"Watched"} link={"watched"} />
-            {/* TODO: Husk å endre person-filteret etter gutta har fikset endpoint */}
-            <LikedGenres title={"My Liked Genres"} link={"/liked-genres"} />
             <Genres title={"Your Top Genres"} />
             <LikedPerson
                 title={"My Liked Actors"}

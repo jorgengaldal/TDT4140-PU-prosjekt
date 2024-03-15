@@ -15,62 +15,56 @@ interface GenresProps {
   title: string;
 }
 
+interface Person {
+  name: string,
+  picture: string,
+  person_type?: Array<string | undefined>
+}
+
+interface LikedNotMovie {
+  id: string,
+  person: Person,
+  category: {
+    name: string,
+    category_type?: string
+  }
+  profile: string
+}
+
 const Genres: React.FC<GenresProps> = ({ title }) => {
   const [films, setFilms] = useState<any>();
+  const [genres, setGenres] = useState<any>([]);
 
   const authToken = Cookie.get('token');
 
   useEffect(() => {
     // Fetch films from the API endpoint
-    fetch("http://localhost:8000/api/profiles/profile", {
+    fetch("http://localhost:8000/api/reviews/likednotmovies", {
       headers: {
         Authorization: `Token ${authToken}`,
       },
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Failed to fetch films");
+          throw new Error("Failed to fetch actors");
         }
         return response.json();
       })
       .then((data) => {
-        setFilms(data);
+        if (!data) {
+          console.log("No dataa")
+          return
+        }
+        const genres = data.filter((likedNotMoviesObject: LikedNotMovie) => "category_type" in likedNotMoviesObject.category)
+          .filter((likedNotMoviesObject: LikedNotMovie) => likedNotMoviesObject.category.category_type == "Genre")
+          .map((likedNotMoviesObject: LikedNotMovie) => likedNotMoviesObject.category.name)
+
+        setGenres(genres);
       })
       .catch((error) => {
-        console.error("Error fetching films:", error);
+        console.error("Error fetching genres:", error);
       });
   }, []);
-
-  const rankedGenres: string[] = []; // Declare rankedGenres outside the forEach loop
-
-  films?.movie_lists.forEach((movieList: {
-    genre_data: any; reviews: any[]
-  }) => {
-    const data = movieList.genre_data;
-    const allGenres = new Set<string>();
-    Object.keys(data.reviews_per_genre).forEach((genre) =>
-      allGenres.add(genre)
-    );
-    Object.keys(data.favorites_per_genre).forEach((genre) =>
-      allGenres.add(genre)
-    );
-    Object.keys(data.genre_rating_averages).forEach((genre) =>
-      allGenres.add(genre)
-    );
-
-    const genreRanking: { [key: string]: number } = {};
-    allGenres.forEach((genre) => {
-      const reviews = data.reviews_per_genre[genre] || 0;
-      const favorites = data.favorites_per_genre[genre] || 0;
-      const averageRating = data.genre_rating_averages[genre] || 0;
-      genreRanking[genre] = reviews + favorites + averageRating;
-    });
-
-    const rankedGenresForMovieList = Array.from(allGenres).sort(
-      (a, b) => genreRanking[b] - genreRanking[a]
-    );
-    rankedGenres.push(...rankedGenresForMovieList); // Push the ranked genres for this movie list to the global rankedGenres array
-  });
 
   return (
     <div className="flex flex flex-col items-center pb-10">
@@ -78,11 +72,12 @@ const Genres: React.FC<GenresProps> = ({ title }) => {
         <h1 className="text-xl underline">{title}</h1>
       </div>
       <div className="grid grid-cols-2">
-        {rankedGenres.slice(0, 6).map((genre) => {
+        {/* At this point, there is no slicing (max limit to entries, but this can be changed later.) */}
+        {genres.length > 0 ? genres.map((genre: string) => {
           return <GenreBox key={genre} title={genre} />;
-        })}
+        }) : <p> You have not liked any genres yet.</p>}
       </div>
-    </div>
+    </div >
   );
 };
 
