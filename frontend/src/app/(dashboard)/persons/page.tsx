@@ -54,7 +54,7 @@ const PersonPage = () => {
             .then((response) => response.json())
             .then((data) => {
                 // Check if any liked item's person name matches the current person's name
-                if (data.some((liked: any) => liked.person && liked.person.name === person)) {
+                if (data.some((liked: likedItem) => liked.person && liked.person.name === person)) {
                     setIsFavorite(true);
                 } else {
                     setIsFavorite(false);
