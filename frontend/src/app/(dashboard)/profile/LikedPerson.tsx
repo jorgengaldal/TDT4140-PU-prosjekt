@@ -54,13 +54,13 @@ const LikedPerson: React.FC<LikedPersonProps> = ({ title, link, filterBy }) => {
                 setPersons(filteredPersons);
             })
             .catch((error) => {
-                console.error("Error fetching liked actor:", error);
+                console.error("Error fetching liked person:", error);
             });
     }, []);
 
     const renderPersons = () => {
         return (<div className="flex flex-row space-x-4">{
-            persons.map((person: any, index: number) => {
+            persons.slice(0, 4).map((person: any, index: number) => {
                 console.log(person); return (<div key={index}>
                     <PersonPoster person={person} />
                 </div>)
