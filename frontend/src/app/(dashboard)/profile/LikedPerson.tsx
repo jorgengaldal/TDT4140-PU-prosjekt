@@ -2,9 +2,23 @@ import { useEffect, useState } from "react";
 import Cookie from 'js-cookie';
 import Icons from "@/components/General/Icons";
 import Link from "next/link";
-import { Typography } from "@mui/material";
 import PersonPoster from "@/components/General/PersonPoster";
 
+interface Person {
+    name: string,
+    picture: string,
+    person_type?: Array<string | undefined>
+}
+
+interface LikedNotMovie {
+    id: string,
+    person: Person,
+    category: {
+        name: string,
+        category_type?: string
+    }
+    profile: string
+}
 
 interface LikedPersonProps {
     title: string;
@@ -35,8 +49,8 @@ const LikedPerson: React.FC<LikedPersonProps> = ({ title, link, filterBy }) => {
                     console.log("No dataa")
                     return
                 }
-                const filteredData = data.filter((likedNotMoviesObject) => "person_type" in likedNotMoviesObject.person && filterBy(likedNotMoviesObject.person))
-                const filteredPersons = filteredData.map((likedNotMoviesObject) => likedNotMoviesObject.person)
+                const filteredData = data.filter((likedNotMoviesObject: LikedNotMovie) => "person_type" in likedNotMoviesObject.person && filterBy(likedNotMoviesObject.person))
+                const filteredPersons = filteredData.map((likedNotMoviesObject: LikedNotMovie) => likedNotMoviesObject.person)
                 setPersons(filteredPersons);
             })
             .catch((error) => {
@@ -46,9 +60,11 @@ const LikedPerson: React.FC<LikedPersonProps> = ({ title, link, filterBy }) => {
 
     const renderPersons = () => {
         return (<div className="flex flex-row space-x-4">{
-            persons.map((person: any, index: number) => {console.log(person);return (<div key={index}>
-                <PersonPoster person={person} />
-            </div>)})}
+            persons.map((person: any, index: number) => {
+                console.log(person); return (<div key={index}>
+                    <PersonPoster person={person} />
+                </div>)
+            })}
         </div>)
     }
 
