@@ -105,7 +105,6 @@ const GenrePage: React.FC = () => {
                 throw new Error("Could not unlike category \n" + await deleteResponse.text());
             } else {
                 setIsFavorite(false);
-                console.log(`Successfully unliked category: ${entry.category.name}`);
             }
         } catch (error) {
             console.error("Error in deleteLikedNotMovie: ", error);

@@ -30,7 +30,6 @@ export default function ReviewSection(props: any) {
       let tempIsEditing = true;
       reviews.forEach((review) => {
         if (review.movie.imdbid === props.imdbID) {
-          console.log(review);
           myReviewTemp = review;
           if (review.review_text || review.rating) {
           tempIsEditing = false;
@@ -56,7 +55,6 @@ export default function ReviewSection(props: any) {
             (!myReviewTemp || review.id !== myReviewTemp.id)
         );
 
-        console.log(tempReviews);
         setReviews(tempReviews);
       
     } catch (error) {

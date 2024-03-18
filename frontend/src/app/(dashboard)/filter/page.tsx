@@ -50,7 +50,6 @@ const FilterPage: React.FC = () => {
   }, []);
 
   const filteredMovies = movies.filter((movie) => {
-    console.log(movie.released);
     const year = new Date(movie.released).getFullYear();
     const startYearMatch = filter.yearStart
       ? year >= parseInt(filter.yearStart)
