@@ -4,11 +4,13 @@ import Cookie from "js-cookie";
 import { Container } from "@mui/material";
 import { MovieReviewDetail } from "@/backend-types";
 import { MovieRow } from "./MovieRow";
+import { useSearchParams } from "next/navigation";
 
 export default function LikedPage() {
   const authToken = Cookie.get("token");
   const [films, setFilms] = useState<any>();
-  const [selected, setSelected] = useState<string>("watched");
+  const isLikedTab = useSearchParams().has("liked");
+  const [selected, setSelected] = useState<string>(isLikedTab ? "liked" : "watched");
 
   useEffect(() => {
     // Fetch films from the API endpoint

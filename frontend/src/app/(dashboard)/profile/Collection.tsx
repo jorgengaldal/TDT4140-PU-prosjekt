@@ -43,7 +43,7 @@ const Collection: React.FC<CollectionProps> = ({ title, link }) => {
 
     const renderFilms = (films) => (
       <div className="flex flex-row">
-        {films?.slice(0,4).map((review, index) => (
+        {films?.slice(0, 4).map((review, index) => (
           <div key={review.imdbid} className="mx-10">
             <Poster
               height="140px"
@@ -69,12 +69,23 @@ const Collection: React.FC<CollectionProps> = ({ title, link }) => {
     }
   };
 
+  const linkDestination = (link: string) => {
+    {/* If linked = liked, then the link sends us to the liked tab instead of watched */}
+    switch (link) {
+      case "watched":
+        return "liked";
+      case "liked":
+        return "liked?liked";
+      default:
+        return link;
+    }
+  };
 
   return (
     <div className="flex flex flex-col items-center pb-12">
       <div className="flex justify-between w-full">
         <h1 className="text-xl underline">{title}</h1>
-        <Link href={link}>
+        <Link href={linkDestination(link)}>
           <h1 className="text-sm flex items-center">
             Show more
             <Icons name="RightArrow" />
