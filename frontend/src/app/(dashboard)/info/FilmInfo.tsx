@@ -57,7 +57,6 @@ export default function FilmInfo({ movieData }: FilmInfoProps) {
         movie: movieData.id,
         movie_list: defaultMovieListId,
       };
-      console.log(review);
       await fetch("http://localhost:8000/api/reviews/moviereviews/", {
         headers: authHeaders,
         method: "POST",
@@ -95,7 +94,6 @@ export default function FilmInfo({ movieData }: FilmInfoProps) {
         movie_list: defaultMovieListId,
         is_favorite: true,
       };
-      console.log(review);
       await fetch("http://localhost:8000/api/reviews/moviereviews/", {
         headers: authHeaders,
         method: "POST",
@@ -118,8 +116,6 @@ export default function FilmInfo({ movieData }: FilmInfoProps) {
       body: JSON.stringify({ is_favorite: !isClickedHeart }), // Convert the JavaScript object to a JSON string
     })
       .then((response) => response.json()) // Parse the JSON response
-      .then((data) => console.log("Success:", data)) // Handle success
-      .catch((error) => console.error("Error:", error)); // Handle errors
     setIsClickedHeart(!isClickedHeart);
   };
 
@@ -134,7 +130,6 @@ export default function FilmInfo({ movieData }: FilmInfoProps) {
         })
           .then((response: any) => response.json())
           .then((data) => {
-            console.log(data);
             const reviews = data.movie_lists[0].reviews;
             reviews.forEach((review) => {
               if (review.movie.imdbid == movieData?.imdbid) {

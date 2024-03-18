@@ -31,7 +31,6 @@ export default function ReviewForm({ movieID, review, setIsEditing, fetchData })
       .then((response) => response.json())
       .then((data) => {
         defaultMovieListId = data.my_movie_list;
-        console.log(defaultMovieListId);
         setMovieListId(defaultMovieListId);
       });
   }, []);
@@ -70,7 +69,6 @@ export default function ReviewForm({ movieID, review, setIsEditing, fetchData })
         if (!response.ok) {
           throw new Error("Failed to submit review");
         }
-        console.log("Review submitted successfully");
       }
       else {
         const response = await fetch(
@@ -91,7 +89,6 @@ export default function ReviewForm({ movieID, review, setIsEditing, fetchData })
         if (!response.ok) {
           throw new Error("Failed to submit review");
         }
-        console.log("Review submitted successfully");
       }
       setReviewText("");
       setRating(0);

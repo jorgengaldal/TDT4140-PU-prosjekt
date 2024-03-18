@@ -115,7 +115,6 @@ const PersonPage = () => {
                     throw new Error("Could not unlike person \n" + await deleteResponse.text());
                 } else {
                     setIsFavorite(false);
-                    console.log(`Successfully unliked person: ${entry.person.name}`);
                 }
             } catch (error) {
                 console.error("Error in deleteLikedNotMovie: ", error);

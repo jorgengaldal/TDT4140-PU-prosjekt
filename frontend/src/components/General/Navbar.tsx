@@ -39,10 +39,8 @@ const Navbar = () => {
     }
   };
   const selectRandomMovie = () => {
-    console.log(movies);
     const randomIndex = Math.floor(Math.random() * movies.length);
     const randomMovie = movies[randomIndex];
-    console.log(randomMovie);
     router.push(`/info?id=${randomMovie.imdbid}`);
   };
 
