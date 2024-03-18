@@ -106,6 +106,10 @@ export default function Home() {
           .filter((likedItem) => likedItem.category.name !== "" && likedItem.category.category_type === "Genre")
           .filter((likedItem) => likedItem.category.name in movie.genres).length;
 
+      if(numLikedGenres === 0) {
+        return 1;
+      }
+
       return 1.1 * numLikedGenres;
   }
 
@@ -115,7 +119,10 @@ export default function Home() {
           .filter((likedItem) => likedItem.person.name in movie.actors
             || likedItem.person.name in movie.directors
             || likedItem.person.name in movie.writers).length;
-
+      
+      if(numLikedActors === 0) {
+        return 1;
+      }
       return 1.1 * numLikedActors;
     }
 
@@ -144,7 +151,7 @@ export default function Home() {
       />
       <ScrollWindow
         movies={movies}
-        sortBy={forYouSorting}
+        sortBy={(a: Movie, b: Movie) => forYouSorting(a, b)}
         title={"For you"}
         limit={20}
         doNotLinkTitle
