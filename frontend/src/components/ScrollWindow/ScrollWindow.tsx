@@ -79,16 +79,10 @@ function ScrollWindow(props: any) {
         {props.title}
       </p>
       <div className="flex pb-28">
-      <button
-        onClick={() => {
-          handleHorizantalScroll(elementRef.current, 25 , 100, 10);
-        }}
-        disabled={arrowDisable}
-      >
-        Left
-      </button>
-        {/* <Icons name="LeftArrow"  />
-        */}
+    
+        <Icons name="LeftArrow"/>
+
+        
         <div className="gallery " data-direction="right">
           <div className="floating_content" data-images="portrait">
             {filteredMovies.map((movie: Movie, index: number) => (
@@ -106,14 +100,7 @@ function ScrollWindow(props: any) {
           </div>
          
         </div>
-        <button
-        onClick={() => {
-          handleHorizantalScroll(elementRef.current, 25 , 100, -10);
-        }}
-        disabled={arrowDisable}
-      >
-        Left
-      </button>
+        <Icons name="RightArrow"/>
       </div>
     </Layout>
   );
