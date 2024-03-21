@@ -19,8 +19,8 @@ const defaultTheme = createTheme({
   palette: {
     mode: "dark",
     background: {
-      paper: "#2D3250"
-    }
+      paper: "#2D3250",
+    },
   },
 });
 
@@ -40,6 +40,8 @@ const FilterPage: React.FC = () => {
     rating: [],
     yearStart: "",
     yearEnd: "",
+    runtimeStart: "",
+    runtimeEnd: "",
   });
 
   useEffect(() => {
@@ -58,19 +60,29 @@ const FilterPage: React.FC = () => {
     const endYearMatch = filter.yearEnd
       ? year <= parseInt(filter.yearEnd)
       : true;
+    const minRuntimeMatch =
+      filter.runtimeStart != "" || filter.runtimeStart == null
+        ? movie.runtime >= parseInt(filter.runtimeStart)
+        : true;
+    const maxRuntimeMatch =
+      filter.runtimeEnd != ""
+        ? movie.runtime <= parseInt(filter.runtimeEnd)
+        : true;
     return (
       (filter.genre.length === 0 ||
         filter.genre.some((g) => movie.genres.includes(g))) &&
       (filter.rating.length === 0 ||
         filter.rating.some(
-          (r) => movie.rated.toLowerCase() === r.toLowerCase()
+          (r: string) => movie.rated.toLowerCase() === r.toLowerCase()
         )) &&
       startYearMatch &&
-      endYearMatch
+      endYearMatch &&
+      maxRuntimeMatch &&
+      minRuntimeMatch
     );
   });
 
-  const handleChange = (event) => {
+  const handleChange = (event: { target: { name: any; value: any } }) => {
     const { name, value } = event.target;
     setFilter((prev) => ({
       ...prev,
@@ -145,6 +157,8 @@ const FilterPage: React.FC = () => {
             >
               <MenuItem value="G">G</MenuItem>
               <MenuItem value="PG">PG</MenuItem>
+              <MenuItem value="PG-13">PG-13</MenuItem>
+              <MenuItem value="R">R</MenuItem>
             </Select>
           </FormControl>
           <TextField
@@ -160,6 +174,31 @@ const FilterPage: React.FC = () => {
             label="Year End"
             type="number"
             value={filter.yearEnd}
+            onChange={handleChange}
+            style={{ minWidth: 150 }}
+          />
+        </div>
+        <div
+          style={{
+            marginBottom: 20,
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "row"
+          }}
+        >
+          <TextField
+            name="runtimeStart"
+            label="Min Runtime"
+            type="number"
+            value={filter.runtimeStart}
+            onChange={handleChange}
+            style={{ marginRight: 10, minWidth: 150 }}
+          />
+          <TextField
+            name="runtimeEnd"
+            label="Max Runtime"
+            type="number"
+            value={filter.runtimeEnd}
             onChange={handleChange}
             style={{ minWidth: 150 }}
           />
