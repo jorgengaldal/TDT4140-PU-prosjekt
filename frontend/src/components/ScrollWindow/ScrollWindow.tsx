@@ -1,8 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, ElementRef } from "react";
 import Layout from "./layout/Layout";
 import Poster from "@/components/General/Poster";
 import { Movie } from "@/backend-types";
+import Icons from "../General/Icons";
+
 
 interface MoviePoster {
   imageUrl: string;
@@ -16,7 +18,29 @@ interface MoviePoster {
 //limit: number of movies to display
 //doNotLinkTitle: if true, the title is not a link
 
+
 function ScrollWindow(props: any) {
+  const elementRef = useRef(null);
+  const [arrowDisable, setArrowDisable] = useState(true);
+  const unsplashed = "https://source.unsplash.com/200x200/";
+
+  const handleHorizantalScroll = (element: any, speed: number | undefined, distance: number, step: number) => {
+    let scrollAmount = 0;
+    const slideTimer = setInterval(() => {
+      if (element && element.current) {
+        element.current.scrollLeft += step;
+        scrollAmount += Math.abs(step);
+        if (scrollAmount >= distance) {
+          clearInterval(slideTimer);
+        }
+        if (element.current.scrollLeft === 0) {
+          setArrowDisable(true);
+        } else {
+          setArrowDisable(false);
+        }
+      }
+    }, speed);
+  };
   const handleGenreClick = () => {
     // Pass movie as a parameter
     if (!props.doNotLinkTitle) {
@@ -54,24 +78,43 @@ function ScrollWindow(props: any) {
       >
         {props.title}
       </p>
-      <div className="gallery" data-direction="right">
-        <div className="floating_content" data-images="portrait">
-          {filteredMovies.map((movie: Movie, index: number) => (
-            <div
-              style={{
-                flexDirection: "column",
-                paddingTop: "5px",
-                margin: "0px 5px 0px 5px",
-              }}
-              key={index}
-            >
-              <Poster movie={movie} index={index} />
-            </div>
-          ))}
+      <div className="flex pb-28">
+    
+        <Icons name="LeftArrow"/>
+
+        
+        <div className="gallery " data-direction="right">
+          <div className="floating_content" data-images="portrait">
+            {filteredMovies.map((movie: Movie, index: number) => (
+              <div
+                style={{
+                  flexDirection: "column",
+                  paddingTop: "2px",
+                  margin: "0px 2px 0px 2px",
+                }}
+                key={index}
+              >
+                <Poster movie={movie} index={index} />
+              </div>
+            ))}
+          </div>
+         
         </div>
+        <Icons name="RightArrow"/>
       </div>
     </Layout>
   );
+
+  function scrollGallery(direction: string) {
+    const gallery = document.querySelector(".gallery");
+    if (gallery) {
+      if (direction === "left") {
+        gallery.scrollLeft -= 100;
+      } else if (direction === "right") {
+        gallery.scrollLeft += 100;
+      }
+    }
+  }
 }
 
 export default ScrollWindow;

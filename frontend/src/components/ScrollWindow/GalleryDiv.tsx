@@ -15,6 +15,7 @@ export default function GalleryDiv({
     <div className="gallery" data-direction={direction} >
       <div className="floating_content" data-images={galleryItemsAspectRatio}>
         {children}
+      
       </div>
     </div>
   );

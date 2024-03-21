@@ -24,6 +24,7 @@ export default function Layout({ children, contentMaxWidth }: LayoutProps) {
         style={customCSSProperties}
       >
         {children}
+      
       </main>
     </div>
   );
